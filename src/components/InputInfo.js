@@ -5,9 +5,10 @@ class InputInfo extends React.Component{
   constructor(props){
         super(props);
         this.state = {
-            CompetitionName: '',
-            DateStartCompetition: '',
-            DateFinishCompetition: ''
+            content: [],
+            name: '',
+            dateStart: '',
+            dateFinish: ''
         }
   }
 
@@ -16,32 +17,34 @@ class InputInfo extends React.Component{
   }
 
   handleSubmit = (event) => {
-        fetch('http://bigman212.pythonanywhere.com/orders', {
+        fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/list?page=0&size=2', {
           method: 'POST',
           headers: {
-            'Accept': 'application/json',
+            'Access-Control-Allow-Headers': 'origin, content-type, accept',
+            'Access-Control-Allow-Origin': '*',
+            // 'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({CompetitionName: this.state.CompetitionName, DateStartCompetition: this.state.DateStartCompetition, DateFinishCompetition: this.state.DateFinishCompetition})
+          body: JSON.stringify({name: this.state.content.name, dateStart: this.state.content.dateStart, dateFinish: this.state.content.dateFinish})
         }).then(res=>res.json())
           .then(res => console.log(res));
   }
 
-  updateCompetitionName(e) {
+  updateName(e) {
       this.setState({
-            CompetitionName: e.target.value ? e.target.value : ''
+            name: e.target.value ? e.target.value : ''
       })
   }
 
-  updateDateStartCompetition(e) {
+  updateDateStart(e) {
       this.setState({
-            DateStartCompetition: e.target.value ? e.target.value : ''
+            dateStart: e.target.value ? e.target.value : ''
       })
   }
 
-  updateDateFinishCompetition(e) {
+  updateDateFinish(e) {
       this.setState({
-            DateFinishCompetition: e.target.value ? e.target.value : ''
+            dateFinish: e.target.value ? e.target.value : ''
       })
   }
 
@@ -52,11 +55,11 @@ class InputInfo extends React.Component{
                 <label className="textInput">
                     Create competition:
                     Name
-                    <input value={this.state.CompetitionName} onChange={e => this.updateCompetitionName(e)} />
+                    <input value={this.state.content.name} onChange={e => this.updateName(e)} />
                     Date first
-                    <input value={this.state.DateStartCompetition} onChange={e => this.updateDateStartCompetition(e)} />
+                    <input value={this.state.content.dateStart} onChange={e => this.updateDateStart(e)} />
                     Date last
-                    <input value={this.state.DateFinishCompetition} onChange={e => this.updateDateFinishCompetition(e)} />
+                    <input value={this.state.content.dateFinish} onChange={e => this.updateDateFinish(e)} />
                 </label>
                 <button type="submit">Create</button>
             </form>
