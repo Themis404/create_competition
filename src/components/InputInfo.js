@@ -16,7 +16,7 @@ class InputInfo extends React.Component{
   }
 
   handleSubmit = (event) => {
-        fetch('https://httpbin.org/POST', {
+        fetch('http://bigman212.pythonanywhere.com/orders', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -47,12 +47,15 @@ class InputInfo extends React.Component{
 
   render(){
         return(
-            <div>
+            <div className="elementsComp">
             <form onSubmit={this.handleSubmit}>
-                <label>
+                <label className="textInput">
                     Create competition:
+                    Name
                     <input value={this.state.CompetitionName} onChange={e => this.updateCompetitionName(e)} />
+                    Date first
                     <input value={this.state.DateStartCompetition} onChange={e => this.updateDateStartCompetition(e)} />
+                    Date last
                     <input value={this.state.DateFinishCompetition} onChange={e => this.updateDateFinishCompetition(e)} />
                 </label>
                 <button type="submit">Create</button>

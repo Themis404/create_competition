@@ -1,27 +1,59 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
+  .br {
+    float: left;
+    width: 100%;
+    margin: 0 0 20px 0;
+  }
+  .elementsComp{
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+  .table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    border-radius: 10px;
+    border-spacing: 0;
+    text-align: center;
+  }
+  .textInput{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 14px;
+    padding-bottom: 40px;
+  }
+  .th {
+    background: #008080;
+    color: white;
+    text-shadow: 0 1px 1px #2D2020;
+    padding: 10px 20px;
+  }
+  .th, .tr, .td {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: white;
+  }
+  .th:first-child, .td:first-child {
+    text-align: left;
+  }
+  .th:first-child {
+    border-top-left-radius: 10px;
+  }
+  .th:last-child {
+    border-top-right-radius: 10px;
+    border-right: none;
+  }
+  .td {
+    padding: 10px 20px;
+    background: #20B2AA;
+  }
+  .tr:last-child .td:first-child {
+    border-radius: 0 0 0 10px;
+  }
+  .tr:last-child .td:last-child {
+    border-radius: 0 0 10px 0;
+  }
+  .tr .td:last-child {
+    border-right: none;
+  }
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

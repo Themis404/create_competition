@@ -6,8 +6,10 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-    //  <TabelComp />
-      <InputInfo />
+      <div>
+        <InputInfo />
+        <TabelComp />
+      </div>
     );
   }
 }

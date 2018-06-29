@@ -14,7 +14,7 @@ class TabelComp extends React.Component{
   }
 
   getTabelComp(){
-      fetch('https://httpbin.org/GET/value')
+      fetch('http://bigman212.pythonanywhere.com/orders')
       .then(response => {return response.json()})
       .then((information) => {
         this.setState({
@@ -26,27 +26,27 @@ class TabelComp extends React.Component{
   render(){
     const information = this.state.information;
     const rows = information.map((information) =>
-    <tr key={information.id}>
-      <th>{information.CompetitionName}</th>
-      <th>{information.DateStartCompetition}</th>
-      <th>{information.DateFinishCompetition}</th>
+    <tr key={information.id} className="tr">
+      <td className="td">{information.CompetitionName}</td>
+      <td className="td">{information.DateStartCompetition}</td>
+      <td className="td">{information.DateFinishCompetition}</td>
     </tr>
     )
 
       return(
-        <dev>
-          <table border='1'>
+        <div className="elementsComp">
+          <table className="table">
             <caption>Tabel competition</caption>
-              <tbody>
-                <tr>
-                  <th>NAME COMPETITION</th>
-                  <th>DATA START COMPETITION</th>
-                  <th>DATA END COMPETITION</th>
+              <tbody >
+                <tr className="tr">
+                  <th className="th">NAME COMPETITION</th>
+                  <th className="th">DATA START COMPETITION</th>
+                  <th className="th">DATA END COMPETITION</th>
                 </tr>
                 {rows}
                 </tbody>
           </table>
-        </dev>
+        </div>
       )
   }
 }
