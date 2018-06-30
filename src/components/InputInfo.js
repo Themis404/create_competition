@@ -16,12 +16,13 @@ class InputInfo extends React.Component{
         fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/create', {
           method: 'POST',
           headers: {
-            'Access-Control-Allow-Headers': 'origin, content-type, accept',
-            'Access-Control-Allow-Origin': '*',
-            // 'Accept': 'application/json',
+            // 'Access-Control-Allow-Headers': 'origin, content-type, accept',
+            // 'Access-Control-Allow-Origin': '*',
+            'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({name: this.state.content.name,
+          body: JSON.stringify({
+            name: this.state.content.name,
             dateStart: this.state.content.dateStart,
             dateFinish: this.state.content.dateFinish})
         }).then(res=>res.json())
