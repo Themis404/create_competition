@@ -14,9 +14,14 @@ class TabelComp extends React.Component{
   }
 
   getTabelComp(){
-      fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/list?page=0&size=2')
-      .then(response => {return response.json()})
+    console.log('1')
+      fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/1', {mode: 'cors'})
+      .then(response => {
+        console.log(response)
+        return response.json()
+      })
       .then((content) => {
+        console.log(content)
         this.setState({
           content: content
         });

@@ -12,12 +12,8 @@ class InputInfo extends React.Component{
         }
   }
 
-  componentDidMount(){
-    this.handleSubmit();
-  }
-
-  handleSubmit = (event) => {
-        fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/list?page=0&size=2', {
+  handleSubmit = (e) => {
+        fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/create', {
           method: 'POST',
           headers: {
             'Access-Control-Allow-Headers': 'origin, content-type, accept',
@@ -25,7 +21,9 @@ class InputInfo extends React.Component{
             // 'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({name: this.state.content.name, dateStart: this.state.content.dateStart, dateFinish: this.state.content.dateFinish})
+          body: JSON.stringify({name: this.state.content.name,
+            dateStart: this.state.content.dateStart,
+            dateFinish: this.state.content.dateFinish})
         }).then(res=>res.json())
           .then(res => console.log(res));
   }
