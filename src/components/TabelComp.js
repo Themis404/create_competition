@@ -14,14 +14,13 @@ class TabelComp extends React.Component{
   }
 
   getTabelComp(){
-    console.log('1')
       fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/1', {mode: 'cors'})
       .then(response => {
-        console.log(response)
+        console.log(response);
         return response.json()
       })
       .then((content) => {
-        console.log(content)
+        console.log(content);
         this.setState({
           content: content
         });
@@ -29,12 +28,12 @@ class TabelComp extends React.Component{
   }
 
   render(){
-    const content = this.state.content;
-    const rows = content.map((content) =>
-    <tr key={content.id} className="tr">
-      <td className="td">{content.name}</td>
-      <td className="td">{content.dateStart}</td>
-      <td className="td">{content.dateFinish}</td>
+    const contents = this.state.content;
+    const rows = contents.map((contentRow) =>
+    <tr key={contentRow.id} className="tr">
+      <td className="td">{contentRow.name}</td>
+      <td className="td">{contentRow.dateStart}</td>
+      <td className="td">{contentRow.dateFinish}</td>
     </tr>
     )
 
