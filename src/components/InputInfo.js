@@ -69,7 +69,7 @@ class InputInfo extends React.Component{
 
   render(){
         return(
-            <div className="elementsComp">
+            <div className="elementsComp header">
             <form onSubmit={this.handleSubmit}>
                 <label className="textInput">
                     Create competition:
@@ -84,7 +84,7 @@ class InputInfo extends React.Component{
                     Visible
                     <input value={this.state.visible} onChange={e => this.updateVisible(e)} />
                 </label>
-                <button type="submit">Create</button>
+                <button type="submit" className="button">Create</button>
             </form>
             </div>
         )

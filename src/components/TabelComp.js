@@ -13,7 +13,7 @@ class TabelComp extends React.Component{
     this.getTabelComp();
   }
 
-  getTabelComp(){
+  getTabelComp = () =>{
       fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/list', {mode: 'cors'})
       .then(response => {
         console.log(response);
@@ -29,22 +29,19 @@ class TabelComp extends React.Component{
 
   render(){
     const contents = this.state.content;
-    let rows = '';
-    ///if (contents.length !== 0){
-    console.warn(contents);
-    rows = contents.map((contentRow) =>
-        <tr key={contentRow.id} className="tr">
-          <td className="td">{contentRow.name}</td>
-          <td className="td">{contentRow.dateStart}</td>
-          <td className="td">{contentRow.dateFinish}</td>
-        </tr>)
-    //}
-
+    let rows = <tr></tr>;
+    if (contents.content){
+        rows = contents.content.map((contentRow) =>
+            <tr className="tr">
+              <td className="td">{contentRow.name}</td>
+              <td className="td">{contentRow.dateStart}</td>
+              <td className="td">{contentRow.dateFinish}</td>
+            </tr>)
+    }
 
       return(
-        <div className="elementsComp">
-          <table className="table">
-            <caption>Tabel competition</caption>
+          <div className="elementsComp body">
+              <table className="table">
               <tbody>
                 <tr className="tr">
                   <th className="th">NAME COMPETITION</th>
@@ -52,9 +49,10 @@ class TabelComp extends React.Component{
                   <th className="th">DATA END COMPETITION</th>
                 </tr>
                 {rows}
-                </tbody>
+              </tbody>
           </table>
-        </div>
+          <button onClick={this.getTabelComp} className="button buttonPosition align">Update</button>
+          </div>
       )
   }
 }
