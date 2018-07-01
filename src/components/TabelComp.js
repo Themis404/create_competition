@@ -5,7 +5,7 @@ class TabelComp extends React.Component{
     constructor(props){
       super(props);
       this.state = {
-        content: [],
+        content: []
       };
   }
 
@@ -20,7 +20,7 @@ class TabelComp extends React.Component{
         return response.json()
       })
       .then((content) => {
-        console.log(content);
+        console.warn(content);
         this.setState({
           content: content
         });
@@ -28,21 +28,24 @@ class TabelComp extends React.Component{
   }
 
   render(){
-    console.log(this.state.content);
-    const contentAll = this.state.content;
-    const rows = contentAll.map((contentRow) =>
-    <tr key={contentRow.id} className="tr">
-      <td className="td">{contentRow.name}</td>
-      <td className="td">{contentRow.dateStart}</td>
-      <td className="td">{contentRow.dateFinish}</td>
-    </tr>
-    )
+    const contents = this.state.content;
+    let rows = '';
+    ///if (contents.length !== 0){
+    console.warn(contents);
+    rows = contents.map((contentRow) =>
+        <tr key={contentRow.id} className="tr">
+          <td className="td">{contentRow.name}</td>
+          <td className="td">{contentRow.dateStart}</td>
+          <td className="td">{contentRow.dateFinish}</td>
+        </tr>)
+    //}
+
 
       return(
         <div className="elementsComp">
           <table className="table">
             <caption>Tabel competition</caption>
-              <tbody >
+              <tbody>
                 <tr className="tr">
                   <th className="th">NAME COMPETITION</th>
                   <th className="th">DATA START COMPETITION</th>
