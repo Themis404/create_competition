@@ -5,14 +5,16 @@ class InputInfo extends React.Component{
   constructor(props){
         super(props);
         this.state = {
-            content: [],
             name: '',
+            description: '',
             dateStart: '',
-            dateFinish: ''
+            dateFinish: '',
+            visible: false
         }
   }
 
   handleSubmit = (e) => {
+    console.log(this.state);
         fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/create', {
           method: 'POST',
           headers: {
@@ -22,11 +24,14 @@ class InputInfo extends React.Component{
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            name: this.state.content.name,
-            dateStart: this.state.content.dateStart,
-            dateFinish: this.state.content.dateFinish})
+            name: this.state.name,
+            description: this.state.description,
+            dateTimeStart: this.state.dateStart,
+            dateTimeFinish: this.state.dateFinish,
+            visible: this.state.visible})
         }).then(res=>res.json())
           .then(res => console.log(res));
+    e.preventDefault();
   }
 
   updateName(e) {
@@ -47,6 +52,21 @@ class InputInfo extends React.Component{
       })
   }
 
+  updateDescription(e) {
+      this.setState({
+            description: e.target.value ? e.target.value : ''
+      })
+  }
+
+  updateVisible(e) {
+    if (e.target.value === '1') {
+      this.setState({
+        visible: true
+      })
+    }
+    else {this.setState({visible: false})}
+  }
+
   render(){
         return(
             <div className="elementsComp">
@@ -54,11 +74,15 @@ class InputInfo extends React.Component{
                 <label className="textInput">
                     Create competition:
                     Name
-                    <input value={this.state.content.name} onChange={e => this.updateName(e)} />
+                    <input value={this.state.name} onChange={e => this.updateName(e)} />
+                    Description
+                    <input value={this.state.description} onChange={e => this.updateDescription(e)} />
                     Date first
-                    <input value={this.state.content.dateStart} onChange={e => this.updateDateStart(e)} />
+                    <input value={this.state.dateStart} onChange={e => this.updateDateStart(e)} />
                     Date last
-                    <input value={this.state.content.dateFinish} onChange={e => this.updateDateFinish(e)} />
+                    <input value={this.state.dateFinish} onChange={e => this.updateDateFinish(e)} />
+                    Visible
+                    <input value={this.state.visible} onChange={e => this.updateVisible(e)} />
                 </label>
                 <button type="submit">Create</button>
             </form>

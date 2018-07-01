@@ -5,7 +5,7 @@ class TabelComp extends React.Component{
     constructor(props){
       super(props);
       this.state = {
-        content: []
+        content: [],
       };
   }
 
@@ -14,7 +14,7 @@ class TabelComp extends React.Component{
   }
 
   getTabelComp(){
-      fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/1', {mode: 'cors'})
+      fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/list', {mode: 'cors'})
       .then(response => {
         console.log(response);
         return response.json()
@@ -28,8 +28,9 @@ class TabelComp extends React.Component{
   }
 
   render(){
-    const contents = this.state.content;
-    const rows = contents.map((contentRow) =>
+    console.log(this.state.content);
+    const contentAll = this.state.content;
+    const rows = contentAll.map((contentRow) =>
     <tr key={contentRow.id} className="tr">
       <td className="td">{contentRow.name}</td>
       <td className="td">{contentRow.dateStart}</td>
