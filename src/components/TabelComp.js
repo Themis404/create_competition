@@ -14,7 +14,7 @@ class TabelComp extends React.Component{
   }
 
   getTabelComp = () =>{
-      fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/list', {mode: 'cors'})
+      fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/list')
       .then(response => {
         console.log(response);
         return response.json()
@@ -25,6 +25,7 @@ class TabelComp extends React.Component{
           content: content
         });
       });
+      console.log(this.state);
   }
 
   render(){
@@ -40,7 +41,7 @@ class TabelComp extends React.Component{
     }
 
       return(
-          <div className="elementsComp body">
+          <div className="styleCompTabelInput">
               <table className="table">
               <tbody>
                 <tr className="tr">
@@ -50,8 +51,8 @@ class TabelComp extends React.Component{
                 </tr>
                 {rows}
               </tbody>
-          </table>
-          <button onClick={this.getTabelComp} className="button buttonPosition align">Update</button>
+              </table>
+          <button onClick={this.getTabelComp} className="button">Update</button>
           </div>
       )
   }

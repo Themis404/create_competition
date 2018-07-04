@@ -18,20 +18,22 @@ class InputInfo extends React.Component{
         fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/create', {
           method: 'POST',
           headers: {
-            // 'Access-Control-Allow-Headers': 'origin, content-type, accept',
-            // 'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'origin, content-type, accept',
+            'Access-Control-Allow-Origin': '*',
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
             name: this.state.name,
             description: this.state.description,
-            dateTimeStart: this.state.dateStart,
-            dateTimeFinish: this.state.dateFinish,
+            dateStart : this.state.dateStart,
+            dateFinish: this.state.dateFinish,
             visible: this.state.visible})
-        }).then(res=>res.json())
-          .then(res => console.log(res));
-    e.preventDefault();
+          }).then(res=>{
+                      console.log(res);
+                      res.ok ? console.log('sucses') : console.warn('mistake');
+          })
+            e.preventDefault();
   }
 
   updateName(e) {
@@ -69,20 +71,20 @@ class InputInfo extends React.Component{
 
   render(){
         return(
-            <div className="elementsComp header">
+            <div className="header styleCompTabelInput">
             <form onSubmit={this.handleSubmit}>
-                <label className="textInput">
-                    Create competition:
-                    Name
-                    <input value={this.state.name} onChange={e => this.updateName(e)} />
-                    Description
-                    <input value={this.state.description} onChange={e => this.updateDescription(e)} />
-                    Date first
-                    <input value={this.state.dateStart} onChange={e => this.updateDateStart(e)} />
-                    Date last
-                    <input value={this.state.dateFinish} onChange={e => this.updateDateFinish(e)} />
-                    Visible
-                    <input value={this.state.visible} onChange={e => this.updateVisible(e)} />
+                <label className="textInput Input">
+                    <p>Create competition:</p>
+                    <p>Name</p>
+                    <p><input value={this.state.name} onChange={e => this.updateName(e)} /></p>
+                    <p>Description</p>
+                    <p><input value={this.state.description} onChange={e => this.updateDescription(e)} /></p>
+                    <p>Date first</p>
+                    <p><input value={this.state.dateStart} onChange={e => this.updateDateStart(e)} /></p>
+                    <p>Date last</p>
+                    <p><input value={this.state.dateFinish} onChange={e => this.updateDateFinish(e)} /></p>
+                    <p>Visible</p>
+                    <p><input value={this.state.visible} onChange={e => this.updateVisible(e)} /></p>
                 </label>
                 <button type="submit" className="button">Create</button>
             </form>

@@ -1,48 +1,44 @@
-  .br {
+  .br{
     float: left;
     width: 100%;
     margin: 0 0 20px 0;
   }
-  .elementsComp{
-    display: flex;
-    align-items: center;
-    justify-content: center
-  }
   .table {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-size: 14px;
+    font-size: 12px;
     border-radius: 10px;
     border-spacing: 0;
     text-align: center;
   }
-  .textInput{
+  .textInput {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-size: 14px;
-    padding-bottom: 40px;
+    font-size: 12px;
+    text-align: justify;
   }
   .th {
     background: #008B8B;
     color: white;
     text-shadow: 0 1px 1px #2D2020;
-    padding: 10px 20px;
+    padding: 10px 10px;
   }
   .th, .tr, .td {
     border-style: solid;
     border-width: 0 1px 1px 0;
     border-color: white;
   }
-  .th:first-child, .td:first-child {
+  .td:first-child {
     text-align: left;
   }
   .th:first-child {
     border-top-left-radius: 10px;
+    text-align: center;
   }
   .th:last-child {
     border-top-right-radius: 10px;
     border-right: none;
   }
   .td {
-    padding: 10px 20px;
+    padding: 10px 10px;
     background: #20B2AA;
   }
   .tr:last-child .td:first-child {
@@ -57,7 +53,7 @@
   .button{
     background-color:#FF6347;
     padding: 5px 25px;
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
     color: white;
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
@@ -68,28 +64,34 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    padding-bottom: 15px;
   }
   .align{
     align-self: flex-start;
   }
  .header{
    background: #287880;
+   width: 100px;
+   background-size: cover;
    color: white;
    text-shadow: 0 1px 1px #2D2020;
    justify-content: center;
-   padding-left: 5%;
-   padding-right: 5%;
+   padding-left: 100px;
+   padding-right: 100px;
    position: relative;
+   padding-bottom: 15px;
  }
  .body{
-   background: #b0f0e6 no-repeat center top;
-   padding: 0;
-   margin: 0;
-   background-repeat: repeat;
-   background-attachment: scrol;
-   width: auto;
+   background: #b0f0e6
  }
-
+ .styleCompTabelInput{
+  display: flex;
+ 	flex-direction: row;
+ 	flex-wrap: nowrap;
+ 	justify-content: center;
+ 	align-items: flex-start;
+ 	align-content: stretch;
+ }
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
