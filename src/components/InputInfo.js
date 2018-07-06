@@ -71,9 +71,9 @@ class InputInfo extends React.Component{
 
   render(){
         return(
-            <div className="header styleCompTabelInput">
-            <form onSubmit={this.handleSubmit}>
-                <label className="textInput Input">
+            <div className="createComp width_input">
+            <form onSubmit={this.handleSubmit}  className='centerInput'>
+                <label className="textInput">
                     <p>Create competition:</p>
                     <p>Name</p>
                     <p><input value={this.state.name} onChange={e => this.updateName(e)} /></p>

@@ -41,7 +41,7 @@ class TabelComp extends React.Component{
     }
 
       return(
-          <div className="styleCompTabelInput">
+          <div className="flex-container width_tabel">
               <table className="table">
               <tbody>
                 <tr className="tr">
@@ -53,7 +53,7 @@ class TabelComp extends React.Component{
               </tbody>
               </table>
           <button onClick={this.getTabelComp} className="button">Update</button>
-          </div>
+        </div>
       )
   }
 }
