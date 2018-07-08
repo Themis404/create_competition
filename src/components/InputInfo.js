@@ -69,24 +69,38 @@ class InputInfo extends React.Component{
     else {this.setState({visible: false})}
   }
 
+  clearInput(){
+    document.getElementById('inputName').value = '';
+    document.getElementById('inputDateStart').value = '';
+    document.getElementById('inputDateFinish').value = '';
+    document.getElementById('inputVisible').value = '';
+    document.getElementById('inputDescription').value = '';
+  }
+
+  checkInput(){
+    return document.getElementById('buttonInput').disabled=((document.getElementById('inputName'||'inputDateStart'||'inputDateFinish'||'inputVisible'||'inputDescription').value='') ? true: false);
+    document.getElementById('buttonInput').disabled === false ? this.clearInput() : false;
+  }
+
   render(){
+      let buttonInput = document.getElementById('buttonInput');
         return(
             <div className="createComp width_input">
             <form onSubmit={this.handleSubmit}  className='centerInput'>
                 <label className="textInput">
                     <p>Create competition:</p>
                     <p>Name</p>
-                    <p><input value={this.state.name} onChange={e => this.updateName(e)} /></p>
+                    <p><input id='inputName' value={this.state.name} onChange={e => this.updateName(e)} /></p>
                     <p>Description</p>
-                    <p><input value={this.state.description} onChange={e => this.updateDescription(e)} /></p>
+                    <p><input id='inputDescription' value={this.state.description} onChange={e => this.updateDescription(e)} /></p>
                     <p>Date first</p>
-                    <p><input value={this.state.dateStart} onChange={e => this.updateDateStart(e)} /></p>
+                    <p><input id='inputDateStart' value={this.state.dateStart} onChange={e => this.updateDateStart(e)} /></p>
                     <p>Date last</p>
-                    <p><input value={this.state.dateFinish} onChange={e => this.updateDateFinish(e)} /></p>
+                    <p><input id='inputDateFinish' value={this.state.dateFinish} onChange={e => this.updateDateFinish(e)} /></p>
                     <p>Visible</p>
-                    <p><input value={this.state.visible} onChange={e => this.updateVisible(e)} /></p>
+                    <p><input id='inputVisible' value={this.state.visible} onChange={e => this.updateVisible(e)} /></p>
                 </label>
-                <button type="submit" className="button">Create</button>
+                <button type="submit" className="button" id='buttonInput' onClick={this.buttonInput.disabled = true} >Create</button>
             </form>
             </div>
         )
