@@ -32,6 +32,7 @@ class InputInfo extends React.Component {
         visible: this.state.visible})
     }).then(res=>{
       console.log(res);
+      this.setState({name: '', description: '', dateStart: '', dateFinish: ''});
       res.ok ? console.log('success') : console.warn('something gone wrong');
     });
     e.preventDefault();
@@ -44,14 +45,17 @@ class InputInfo extends React.Component {
 
   updateDateStart(e) {
     this.setState( {dateStart: e.target.value} )
+    this.checkFieldsEmpty()
   }
 
   updateDateFinish(e) {
     this.setState( {dateFinish: e.target.value} )
+    this.checkFieldsEmpty()
   }
 
   updateDescription(e) {
     this.setState( {description: e.target.value} )
+    this.checkFieldsEmpty()
   }
 
   updateVisible(e) {
@@ -64,7 +68,7 @@ class InputInfo extends React.Component {
   }
 
   checkFieldsEmpty = () => {
-    if (this.state.name.length === 0) {
+    if ((this.state.name.length||this.state.description.length||this.state.dateStart.length||this.state.dateFinish.length) === 0) {
       this.setState({submitButtonDisabled: true});
     } else {
       this.setState({submitButtonDisabled: false});
@@ -75,27 +79,30 @@ class InputInfo extends React.Component {
     return (
         <div className="createComp width_input">
           <form onSubmit={this.handleSubmit} className='centerInput textInput'>
-            <label  className='textInput'>
+            <div className='textInput'>
               <p>Create competition:</p>
               <p>Name</p>
               <p><input id='inputName'
-                     value={this.state.name}
-                     onChange={e => this.updateName(e)}/></p>
+                      value={this.state.name}
+                      onChange={e => this.updateName(e)}/></p>
               <p>Description</p>
               <p><input id='inputDescription'
-                     value={this.state.description}
-                     onChange={e => this.updateDescription(e)}/></p>
+                      value={this.state.description}
+                      onChange={e => this.updateDescription(e)}/></p>
               <p>Date first</p>
-              <p><input id='inputDateStart' value={this.state.dateStart}
-                     onChange={e => this.updateDateStart(e)}/></p>
+              <p><input id='inputDateStart'
+                      value={this.state.dateStart}
+                      onChange={e => this.updateDateStart(e)}/></p>
               <p>Date last</p>
-              <p><input id='inputDateFinish' value={this.state.dateFinish}
-                     onChange={e => this.updateDateFinish(e)}/></p>
+              <p><input id='inputDateFinish'
+                      value={this.state.dateFinish}
+                      onChange={e => this.updateDateFinish(e)}/></p>
               <p>Visible</p>
-              <p><input id='inputVisible' value={this.state.visible}
-                     onChange={e => this.updateVisible(e)}/></p>
+              <p><input id='inputVisible'
+                      value={this.state.visible}
+                      onChange={e => this.updateVisible(e)}/></p>
               <button type="submit" className="button" disabled={this.state.submitButtonDisabled}>Create</button>
-            </label>
+            </div>
           </form>
         </div>
     )
