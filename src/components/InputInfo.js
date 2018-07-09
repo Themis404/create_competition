@@ -33,29 +33,31 @@ class InputInfo extends React.Component {
     }).then(res=>{
       console.log(res);
       this.setState({name: '', description: '', dateStart: '', dateFinish: ''});
+      console.log(this.state);
+      this.checkFieldsEmpty();
       res.ok ? console.log('success') : console.warn('something gone wrong');
     });
     e.preventDefault();
   };
 
   updateName(e) {
-    this.setState( {name: e.target.value} );
     this.checkFieldsEmpty() //можно проверять здесь
+    this.setState( {name: e.target.value} );
   }
 
   updateDateStart(e) {
-    this.setState( {dateStart: e.target.value} )
     this.checkFieldsEmpty()
+    this.setState( {dateStart: e.target.value} )
   }
 
   updateDateFinish(e) {
-    this.setState( {dateFinish: e.target.value} )
     this.checkFieldsEmpty()
+    this.setState( {dateFinish: e.target.value} )
   }
 
   updateDescription(e) {
-    this.setState( {description: e.target.value} )
     this.checkFieldsEmpty()
+    this.setState( {description: e.target.value} )
   }
 
   updateVisible(e) {
@@ -68,11 +70,12 @@ class InputInfo extends React.Component {
   }
 
   checkFieldsEmpty = () => {
-    if ((this.state.name.length||this.state.description.length||this.state.dateStart.length||this.state.dateFinish.length) === 0) {
+    if ((this.state.name.length&&this.state.description.length&&this.state.dateStart.length&&this.state.dateFinish.length) === 0) {
       this.setState({submitButtonDisabled: true});
     } else {
       this.setState({submitButtonDisabled: false});
     }
+    console.log(this.state.submitButtonDisabled);
   };
 
   render() {
