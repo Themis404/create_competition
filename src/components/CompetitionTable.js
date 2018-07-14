@@ -32,8 +32,8 @@ class CompetitionTable extends React.Component {
     const contents = this.state.content;
     let rows = undefined;
     if (contents.content) {
-      rows = contents.content.map((contentRow) =>
-          <tr className="tr">
+      rows = contents.content.map((contentRow, key) =>
+          <tr key={key} className="tr">
             <td className="td">{contentRow.name}</td>
             <td className="td">{contentRow.dateStart}</td>
             <td className="td">{contentRow.dateFinish}</td>
