@@ -15,8 +15,8 @@ class MainPage extends BaseComponent {
             return <Redirect to={this.redirect} push={true} />;
         }
         return (
-          <div className='flex-container'>
-          <div onClick={() => this.goToState('/create-competition')}>Перейти к форме</div>
+          <div className='flex-container marginTopStandart'>
+            <button onClick={() => this.goToState('/create-competition')} className='button'>Create competition</button>
             <CompetitionTable />
           </div>
         );

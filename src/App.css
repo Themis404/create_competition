@@ -55,12 +55,6 @@
     font-size: 12px;
     text-shadow: 0 1px 1px #2D2020;
   }
-  .buttonPosition{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding-bottom: 15px;
-  }
   .align{
     align-self: flex-start;
   }
@@ -70,6 +64,7 @@
     color: white;
     text-shadow: 0 1px 1px #2D2020;
     height: auto;
+    padding: inherit;
     padding-bottom: 10px;
     border-radius: 10px;
   }
@@ -77,13 +72,20 @@
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: center;
     align-items: flex-start;
     align-content: stretch;
     flex-wrap: wrap;
+    margin: 0 auto;
+    float: left;
+  }
+  .flex-container-position{
+    float: right;
+  }
+  .marginTopStandart{
+    margin-top: 3%;
   }
   .width_tabel{
-    width: 605px;
+    width: auto;
     position: relative;
   }
   .width_input{
@@ -97,6 +99,23 @@
   	justify-content: flex-start;
   	align-items: center;
   	align-content: stretch;
+    margin: 0 auto;
+  }
+  .menu{
+    color: black;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;
+    text-shadow: 0 1px 1px #2D2020;
+    margin-left: 10%;
+  }
+  .positionMenu{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    align-content: stretch;
+    flex-wrap: wrap;
+    padding: left;
   }
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

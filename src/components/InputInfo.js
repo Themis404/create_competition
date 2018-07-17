@@ -1,6 +1,9 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
+import BaseComponent from '../containers/baseComponent'
+import ReactDOM from 'react-dom';
 
-class InputInfo extends React.Component {
+class InputInfo extends BaseComponent {
 
   constructor(props) {
     super(props);
@@ -79,6 +82,10 @@ class InputInfo extends React.Component {
   };
 
   render() {
+    if (this.reload) {
+        this.reload = false;
+        return <Redirect to={this.redirect} push={true} />;
+    }
     return (
         <div className="createComp width_input">
           <form onSubmit={this.handleSubmit} className='centerInput textInput'>
@@ -104,7 +111,9 @@ class InputInfo extends React.Component {
               <p><input id='inputVisible'
                       value={this.state.visible}
                       onChange={e => this.updateVisible(e)}/></p>
-              <button type="submit" className="button" disabled={this.state.submitButtonDisabled}>Create</button>
+            </div>
+            <div>
+              <button type="submit" className="button" onClick={() => this.goToState('/main')} disabled={this.state.submitButtonDisabled}>Create</button>
             </div>
           </form>
         </div>

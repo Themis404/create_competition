@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import * as queryString from 'query-string';
+import * as queryString from 'querystring';
 
 class BaseComponent extends React.Component {
     constructor(params) {
