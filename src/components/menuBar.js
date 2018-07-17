@@ -15,9 +15,9 @@ class MenuBar extends BaseComponent{
         return <Redirect to={this.redirect} push={true} />;
     }
     return(
-      <div className='menu'>
-        <figure><img src='/components/image/enduro.png' alt='logo' /></figure>
+      <div className='menu'>  
         <ul>
+          <figure><img src='/components/image/enduro.png' alt='logo' /></figure>
           <li onClick={() => this.goToState('/main')} >TABLE COMPETITIONS</li>
         </ul>
       </div>
