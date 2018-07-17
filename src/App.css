@@ -55,42 +55,41 @@
     font-size: 12px;
     text-shadow: 0 1px 1px #2D2020;
   }
-  .align{
-    align-self: flex-start;
-  }
   .createComp{
     background: #287880;
     background-size: cover;
     color: white;
     text-shadow: 0 1px 1px #2D2020;
     height: auto;
-    padding: inherit;
     padding-bottom: 10px;
+    padding-left: 70px;
+    padding-right: 70px;
     border-radius: 10px;
   }
   .flex-container{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     align-items: flex-start;
     align-content: stretch;
     flex-wrap: wrap;
-  }
-  .flex-container-position{
-    float: right;
+    float: left;
   }
   .marginTopStandart{
-    margin-top: 3%;
+    margin-top: 40px;
+  }
+  .marginBotStandart{
+    margin-bottom: 1%;
   }
   .width_tabel{
     width: auto;
     position: relative;
   }
   .width_input{
-    width: 300px;
+    width: auto;
     position: relative;
   }
-  .centerInput{
+  .positionInput{
     display: flex;
   	flex-direction: column;
   	flex-wrap: nowrap;
@@ -104,20 +103,25 @@
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     font-size: 12px;
     text-shadow: 0 1px 1px #2D2020;
-    margin-right: 10%;
+    width: auto;
   }
-  .positionMenu{
+  .positionPage{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-content: stretch;
+    position: relative;
+    width: auto;
+  }
+  .positionButtonComp{
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    align-content: stretch;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 900px;
-    margin: 0 auto;
+    justify-content: space-between;
+    align-self: stretch;
   }
-
+  .imgLogo{
+    width: 120px;
+  }
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

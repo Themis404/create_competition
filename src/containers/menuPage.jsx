@@ -14,7 +14,7 @@ class MenuPage extends React.Component{
           return <Redirect to={this.redirect} push={true} />;
       }
       return(
-        <div className='positionMenu'>
+        <div className='positionPage'>
           <MenuBar/>
           {this.props.children}
         </div>

@@ -16,8 +16,7 @@ class MainPage extends BaseComponent {
         }
         return (
           <div className='flex-container marginTopStandart'>
-            <button onClick={() => this.goToState('/create-competition')} className='button'>Create competition</button>
-            <CompetitionTable />
+              <CompetitionTable />
           </div>
         );
     }

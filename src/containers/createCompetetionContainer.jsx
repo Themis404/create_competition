@@ -16,7 +16,7 @@ class CreateCompetition extends BaseComponent {
       }
         return (
           <div className='flex-container marginTopStandart'>
-          <button onClick={() => this.goToState('/main')} className='button'>Back</button>
+            <button onClick={() => this.goToState('/main')} className='button marginBotStandart'>Back</button>
             <InputInfo />
           </div>
         );

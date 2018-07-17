@@ -1,6 +1,8 @@
 import React from 'react';
+import BaseComponent from '../containers/baseComponent'
+import { Redirect } from 'react-router-dom';
 
-class CompetitionTable extends React.Component {
+class CompetitionTable extends BaseComponent {
 
   constructor(props) {
     super(props);
@@ -29,6 +31,10 @@ class CompetitionTable extends React.Component {
   };
 
   render() {
+    if (this.reload) {
+        this.reload = false;
+        return <Redirect to={this.redirect} push={true} />;
+    }
     const contents = this.state.content;
     let rows = undefined;
     if (contents.content) {
@@ -43,6 +49,12 @@ class CompetitionTable extends React.Component {
 
     return (
         <div className="flex-container width_tabel">
+
+          <div className="positionButtonComp">
+            <button onClick={() => this.goToState('/create-competition')} className='button marginBotStandart'>Create competition</button>
+            <button onClick={this.getCompetitionInfo} className="button marginBotStandart">Update</button>
+          </div>
+
           <table className="table">
             <tbody>
             <tr className="tr">
@@ -53,7 +65,6 @@ class CompetitionTable extends React.Component {
             {rows}
             </tbody>
           </table>
-          <button onClick={this.getCompetitionInfo} className="button">Update</button>
         </div>
     )
   }
