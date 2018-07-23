@@ -113,7 +113,7 @@ class InputInfo extends BaseComponent {
                       onChange={e => this.updateVisible(e)}/></p>
             </div>
             <div>
-              <button type="submit" className="button" onClick={() => this.goToState('/main')} disabled={this.state.submitButtonDisabled}>Create</button>
+              <button type="submit" className="button" disabled={this.state.submitButtonDisabled}>Create</button>
             </div>
           </form>
         </div>
