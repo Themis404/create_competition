@@ -30,6 +30,12 @@ class CompetitionTable extends BaseComponent {
     console.log(this.state);
   };
 
+  getCompetitionId = (e) => {
+    let idComp = e;
+    console.log(idComp);
+    return idComp;
+  }
+
   render() {
     if (this.reload) {
         this.reload = false;
@@ -40,7 +46,7 @@ class CompetitionTable extends BaseComponent {
     if (contents.content) {
       rows = contents.content.map((contentRow, key) =>
           <tr key={key} className="tr">
-            <td className="td">{contentRow.name}</td>
+            <td className="td" onClick={() =>  this.goToState('/competition/'+this.getCompetitionId(contentRow.id))}>{contentRow.name}</td>
             <td className="td">{contentRow.dateStart}</td>
             <td className="td">{contentRow.dateFinish}</td>
           </tr>

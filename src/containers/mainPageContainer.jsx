@@ -7,6 +7,7 @@ import BaseComponent from './baseComponent'
 class MainPage extends BaseComponent {
     constructor(params) {
         super(params);
+        this.props.match.params.id
     }
 
     render() {

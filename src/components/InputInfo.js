@@ -88,7 +88,7 @@ class InputInfo extends BaseComponent {
     }
     return (
         <div className="createComp width_input">
-          <form onSubmit={this.handleSubmit} className='positionInput textInput'>
+          <form onSubmit={this.handleSubmit} className='positionInput'>
             <div className='textInput'>
               <p>Create competition:</p>
               <p>Name</p>
