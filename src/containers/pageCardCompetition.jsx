@@ -6,8 +6,7 @@ import { Redirect } from 'react-router-dom';
 
 class PageCardCompetition extends BaseComponent {
     constructor(params) {
-        super(params),
-        this.props.match.params.id
+        super(params)
     }
 
     render() {
@@ -18,7 +17,7 @@ class PageCardCompetition extends BaseComponent {
         return (
           <div className='flex-container marginTopStandart'>
             <button onClick={() => this.goToState('/main')} className='button marginBotStandart'>Back</button>
-            <CardCompetition />
+            <CardCompetition id={this.props.match.params.id}/>
           </div>
         );
     }

@@ -6,7 +6,7 @@ import CreateCompetition from './containers/createCompetetionContainer';
 import MenuPage from './containers/menuPage';
 import PageCardCompetition from './containers/pageCardCompetition'
 import PageUsers from './containers/pageUsers'
-import PageImportantMassage from './containers/pageImportantMassage'
+import PageAnnouncement from './containers/pageAnnouncement'
 import PageRegulations from './containers/pageRegulations'
 
 export default class RouterApp extends Component {
@@ -27,7 +27,7 @@ export default class RouterApp extends Component {
                     <Route exact path="/competition/:id" component={PageCardCompetition} />
                     <Route exact path="/create-competition" component={CreateCompetition} />
                     <Route exact path="/users" component={PageUsers} />
-                    <Route exact path="/important-massage" component={PageImportantMassage} />
+                    <Route exact path="/announcement" component={PageAnnouncement} />
                     <Route exact path="/regulations" component={PageRegulations} />
                 </Switch>
               </MenuPage>

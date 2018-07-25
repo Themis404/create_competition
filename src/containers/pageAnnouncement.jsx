@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import BaseComponent from '../containers/baseComponent'
 import { Redirect } from 'react-router-dom';
 
-class PageImportantMassage extends BaseComponent {
+class PageAnnouncement extends BaseComponent {
     constructor(params) {
         super(params)
     }
@@ -22,4 +22,4 @@ class PageImportantMassage extends BaseComponent {
     }
 }
 
-export default PageImportantMassage;
+export default PageAnnouncement;
