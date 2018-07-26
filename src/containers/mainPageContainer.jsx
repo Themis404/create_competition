@@ -16,8 +16,10 @@ class MainPage extends BaseComponent {
             return <Redirect to={this.redirect} push={true} />;
         }
         return (
-          <div className='marginElem'>
-              <CompetitionTable />
+          <div className='backgroundActivPage'>
+            <div className='marginElem'>
+                <CompetitionTable />
+            </div>
           </div>
         );
     }

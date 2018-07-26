@@ -119,8 +119,7 @@
   margin-right: 10px;
 }
 .positionPage{
-  width: auto;
-  max-width: 750px;
+  max-width: 850px;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -171,10 +170,18 @@
 }
 .marginElem{
   margin: 40px auto;
+  position: absolute;
 }
 .fixBlock{
   clear: both;
 }
+.backgroundActivPage{
+  background: #78b2a96b;
+  background-size: 100%;
+  position: relative;
+  width: 100%;
+}
+
 @keyframes App-logo-spin {
 from { transform: rotate(0deg); }
 to { transform: rotate(360deg); }
