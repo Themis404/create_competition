@@ -49,7 +49,6 @@ class CompetitionTable extends BaseComponent {
 
     return (
         <div className="flex-container width_tabel">
-
           <div className="positionButtonComp">
             <button onClick={() => this.goToState('/create-competition')} className='button marginBotStandart'>Create competition</button>
             <button onClick={this.getCompetitionInfo} className="button marginBotStandart">Update</button>

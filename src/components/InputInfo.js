@@ -87,30 +87,26 @@ class InputInfo extends BaseComponent {
         return <Redirect to={this.redirect} push={true} />;
     }
     return (
-        <div className="createComp width_input">
+        <div className="createComp marginTopStandart">
           <form onSubmit={this.handleSubmit} className='positionInput'>
-            <div className='textInput'>
+            <div className='textInput width_input'>
               <p>Create competition:</p>
               <p>Name</p>
-              <p><input id='inputName'
+              <p><input id='inputName' className="cardCompForm" placeholder = "Name competition"
                       value={this.state.name}
                       onChange={e => this.updateName(e)}/></p>
               <p>Description</p>
-              <p><textarea rows = "4" id='inputDescription'
+              <p><textarea rows = "4" id='inputDescription' className="cardCompForm" placeholder = "Information about competition"
                       value={this.state.description}
                       onChange={e => this.updateDescription(e)}/></p>
               <p>Date first</p>
-              <p><input id='inputDateStart'
+              <p><input id='inputDateStart' className="cardCompForm" placeholder = " YYYY-MM-DD"
                       value={this.state.dateStart}
                       onChange={e => this.updateDateStart(e)}/></p>
               <p>Date last</p>
-              <p><input id='inputDateFinish'
+              <p><input id='inputDateFinish' className="cardCompForm" placeholder = " YYYY-MM-DD"
                       value={this.state.dateFinish}
                       onChange={e => this.updateDateFinish(e)}/></p>
-              <p>Visible</p>
-              <p><input id='inputVisible'
-                      value={this.state.visible}
-                      onChange={e => this.updateVisible(e)}/></p>
             </div>
             <div>
               <button type="submit" className="button" disabled={this.state.submitButtonDisabled}>Create</button>

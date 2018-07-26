@@ -47,6 +47,7 @@
   border-right: none;
 }
 .button{
+  height: auto;
   background-color:#FF6347;
   padding: 5px 25px;
   border-radius: 10px;
@@ -70,13 +71,12 @@
 .flex-container{
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
   align-items: flex-start;
   align-content: stretch;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 .marginTopStandart{
-  margin-top: 40px;
+  margin-top: 10px;
 }
 .marginBotStandart{
   margin-bottom: 1%;
@@ -101,34 +101,34 @@
 .menu{
   color: black;
   font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-  font-size: 15px;
+  font-size: 12px;
   text-shadow: 0 1px 1px #2D2020;
   list-style: none !important;
+  padding-left: 0;
 }
 .menuPage{
   width: auto;
-  padding-right: 40px;
 }
 .backgroundMenu{
-  padding: 10px 10px;
+  display: block;
+  padding: 10px 20px;
   background: #72c5b8c2;
+  background-size: cover;
+  min-height: 100%;
+  padding-bottom: 0;
 }
 .positionPage{
+  width: auto;
+  max-width: 750px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
   flex-direction: row;
-  align-content: stretch;
-  position: relative;
-  background-size: cover;
-  height: 100%
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
-.testPositionPage{
-  width: 210px;
-  background-attachment: fixed;
-  background-size: cover;
-  height: 800px;
-  margin-bottom: 0;
-  margin-right: 1%;
+.menuPositionPage{
+  width: auto;
 }
 .positionButtonComp{
   display: flex;
@@ -136,12 +136,17 @@
   justify-content: space-between;
   align-self: stretch;
 }
+.positionButtonOther{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-self: stretch;
+}
 .imgLogo{
   width: 130px;
 }
 .imgLogoForm{
   margin-left: 0;
-  padding-right: 20px;
 }
 .cardCompForm{
   padding: 10px 10px;
@@ -161,6 +166,12 @@
   border-bottom-right-radius: 10px;
   width: 170px;
   height: auto;
+}
+.marginElem{
+  margin: 40px auto;
+}
+.fixBlock{
+  clear: both;
 }
 @keyframes App-logo-spin {
 from { transform: rotate(0deg); }

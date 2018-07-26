@@ -16,7 +16,7 @@ class MainPage extends BaseComponent {
             return <Redirect to={this.redirect} push={true} />;
         }
         return (
-          <div className='flex-container marginTopStandart'>
+          <div className='marginElem'>
               <CompetitionTable />
           </div>
         );

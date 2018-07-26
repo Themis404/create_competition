@@ -13,12 +13,12 @@ class PageAnnouncement extends BaseComponent {
           this.reload = false;
           return <Redirect to={this.redirect} push={true} />;
       }
-        return (
-          <div className='flex-container marginTopStandart'>
-            <button onClick={() => this.goToState('/main')} className='button marginBotStandart'>Back</button>
-            <p>IMPORTANT MESSAGE</p>
-          </div>
-        );
+      return (
+        <div className='marginElem'>
+          <button onClick={() => this.goToState('/main')} className='button flex-container'>Back</button>
+          <p>IMPORTANT MESSAGE</p>
+        </div>
+      );
     }
 }
 

@@ -56,23 +56,25 @@ class CardCompetition extends BaseComponent {
       }
 
       return (
-          <div className="createComp width_input">
+          <div className="createComp marginTopStandart">
             <form className='positionInput'>
-              <div className='textInput'>
+              <div className='textInput width_input'>
                 <p>Card competition:</p>
                 <p>Name</p>
                 <p> <input className="cardCompForm" value={this.state.content.name}/></p>
                 <p>Description</p>
-                <p> <input className="cardCompForm" value={this.state.content.description}/></p>
+                <p> <textarea rows = "4" className="cardCompForm" value={this.state.content.description}/></p>
                 <p>Date first</p>
                 <p> <input className="cardCompForm" value={this.state.content.dateStart}/></p>
                 <p>Date last</p>
                 <p> <input className="cardCompForm" value={this.state.content.dateFinish}/></p>
+                <p>Date deadline for applications</p>
+                <p> <input className="cardCompForm" placeholder = "YYYY-MM-DD" /></p>
                 <p>Visible</p>
                 <p> <input className="cardCompForm" value={this.state.content.visible}/></p>
               </div>
             </form>
-            </div>
+          </div>
       )
     }
 }
