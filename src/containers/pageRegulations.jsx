@@ -14,11 +14,9 @@ class PageRegulations extends BaseComponent {
           return <Redirect to={this.redirect} push={true} />;
       }
       return (
-        <div className='backgroundActivPage'>
-          <div className='marginElem'>
-            <button onClick={() => this.goToState('/main')} className='button flex-container'>Back</button>
-            <p>REGULATIONS</p>
-          </div>
+        <div className='marginElem'>
+          <button onClick={() => this.goToState('/main')} className='button flex-container'>Back</button>
+          <p>REGULATIONS</p>
         </div>
       );
     }

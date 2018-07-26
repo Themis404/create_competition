@@ -170,6 +170,8 @@
 }
 .marginElem{
   margin: 40px auto;
+}
+.positionAbsolute{
   position: absolute;
 }
 .fixBlock{

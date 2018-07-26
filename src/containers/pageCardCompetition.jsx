@@ -15,11 +15,9 @@ class PageCardCompetition extends BaseComponent {
           return <Redirect to={this.redirect} push={true} />;
       }
       return (
-        <div className='backgroundActivPage'>
-          <div className='marginElem'>
-            <button onClick={() => this.goToState('/main')} className='button flex-container'>Back</button>
-            <CardCompetition id={this.props.match.params.id}/>
-          </div>
+        <div className='marginElem'>
+          <button onClick={() => this.goToState('/main')} className='button flex-container'>Back</button>
+          <CardCompetition id={this.props.match.params.id}/>
         </div>
       );
     }
