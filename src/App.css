@@ -1,166 +1,168 @@
-  .table {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-size: 12px;
-    border-radius: 10px;
-    border-spacing: 0;
-    text-align: center;
-  }
-  .textInput {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-size: 12px;
-    text-align: justify;
-  }
-  .th {
-    background: #008B8B;
-    color: white;
-    text-shadow: 0 1px 1px #2D2020;
-    padding: 10px 10px;
-  }
-  .th, .tr, .td {
-    border-style: solid;
-    border-width: 0 1px 1px 0;
-    border-color: white;
-  }
-  .td:first-child {
-    text-align: left;
-  }
-  .th:first-child {
-    border-top-left-radius: 10px;
-    text-align: center;
-  }
-  .th:last-child {
-    border-top-right-radius: 10px;
-    border-right: none;
-  }
-  .td {
-    padding: 10px 10px;
-    background: #20B2AA;
-  }
-  .tr:last-child .td:first-child {
-    border-radius: 0 0 0 10px;
-  }
-  .tr:last-child .td:last-child {
-    border-radius: 0 0 10px 0;
-  }
-  .tr .td:last-child {
-    border-right: none;
-  }
-  .button{
-    background-color:#FF6347;
-    padding: 5px 25px;
-    border-radius: 10px;
-    text-align: center;
-    color: white;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-size: 12px;
-    text-shadow: 0 1px 1px #2D2020;
-  }
-  .createComp{
-    background: #287880;
-    background-size: cover;
-    color: white;
-    text-shadow: 0 1px 1px #2D2020;
-    height: auto;
-    padding-bottom: 10px;
-    padding-left: 70px;
-    padding-right: 70px;
-    border-radius: 10px;
-  }
-  .flex-container{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    align-content: stretch;
-    flex-wrap: wrap;
-  }
-  .marginTopStandart{
-    margin-top: 40px;
-  }
-  .marginBotStandart{
-    margin-bottom: 1%;
-  }
-  .width_tabel{
-    width: auto;
-    position: relative;
-  }
-  .width_input{
-    width: auto;
-    position: relative;
-  }
-  .positionInput{
-    display: flex;
-  	flex-direction: column;
-  	flex-wrap: nowrap;
-  	justify-content: flex-start;
-  	align-items: center;
-  	align-content: stretch;
-    margin: 0 auto;
-  }
-  .menu{
-    color: black;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-size: 12px;
-    text-shadow: 0 1px 1px #2D2020;
-  }
-  .menuPage{
-    width: auto;
-    padding-right: 40px;
-  }
-  .backgroundMenu{
-    padding: 10px 10px;
-    background: #72c5b8c2;
-  }
-  .positionPage{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-content: stretch;
-    position: relative;
-    background-size: cover;
-    height: 100%
-  }
-  .testPositionPage{
-    width: 210px;
-    background-attachment: fixed;
-    background-size: cover;
-    height: 800px;
-    margin-bottom: 0;
-    margin-right: 1%;
-  }
-  .positionButtonComp{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-self: stretch;
-  }
-  .imgLogo{
-    width: 130px;
-  }
-  .imgLogoForm{
-    margin-left: 0;
-    padding-right: 20px;
-  }
-  .cardCompForm{
-    padding: 10px 10px;
-    background: #20B2AA;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    color: white;
-    font-size: 12px;
-    text-shadow: 0 1px 1px #2D2020;
-    border-style: solid;
-    border-width: 0 2px 1px 0;
-    border-color: white;
-  }
-  .cardCompForm{
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    width: 170px;
-    height: auto;
-  }
+.table {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 12px;
+  border-radius: 10px;
+  border-spacing: 0;
+  text-align: center;
+}
+.textInput {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 12px;
+  text-align: justify;
+}
+.th {
+  background: #008B8B;
+  color: white;
+  text-shadow: 0 1px 1px #2D2020;
+  padding: 10px 10px;
+}
+.th, .tr, .td {
+  border-style: solid;
+  border-width: 0 1px 1px 0;
+  border-color: white;
+
+}
+.td:first-child {
+  text-align: left;
+}
+.th:first-child {
+  border-top-left-radius: 10px;
+  text-align: center;
+}
+.th:last-child {
+  border-top-right-radius: 10px;
+  border-right: none;
+}
+.td {
+  padding: 10px 10px;
+  background: #20B2AA;
+}
+.tr:last-child .td:first-child {
+  border-radius: 0 0 0 10px;
+}
+.tr:last-child .td:last-child {
+  border-radius: 0 0 10px 0;
+}
+.tr .td:last-child {
+  border-right: none;
+}
+.button{
+  background-color:#FF6347;
+  padding: 5px 25px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 12px;
+  text-shadow: 0 1px 1px #2D2020;
+}
+.createComp{
+  background: #287880;
+  background-size: cover;
+  color: white;
+  text-shadow: 0 1px 1px #2D2020;
+  height: auto;
+  padding-bottom: 10px;
+  padding-left: 70px;
+  padding-right: 70px;
+  border-radius: 10px;
+}
+.flex-container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  align-content: stretch;
+  flex-wrap: wrap;
+}
+.marginTopStandart{
+  margin-top: 40px;
+}
+.marginBotStandart{
+  margin-bottom: 1%;
+}
+.width_tabel{
+  width: auto;
+  position: relative;
+}
+.width_input{
+  width: auto;
+  position: relative;
+}
+.positionInput{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: stretch;
+  margin: 0 auto;
+}
+.menu{
+  color: black;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 15px;
+  text-shadow: 0 1px 1px #2D2020;
+  list-style: none !important;
+}
+.menuPage{
+  width: auto;
+  padding-right: 40px;
+}
+.backgroundMenu{
+  padding: 10px 10px;
+  background: #72c5b8c2;
+}
+.positionPage{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-content: stretch;
+  position: relative;
+  background-size: cover;
+  height: 100%
+}
+.testPositionPage{
+  width: 210px;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 800px;
+  margin-bottom: 0;
+  margin-right: 1%;
+}
+.positionButtonComp{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: stretch;
+}
+.imgLogo{
+  width: 130px;
+}
+.imgLogoForm{
+  margin-left: 0;
+  padding-right: 20px;
+}
+.cardCompForm{
+  padding: 10px 10px;
+  background: #20B2AA;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  color: white;
+  font-size: 12px;
+  text-shadow: 0 1px 1px #2D2020;
+  border-style: solid;
+  border-width: 0 2px 1px 0;
+  border-color: white;
+}
+.cardCompForm{
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 170px;
+  height: auto;
+}
 @keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
 }
