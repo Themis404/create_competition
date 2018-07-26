@@ -96,7 +96,7 @@ class InputInfo extends BaseComponent {
                       value={this.state.name}
                       onChange={e => this.updateName(e)}/></p>
               <p>Description</p>
-              <p><input id='inputDescription'
+              <p><textarea rows = "4" id='inputDescription'
                       value={this.state.description}
                       onChange={e => this.updateDescription(e)}/></p>
               <p>Date first</p>
