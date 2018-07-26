@@ -8,7 +8,7 @@
 .textInput {
   font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
   font-size: 12px;
-  text-align: justify;
+  text-align: left;
 }
 .th {
   background: #008B8B;
@@ -111,11 +111,12 @@
 }
 .backgroundMenu{
   display: block;
-  padding: 10px 20px;
+  padding: 0 20px;
   background: #72c5b8c2;
   background-size: cover;
   min-height: 100%;
   padding-bottom: 0;
+  margin-right: 10px;
 }
 .positionPage{
   width: auto;
@@ -143,6 +144,7 @@
   align-self: stretch;
 }
 .imgLogo{
+  padding-top: 10px;
   width: 130px;
 }
 .imgLogoForm{
