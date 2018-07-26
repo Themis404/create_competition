@@ -47,7 +47,7 @@ class CardCompetition extends BaseComponent {
           });
       console.log(this.state);
     }
-    }
+
 
     render() {
       if (this.reload) {
@@ -76,4 +76,5 @@ class CardCompetition extends BaseComponent {
       )
     }
 }
+
 export default CardCompetition;
