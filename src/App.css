@@ -183,6 +183,45 @@
   position: relative;
   width: 100%;
 }
+.lupa{
+  width: 32px;
+  height: 32px;
+  margin: 0 auto;
+}
+.Search:after {content:""; clear:both; display:table}
+.Search form {
+  width: auto;
+  float: right;
+}
+.Search input {
+  width: 250px;
+  height: 32px;
+  padding-left: 15px; 
+  border-radius: 42px;
+  border: 2px solid #324b4e;
+  background: #F9F0DA;
+  outline: none;
+  position: relative;
+  transition: .3s linear;
+  right: 0%;
+}
+.Search input:focus {
+  width: 300px;
+}
+.SearchButton {
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none; 
+  position: relative;
+  /* padding-left: 15px; */
+  border-radius: 42px;
+  margin: 0 auto;
+  padding-left: 0%;
+  padding-right: 0%;
+  top: 11px;  
+  right: 15%;  
+}
 
 @keyframes App-logo-spin {
 from { transform: rotate(0deg); }
