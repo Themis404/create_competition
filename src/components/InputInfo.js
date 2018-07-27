@@ -12,7 +12,7 @@ class InputInfo extends BaseComponent {
       description: '',
       dateStart: '',
       dateFinish: '',
-      visible: false,
+      registrationEndTimestamp: '',
       submitButtonDisabled: true  //т.к. поля пустые
     }
   }
@@ -32,10 +32,11 @@ class InputInfo extends BaseComponent {
         description: this.state.description,
         dateStart : this.state.dateStart,
         dateFinish: this.state.dateFinish,
-        visible: this.state.visible})
+        registrationEndTimestamp: this.state.registrationEndTimestamp
+      })
     }).then(res=>{
       console.log(res);
-      this.setState({name: '', description: '', dateStart: '', dateFinish: ''});
+      this.setState({name: '', description: '', dateStart: '', dateFinish: '', registrationEndTimestamp: ''});
       console.log(this.state);
       this.checkFieldsEmpty();
       res.ok ? console.log('success') : console.warn('something gone wrong');
@@ -63,17 +64,13 @@ class InputInfo extends BaseComponent {
     this.setState( {description: e.target.value} )
   }
 
-  updateVisible(e) {
-    if (e.target.value === '1') {
-      this.setState({visible: true})
-    }
-    else {
-      this.setState({visible: false})
-    }
+  updateRegistrationEndTimestamp(e) {
+    this.checkFieldsEmpty()
+    this.setState( {registrationEndTimestamp: e.target.value} )
   }
 
   checkFieldsEmpty = () => {
-    if ((this.state.name.length&&this.state.description.length&&this.state.dateStart.length&&this.state.dateFinish.length) === 0) {
+    if ((this.state.name.length&&this.state.description.length&&this.state.dateStart.length&&this.state.dateFinish.length&&this.state.registrationEndTimestamp.length) === 0) {
       this.setState({submitButtonDisabled: true});
     } else {
       this.setState({submitButtonDisabled: false});
@@ -96,17 +93,21 @@ class InputInfo extends BaseComponent {
                       value={this.state.name}
                       onChange={e => this.updateName(e)}/></p>
               <p>Description</p>
-              <p><textarea rows = "4" id='inputDescription' className="cardCompForm" placeholder = "Information about competition" maxlength="85"
+              <p><textarea rows = "4" id='inputDescription' className="cardCompForm" placeholder = "Information about competition" maxLength="86"
                       value={this.state.description}
                       onChange={e => this.updateDescription(e)}/></p>
-              <p>Date first</p>
-              <p><input id='inputDateStart' className="cardCompForm" placeholder = " YYYY-MM-DD"
+              <p>Date Start</p>
+              <p><input id='inputDateStart' className="cardCompForm" placeholder = " DD-MM-YYYY"
                       value={this.state.dateStart}
                       onChange={e => this.updateDateStart(e)}/></p>
-              <p>Date last</p>
-              <p><input id='inputDateFinish' className="cardCompForm" placeholder = " YYYY-MM-DD"
+              <p>Date Finish</p>
+              <p><input id='inputDateFinish' className="cardCompForm" placeholder = " DD-MM-YYYY"
                       value={this.state.dateFinish}
                       onChange={e => this.updateDateFinish(e)}/></p>
+              <p>Deadline for applications</p>
+              <p><input id='inputRegistrationEndTimestamp' className="cardCompForm" placeholder = " DD-MM-YYYY_HH:MM:SS"
+                      value={this.state.registrationEndTimestamp}
+                      onChange={e => this.updateRegistrationEndTimestamp(e)}/></p>  
             </div>
             <div>
               <button type="submit" className="button" disabled={this.state.submitButtonDisabled}>Create</button>
