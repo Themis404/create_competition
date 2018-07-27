@@ -43,6 +43,7 @@ class CompetitionTable extends BaseComponent {
             <td className="td" onClick={() =>  this.goToState('/competition/'+contentRow.id)}>{contentRow.name}</td>
             <td className="td">{contentRow.dateStart}</td>
             <td className="td">{contentRow.dateFinish}</td>
+            <td className="td">{contentRow.description}</td>
           </tr>
       )
     }
@@ -60,6 +61,7 @@ class CompetitionTable extends BaseComponent {
               <th className="th">NAME COMPETITION</th>
               <th className="th">DATE START COMPETITION</th>
               <th className="th">DATE END COMPETITION</th>
+              <th className="th">Description</th>
             </tr>
             {rows}
             </tbody>
