@@ -8,6 +8,7 @@ import PageCardCompetition from './containers/pageCardCompetition'
 import PageUsers from './containers/pageUsers'
 import PageAnnouncement from './containers/pageAnnouncement'
 import PageRegulations from './containers/pageRegulations'
+import CreateDay from './components/createDay';
 
 export default class RouterApp extends Component {
     constructor(props) {
@@ -29,6 +30,7 @@ export default class RouterApp extends Component {
                     <Route exact path="/users" component={PageUsers} />
                     <Route exact path="/announcement" component={PageAnnouncement} />
                     <Route exact path="/regulations" component={PageRegulations} />
+                    <Route exact path="/create-day" component={CreateDay} />
                 </Switch>
               </MenuPage>
             </HashRouter>
