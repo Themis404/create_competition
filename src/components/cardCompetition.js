@@ -59,7 +59,7 @@ class CardCompetition extends BaseComponent {
           <div className="createComp marginTopStandart">
             <form className='positionInput'>
               <div className='textInput width_input'>
-                <p>Card competition:</p>
+                <h2>Card competition</h2>
                 <p>Name</p>
                 <p> <input className="cardCompForm" value={this.state.content.name}/></p>
                 <p>Description</p>

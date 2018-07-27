@@ -90,7 +90,7 @@ class InputInfo extends BaseComponent {
         <div className="createComp marginTopStandart">
           <form onSubmit={this.handleSubmit} className='positionInput'>
             <div className='textInput width_input'>
-              <p>Create competition:</p>
+              <h2>Create competition</h2>
               <p>Name</p>
               <p><input id='inputName' className="cardCompForm" placeholder = "Name competition"
                       value={this.state.name}
