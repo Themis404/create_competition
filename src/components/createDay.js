@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import BaseComponent from '../containers/baseComponent'
 import ReactDOM from 'react-dom';
+import CompetitionTable from './CompetitionTable'
 
 class CreateDay extends BaseComponent {
 
@@ -20,7 +21,7 @@ class CreateDay extends BaseComponent {
 
   handleSubmit = (e) => {
     console.log(this.state);
-    fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/' + this.props.id +'days/create', {
+    fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/' + this.props.id +'/days/create', {
       method: 'POST',
       headers: {
         'Access-Control-Allow-Headers': 'origin, content-type, accept',
@@ -47,33 +48,34 @@ class CreateDay extends BaseComponent {
   };
 
   updateName(e) {
-    this.checkFieldsEmpty() //можно проверять здесь
+    // this.checkFieldsEmpty() //можно проверять здесь
     this.setState( {name: e.target.value} );
   }
 
   updateTimeStart(e) {
-    this.checkFieldsEmpty()
+    // this.checkFieldsEmpty()
     this.setState( {timeStart: e.target.value} )
   }
 
   updateTimeFinish(e) {
-    this.checkFieldsEmpty()
+    // this.checkFieldsEmpty()
     this.setState( {timeFinish: e.target.value} )
   }
 
   updateDate(e) {
-    this.checkFieldsEmpty()
+    // this.checkFieldsEmpty()
     this.setState( {date: e.target.value} )
   }
 
   updateSequenceNuber(e) {
-    this.checkFieldsEmpty()
+    // this.checkFieldsEmpty()
     this.setState( {sequenceNuber: e.target.value} )
   }
 
   updateCompetitionId(e) {
-    this.checkFieldsEmpty()
-    this.setState( {competitionId: e.target.value} )
+    // this.checkFieldsEmpty()
+    this.setState( {competitionId: this.props.id} )
+    console.log(this.state.competitionId)
   }
 
 
@@ -91,8 +93,7 @@ class CreateDay extends BaseComponent {
         this.reload = false;
         return <Redirect to={this.redirect} push={true} />;
     }
-    //let this.state.competitionId = this.props.id
-
+    if (this.state.competitionId === null){this.setState( {competitionId: this.props.id} )}
     return (
         <div className="createComp marginTopStandart">
           <form onSubmit={this.handleSubmit} className='positionInput'>
@@ -103,7 +104,7 @@ class CreateDay extends BaseComponent {
                         value={this.state.name}
                         onChange={e => this.updateName(e)}/></p>
                 <p>Date</p>
-                <p><input id='inputDate' className="cardCompForm" placeholder = "DD-MM-YYYY" 
+                <p><input id='inputDate' className="cardCompForm" placeholder = "DD-MM-YYYY"
                         value={this.state.date}
                         onChange={e => this.updateDate(e)}/></p>
                 <p>Time Start</p>
@@ -117,14 +118,15 @@ class CreateDay extends BaseComponent {
                 <p>Sequence Nuber</p>
                 <p><input id='inputSequenceNuber' className="cardCompForm" placeholder = "Number day"
                         value={this.state.sequenceNuber}
-                        onChange={e => this.updateSequenceNuber(e)}/></p>  
+                        onChange={e => this.updateSequenceNuber(e)}/></p>
                 <p>Competition Id</p>
-                <p><input id='inputCompetitionId' className="cardCompForm" placeholder = "Number day"
+                <p id='inputCompetitionId' className="cardCompForm" placeholder = "Number day"
                         value={this.state.competitionId}
-                        onChange={e => this.updateCompetitionId(e)}/></p>  
+                        onChange={e => this.updateCompetitionId(e)}></p>
             </div>
             <div>
-              <button type="submit" className="button" disabled={this.state.submitButtonDisabled}>Create</button>
+              <button type="submit" className="button" disabled={false}>Create</button>
+              {/*<button type="submit" className="button" disabled={this.state.submitButtonDisabled}>Create</button>*/}
             </div>
           </form>
         </div>

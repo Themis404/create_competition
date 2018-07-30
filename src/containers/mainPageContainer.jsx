@@ -8,7 +8,6 @@ import lupa from './lup.png'
 class MainPage extends BaseComponent {
     constructor(params) {
         super(params);
-        this.props.match.params.id
     }
 
     render() {
@@ -20,7 +19,7 @@ class MainPage extends BaseComponent {
           <div className='marginElem'>
              <div className="Search">
                 <form className="searchF">
-                     <input type="search" name="q" placeholder="Поиск..."/> 
+                     <input type="search" name="q" placeholder="Поиск..."/>
                      <button className='SearchButton'><img src={lupa} alt='lupa' className="lupa"/></button>
                       {/* <input type="submit" value="Найти"/> */}
                  </form>

@@ -1,6 +1,7 @@
 import React from 'react';
 import BaseComponent from '../containers/baseComponent'
 import { Redirect } from 'react-router-dom';
+import CompetitionTable from './CompetitionTable'
 
 class DaysTable extends BaseComponent {
 
@@ -10,13 +11,13 @@ class DaysTable extends BaseComponent {
         content: []
       };
     }
-  
+
     componentDidMount() {
       this.getCompetitionInfo();
     }
-  
+
     getCompetitionInfo = () => {
-      fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/'+this.props.id+'/days/list')
+      fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/' + this.props.id + '/days/list')
           .then(response => {
             console.log(response);
             return response.json()
@@ -29,7 +30,7 @@ class DaysTable extends BaseComponent {
           });
       console.log(this.state);
     };
-  
+
     render() {
       if (this.reload) {
           this.reload = false;
@@ -45,9 +46,9 @@ class DaysTable extends BaseComponent {
             </tr>
         )
       }
-  
+
       return (
-          <div className="flex-container width_tabel"> 
+          <div className="flex-container width_tabel">
             <table className="table">
               <tbody>
               <tr className="tr">
@@ -61,6 +62,5 @@ class DaysTable extends BaseComponent {
       )
     }
   }
-  
+
   export default DaysTable;
-  
