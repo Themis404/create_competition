@@ -16,8 +16,8 @@ class CompetitionTable extends BaseComponent {
     this.getCompetitionInfo();
   }
 
-  getCompetitionInfo = () => {
-    fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/list/' + this.state.valueSelect)
+  getCompetitionInfo = (order = '') => {
+    fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/list' + order)
         .then(response => {
           console.log(response);
           return response.json()
@@ -32,8 +32,8 @@ class CompetitionTable extends BaseComponent {
   };
 
   selectCompetitionTabel = (e) => {
-      this.setState( {valueSelect: e} )
-      console.log(this.setState)
+    this.getCompetitionInfo(e.target.value);
+    console.log(this.state.valueSelect)
   }
 
   render() {
@@ -58,12 +58,12 @@ class CompetitionTable extends BaseComponent {
         <div className="flex-container width_tabel">
           <div className="positionButtonComp">
             <button onClick={() => this.goToState('/create-competition')} className='button marginBotStandart'>Create competition</button>
-            <select>
+            <select className='button selectForm' onChange={this.selectCompetitionTabel} value={this.state.value}>
               <option disabled>select by</option>
-              <option value={ this.selectCompetitionTabel('name')}>name</option>
-              <option >date start</option>
+              <option value=''>none select</option>
+              <option value='&sort=name,acs'>name</option>
+              <option value='&sort=dateStart,acs'>date start</option>
             </select>
-            <button type="submit" className="button marginBotStandart">Update</button>
           </div>
 
           <table className="table">
@@ -72,7 +72,7 @@ class CompetitionTable extends BaseComponent {
               <th className="th">NAME COMPETITION</th>
               <th className="th">DATE START COMPETITION</th>
               <th className="th">DATE END COMPETITION</th>
-              {/* <th className="th">Description</th> */} 
+              {/* <th className="th">Description</th> */}
             </tr>
             {rows}
             </tbody>

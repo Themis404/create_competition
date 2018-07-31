@@ -224,7 +224,10 @@
   top: 11px;
   right: 15%;
 }
-
+.selectForm{
+  height: 31px;
+  margin: auto 0;
+}
 @keyframes App-logo-spin {
 from { transform: rotate(0deg); }
 to { transform: rotate(360deg); }

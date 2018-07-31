@@ -13,7 +13,7 @@ class CreateDay extends BaseComponent {
       date: '',
       timeStart: '',
       timeFinish: '',
-      sequenceNuber: '',
+      sequenceNumber: '',
       submitButtonDisabled: true  //т.к. поля пустые
     }
   }
@@ -78,7 +78,7 @@ class CreateDay extends BaseComponent {
     this.setState( {date: e.target.value} )
   }
 
-  updateSequenceNuber(e) {
+  updateSequenceNumber(e) {
     // this.checkFieldsEmpty()
     this.setState( {sequenceNumber: e.target.value} )
   }
@@ -128,7 +128,7 @@ class CreateDay extends BaseComponent {
                 <p>Sequence Nuber</p>
                 <p><input id='inputSequenceNuber' className="cardCompForm" placeholder = "Number day"
                         value={this.state.sequenceNumber}
-                        onChange={e => this.updateSequenceNuber(e)}/></p>
+                        onChange={e => this.updateSequenceNumber(e)}/></p>
                 <p>Competition Id</p>
                 <p id='inputCompetitionId' className="cardCompForm" placeholder = "Number COMPETITION"
                         value={this.state.competitionId}
@@ -136,7 +136,6 @@ class CreateDay extends BaseComponent {
             </div>
             <div>
               <button type="submit" className="button" disabled={false}>Create</button>
-              {/*<button type="submit" className="button" disabled={this.state.submitButtonDisabled}>Create</button>*/}
             </div>
           </form>
         </div>
