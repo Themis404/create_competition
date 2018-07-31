@@ -7,7 +7,8 @@ class CompetitionTable extends BaseComponent {
   constructor(props) {
     super(props);
     this.state = {
-      content: []
+      content: [],
+      valueSelect: ''
     };
   }
 
@@ -16,7 +17,7 @@ class CompetitionTable extends BaseComponent {
   }
 
   getCompetitionInfo = () => {
-    fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/list')
+    fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/list/' + this.state.valueSelect)
         .then(response => {
           console.log(response);
           return response.json()
@@ -24,11 +25,16 @@ class CompetitionTable extends BaseComponent {
         .then((content) => {
           console.warn(content);
           this.setState({
-            content: content
+            content: content,
           });
         });
     console.log(this.state);
   };
+
+  selectCompetitionTabel = (e) => {
+      this.setState( {valueSelect: e} )
+      console.log(this.setState)
+  }
 
   render() {
     if (this.reload) {
@@ -52,7 +58,12 @@ class CompetitionTable extends BaseComponent {
         <div className="flex-container width_tabel">
           <div className="positionButtonComp">
             <button onClick={() => this.goToState('/create-competition')} className='button marginBotStandart'>Create competition</button>
-            <button onClick={this.getCompetitionInfo} className="button marginBotStandart">Update</button>
+            <select>
+              <option disabled>select by</option>
+              <option value={ this.selectCompetitionTabel('name')}>name</option>
+              <option >date start</option>
+            </select>
+            <button type="submit" className="button marginBotStandart">Update</button>
           </div>
 
           <table className="table">
@@ -61,7 +72,7 @@ class CompetitionTable extends BaseComponent {
               <th className="th">NAME COMPETITION</th>
               <th className="th">DATE START COMPETITION</th>
               <th className="th">DATE END COMPETITION</th>
-              {/* <th className="th">Description</th> */}
+              {/* <th className="th">Description</th> */} 
             </tr>
             {rows}
             </tbody>

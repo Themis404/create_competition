@@ -1,7 +1,6 @@
 import React from 'react'
 import BaseComponent from '../containers/baseComponent'
 import { Redirect } from 'react-router-dom'
-import CompetitionTable from './CompetitionTable'
 
 class CardCompetition extends BaseComponent {
 
@@ -32,23 +31,6 @@ class CardCompetition extends BaseComponent {
       console.log(this.state);
     }
 
-    // //потооооом доделать таблицу дней
-    // getDaysCompetition = () => {
-    //   fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/' +  this.props.id +'/days/')
-    //       .then(response => {
-    //         console.log(response);
-    //         return response.json()
-    //       })
-    //       .then((contentDays) => {
-    //         console.warn(contentDays);
-    //         this.setState({
-    //           contentDays: contentDays
-    //         });
-    //       });
-    //   console.log(this.state);
-    // }
-
-
     render() {
       if (this.reload) {
           this.reload = false;
@@ -69,9 +51,10 @@ class CardCompetition extends BaseComponent {
                 <p>Date last</p>
                 <p> <input className="cardCompForm" value={this.state.content.dateFinish}/></p>
                 <p>Date deadline for applications</p>
-                <p> <input className="cardCompForm" value={this.state.content.registrationEndTimestamp} placeholder = "YYYY-MM-DD" /></p>
+                <p> <input className="cardCompForm" value={this.state.content.registrationEndTimestamp} placeholder = "DD-MM-YYYY" /></p>
               </div>
             </form>
+            <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/create-day')} className='button flex-container'>Create day</button>
           </div>
       )
     }

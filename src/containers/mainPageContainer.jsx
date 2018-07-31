@@ -7,7 +7,8 @@ import lupa from './lup.png'
 
 class MainPage extends BaseComponent {
     constructor(params) {
-        super(params);
+        super(params),
+        this.props.match.params.id
     }
 
     render() {
