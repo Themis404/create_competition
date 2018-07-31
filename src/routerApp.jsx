@@ -22,8 +22,8 @@ export default class RouterApp extends Component {
                 <Switch>
                     <Route exact path="/" component={MainPageRedirect} />
                     <Route exact path="/main" component={MainPage} />
-                    <Route exact path="/competition/:id" component={PageCardCompetition }/>
-                    <Route exact path="/create-day" component={PageCreateDay} />
+                    <Route exact path="/competition/:id" component={PageCardCompetition } />
+                    <Route exact path="/competition/:id/create-day" component={PageCreateDay} />
                     <Route exact path="/create-competition" component={CreateCompetition} />
                     <Route exact path="/users" component={PageUsers} />
                     <Route exact path="/announcement" component={PageAnnouncement} />

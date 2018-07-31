@@ -7,7 +7,8 @@ import SearchBar from '../components/SearchBar.js';
 
 class MainPage extends BaseComponent {
     constructor(params) {
-        super(params);
+        super(params),
+        this.props.match.params.id
     }
     search(name) {
         this.props.fetchSearch(name);

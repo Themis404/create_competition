@@ -2,7 +2,6 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import BaseComponent from '../containers/baseComponent'
 import ReactDOM from 'react-dom';
-import CompetitionTable from './CompetitionTable'
 
 class CreateDay extends BaseComponent {
 
@@ -14,14 +13,26 @@ class CreateDay extends BaseComponent {
       date: '',
       timeStart: '',
       timeFinish: '',
-      sequenceNuber: '',
+      sequenceNumber: '',
       submitButtonDisabled: true  //т.к. поля пустые
     }
   }
 
+  componentDidMount() {
+    this.setState({
+      competitionId: this.props.id
+    });
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      competitionId: newProps.id
+    });
+  }
+
   handleSubmit = (e) => {
     console.log(this.state);
-    fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/' + this.props.id +'/days/create', {
+    fetch('https://afternoon-woodland-86438.herokuapp.com/days/create', {
       method: 'POST',
       headers: {
         'Access-Control-Allow-Headers': 'origin, content-type, accept',
@@ -35,11 +46,11 @@ class CreateDay extends BaseComponent {
         date: this.state.date,
         timeStart : this.state.timeStart,
         timeFinish: this.state.timeFinish,
-        sequenceNuber: this.state.sequenceNuber,
+        sequenceNumber: this.state.sequenceNumber
       })
     }).then(res=>{
       console.log(res);
-      this.setState({name: '', date: '', timeStart: '', timeFinish: '', sequenceNuber: '', competitionId: ''});
+      this.setState({name: '', date: '', timeStart: '', timeFinish: '', sequenceNumber: '', competitionId: ''});
       console.log(this.state);
       this.checkFieldsEmpty();
       res.ok ? console.log('success') : console.warn('something gone wrong');
@@ -67,9 +78,9 @@ class CreateDay extends BaseComponent {
     this.setState( {date: e.target.value} )
   }
 
-  updateSequenceNuber(e) {
+  updateSequenceNumber(e) {
     // this.checkFieldsEmpty()
-    this.setState( {sequenceNuber: e.target.value} )
+    this.setState( {sequenceNumber: e.target.value} )
   }
 
   updateCompetitionId(e) {
@@ -93,14 +104,13 @@ class CreateDay extends BaseComponent {
         this.reload = false;
         return <Redirect to={this.redirect} push={true} />;
     }
-    if (this.state.competitionId === null){this.setState( {competitionId: this.props.id} )}
     return (
         <div className="createComp marginTopStandart">
           <form onSubmit={this.handleSubmit} className='positionInput'>
             <div className='textInput width_input'>
                 <h2>Create day</h2>
                 <p>Name</p>
-                <p><input id='inputName' className="cardCompForm" placeholder = "Name day"
+                <p><input id='inputName' className="cardCompForm" placeholder = "NAME DAY"
                         value={this.state.name}
                         onChange={e => this.updateName(e)}/></p>
                 <p>Date</p>
@@ -108,25 +118,24 @@ class CreateDay extends BaseComponent {
                         value={this.state.date}
                         onChange={e => this.updateDate(e)}/></p>
                 <p>Time Start</p>
-                <p><input id='inputTimeStart' className="cardCompForm" placeholder = "HH:MM"
+                <p><input id='inputTimeStart' className="cardCompForm" placeholder = "HH-MM-SS"
                         value={this.state.dateStart}
                         onChange={e => this.updateTimeStart(e)}/></p>
                 <p>Time Finish</p>
-                <p><input id='inpuTimeFinish' className="cardCompForm" placeholder = "HH:MM"
+                <p><input id='inpuTimeFinish' className="cardCompForm" placeholder = "HH-MM-SS"
                         value={this.state.dateFinish}
                         onChange={e => this.updateTimeFinish(e)}/></p>
                 <p>Sequence Nuber</p>
                 <p><input id='inputSequenceNuber' className="cardCompForm" placeholder = "Number day"
-                        value={this.state.sequenceNuber}
-                        onChange={e => this.updateSequenceNuber(e)}/></p>
+                        value={this.state.sequenceNumber}
+                        onChange={e => this.updateSequenceNumber(e)}/></p>
                 <p>Competition Id</p>
-                <p id='inputCompetitionId' className="cardCompForm" placeholder = "Number day"
+                <p id='inputCompetitionId' className="cardCompForm" placeholder = "Number COMPETITION"
                         value={this.state.competitionId}
                         onChange={e => this.updateCompetitionId(e)}></p>
             </div>
             <div>
               <button type="submit" className="button" disabled={false}>Create</button>
-              {/*<button type="submit" className="button" disabled={this.state.submitButtonDisabled}>Create</button>*/}
             </div>
           </form>
         </div>

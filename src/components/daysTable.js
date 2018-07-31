@@ -1,7 +1,6 @@
 import React from 'react';
 import BaseComponent from '../containers/baseComponent'
 import { Redirect } from 'react-router-dom';
-import CompetitionTable from './CompetitionTable'
 
 class DaysTable extends BaseComponent {
 
@@ -17,7 +16,7 @@ class DaysTable extends BaseComponent {
     }
 
     getCompetitionInfo = () => {
-      fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/' + this.props.id + '/days/list')
+      fetch('https://afternoon-woodland-86438.herokuapp.com/days/list?competitionId='+this.props.id)
           .then(response => {
             console.log(response);
             return response.json()
@@ -41,7 +40,8 @@ class DaysTable extends BaseComponent {
       if (contents.content) {
         rows = contents.content.map((contentRow, key) =>
             <tr key={key} className="tr">
-              <td className="td" onClick={() =>  this.goToState('/competition/'+contentRow.id)}>{contentRow.date}</td>
+              <td className="td" onClick={() =>  this.goToState('/competition/'+contentRow.id)}>{contentRow.sequenceNumber}</td>
+              <td className="td" onClick={() =>  this.goToState('/competition/'+contentRow.id)}>{contentRow.name}</td>
               <td className="td">{contentRow.countPoints}</td>
             </tr>
         )
@@ -53,6 +53,7 @@ class DaysTable extends BaseComponent {
               <tbody>
               <tr className="tr">
                 <th className="th">DAY</th>
+                <th className="th">NAME</th>
                 <th className="th">POINTS</th>
               </tr>
               {rows}

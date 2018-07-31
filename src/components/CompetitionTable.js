@@ -7,7 +7,8 @@ class CompetitionTable extends BaseComponent {
   constructor(props) {
     super(props);
     this.state = {
-      content: []
+      content: [],
+      valueSelect: ''
     };
   }
 
@@ -15,8 +16,8 @@ class CompetitionTable extends BaseComponent {
     this.getCompetitionInfo();
   }
 
-  getCompetitionInfo = () => {
-    fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/list')
+  getCompetitionInfo = (order = '') => {
+    fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/list' + order)
         .then(response => {
           console.log(response);
           return response.json()
@@ -24,11 +25,16 @@ class CompetitionTable extends BaseComponent {
         .then((content) => {
           console.warn(content);
           this.setState({
-            content: content
+            content: content,
           });
         });
     console.log(this.state);
   };
+
+  selectCompetitionTabel = (e) => {
+    this.getCompetitionInfo(e.target.value);
+    console.log(this.state.valueSelect)
+  }
 
   render() {
     if (this.reload) {
@@ -52,7 +58,12 @@ class CompetitionTable extends BaseComponent {
         <div className="flex-container width_tabel">
           <div className="positionButtonComp">
             <button onClick={() => this.goToState('/create-competition')} className='button marginBotStandart'>Create competition</button>
-            <button onClick={this.getCompetitionInfo} className="button marginBotStandart">Update</button>
+            <select className='button selectForm' onChange={this.selectCompetitionTabel} value={this.state.value}>
+              <option disabled>select by</option>
+              <option value=''>none select</option>
+              <option value='&sort=name,acs'>name</option>
+              <option value='&sort=dateStart,acs'>date start</option>
+            </select>
           </div>
 
           <table className="table">

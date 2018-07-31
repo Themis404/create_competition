@@ -170,6 +170,8 @@
 }
 .marginElem{
   margin: 40px auto;
+  width: auto;
+  padding-bottom: 0;
 }
 .positionAbsolute{
   position: absolute;
@@ -196,14 +198,14 @@
 .Search input {
   width: 250px;
   height: 32px;
-  padding-left: 15px; 
+  padding-left: 15px;
   border-radius: 42px;
   border: 2px solid #324b4e;
   background: #F9F0DA;
   outline: none;
   position: relative;
   transition: .3s linear;
-  right:-10%;
+  right: 0%;
 }
 .Search input:focus {
   width: 300px;
@@ -212,17 +214,20 @@
   width: 32px;
   height: 32px;
   background: none;
-  border: none; 
+  border: none;
   position: relative;
   /* padding-left: 15px; */
   border-radius: 42px;
   margin: 0 auto;
   padding-left: 0%;
   padding-right: 0%;
-  top: 11px;  
-  right: 5%;  
+  top: 11px;
+  right: 15%;
 }
-
+.selectForm{
+  height: 31px;
+  margin: auto 0;
+}
 @keyframes App-logo-spin {
 from { transform: rotate(0deg); }
 to { transform: rotate(360deg); }
