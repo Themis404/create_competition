@@ -203,7 +203,7 @@
   outline: none;
   position: relative;
   transition: .3s linear;
-  right: 0%;
+  right:-10%;
 }
 .Search input:focus {
   width: 300px;
@@ -220,7 +220,7 @@
   padding-left: 0%;
   padding-right: 0%;
   top: 11px;  
-  right: 15%;  
+  right: 5%;  
 }
 
 @keyframes App-logo-spin {
