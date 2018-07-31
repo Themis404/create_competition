@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom';
 import { Redirect } from 'react-router-dom';
 import CompetitionTable from '../components/CompetitionTable.js'
 import BaseComponent from './baseComponent'
-import lupa from './lup.png'
+import SearchBar from '../components/SearchBar.js';
 
 class MainPage extends BaseComponent {
     constructor(params) {
         super(params);
     }
-
+    search(name) {
+        this.props.fetchSearch(name);
+      }
+    
     render() {
         if (this.reload) {
             this.reload = false;
@@ -17,13 +20,7 @@ class MainPage extends BaseComponent {
         }
         return (
           <div className='marginElem'>
-             <div className="Search">
-                <form className="searchF">
-                     <input type="search" name="q" placeholder="Поиск..."/>
-                     <button className='SearchButton'><img src={lupa} alt='lupa' className="lupa"/></button>
-                      {/* <input type="submit" value="Найти"/> */}
-                 </form>
-              </div>
+              <SearchBar onSearchName={this.search.bind(this)}/>
               <CompetitionTable />
           </div>
         );
