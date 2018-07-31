@@ -35,7 +35,7 @@ class CreateDay extends BaseComponent {
         date: this.state.date,
         timeStart : this.state.timeStart,
         timeFinish: this.state.timeFinish,
-        sequenceNuber: this.state.sequenceNuber
+        sequenceNuber: this.state.sequenceNuber,
       })
     }).then(res=>{
       console.log(res);
@@ -100,7 +100,7 @@ class CreateDay extends BaseComponent {
             <div className='textInput width_input'>
                 <h2>Create day</h2>
                 <p>Name</p>
-                <p><input id='inputName' className="cardCompForm" placeholder = "Name competition"
+                <p><input id='inputName' className="cardCompForm" placeholder = "Name day"
                         value={this.state.name}
                         onChange={e => this.updateName(e)}/></p>
                 <p>Date</p>
@@ -108,11 +108,11 @@ class CreateDay extends BaseComponent {
                         value={this.state.date}
                         onChange={e => this.updateDate(e)}/></p>
                 <p>Time Start</p>
-                <p><input id='inputTimeStart' className="cardCompForm" placeholder = "HH-MM-SS"
+                <p><input id='inputTimeStart' className="cardCompForm" placeholder = "HH:MM"
                         value={this.state.dateStart}
                         onChange={e => this.updateTimeStart(e)}/></p>
                 <p>Time Finish</p>
-                <p><input id='inpuTimeFinish' className="cardCompForm" placeholder = "HH-MM-SS"
+                <p><input id='inpuTimeFinish' className="cardCompForm" placeholder = "HH:MM"
                         value={this.state.dateFinish}
                         onChange={e => this.updateTimeFinish(e)}/></p>
                 <p>Sequence Nuber</p>
