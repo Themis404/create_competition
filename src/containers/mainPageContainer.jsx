@@ -1,25 +1,16 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Redirect } from 'react-router-dom';
-import CompetitionTable from '../components/CompetitionTable.js'
 import BaseComponent from './baseComponent'
 import SearchBar from '../components/SearchBar.js';
-import actions from '../actions/index';
+import * as actions from '../actions/index';
 
 class MainPage extends BaseComponent {
-    constructor(params) {
-        super(params),
-        this.state = {
-            items: [],
-            content: [],
-            valueSelect: ''
-        }
-    }
     constructor(props) {
         super(props);
         this.state = {
           content: [],
-          valueSelect: '',
+          items: [],
           sortValue: null,
           pageNo: 0,
           pageSize: 10,
@@ -75,8 +66,20 @@ class MainPage extends BaseComponent {
                 totalPages: content.totalPages
               });
             });
+            console.log(this.state)
       };
     
+      search(name) {
+        console.log(name)
+        actions.fetchSearch(name)
+            .then(res => {
+                console.log(res);
+                this.setState({
+                    items: res.content
+                })
+            })
+      }
+
       render() {
         if (this.reload) {
             this.reload = false;
@@ -84,6 +87,7 @@ class MainPage extends BaseComponent {
         }
         return (
             <div className="flex-container width_tabel">
+             <SearchBar onSearch={(searchString) => this.search(searchString)}/>
               <div className="positionButtonComp">
                 <button onClick={() => this.goToState('/create-competition')} className='button marginBotStandart'>Create competition</button>
                 <select className='button selectForm' onChange={event => this.setState({sortValue: event && event.target && event.target.value ? event.target.value : null}, () => this.getCompetitionInfo())} value={this.state.sortValue ? this.state.sortValue : ''}>
@@ -126,30 +130,6 @@ class MainPage extends BaseComponent {
               </table>
             </div>
         )
-      }
-      
-    search(name) {
-        console.log(name)
-        actions.fetchSearch(name)
-            .then(res => {
-                console.log(res);
-                this.setState({
-                    items: res.content
-                })
-            })
-            
-      }
-
-    render() {
-        if (this.reload) {
-            this.reload = false;
-            return <Redirect to={this.redirect} push={true} />;
-        }
-        return (
-          <div className='marginElem'>
-             <SearchBar onSearch={(searchString) => this.search(searchString)}/>
-          </div>
-        );
     }
 }
 
