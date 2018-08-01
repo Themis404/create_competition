@@ -61,8 +61,8 @@ class CompetitionTable extends BaseComponent {
             <select className='button selectForm' onChange={this.selectCompetitionTabel} value={this.state.value}>
               <option disabled>select by</option>
               <option value=''>none select</option>
-              <option value='&sort=name,acs'>name</option>
-              <option value='&sort=dateStart,acs'>date start</option>
+              <option value='?sort=name,asc'>name</option>
+              <option value='?sort=dateStart,asc'>date start</option>
             </select>
           </div>
 
