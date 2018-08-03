@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import CompetitionCreate from '../components/competitionCreate.js'
+import CreateCompetition from '../components/createCompetition.js'
 import BaseComponent from '../containers/baseComponent'
 import { Redirect } from 'react-router-dom';
 
-class CreateCompetition extends BaseComponent {
+class PageCreateCompetition extends BaseComponent {
     constructor(params) {
         super(params);
     }
@@ -17,10 +17,10 @@ class CreateCompetition extends BaseComponent {
       return (
         <div className='marginElem'>
           <button onClick={() => this.goToState('/main')} className='button flex-container'>Back</button>
-          <CompetitionCreate/>
+          <CreateCompetition/>
         </div>
       );
     }
 }
 
-export default CreateCompetition;
+export default PageCreateCompetition;

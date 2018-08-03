@@ -3,7 +3,7 @@ import {Redirect} from 'react-router-dom';
 import BaseComponent from '../containers/baseComponent'
 import ReactDOM from 'react-dom';
 
-class CompetitionCreate extends BaseComponent {
+class CreateCompetition extends BaseComponent {
 
   constructor(props) {
     super(props);
@@ -113,4 +113,4 @@ class CompetitionCreate extends BaseComponent {
   }
 }
 
-export default CompetitionCreate;
+export default CreateCompetition;
