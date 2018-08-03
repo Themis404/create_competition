@@ -93,7 +93,7 @@ class InputInfo extends BaseComponent {
                       value={this.state.name}
                       onChange={e => this.updateName(e)}/></p>
               <p>Description</p>
-              <p><textarea rows = "4" id='inputDescription' className="cardCompForm" placeholder = "Information about competition" maxLength="86"
+              <p><textarea rows = "4" id='inputDescription' className="cardCompForm" placeholder = "Information about competition" maxLength="300"
                       value={this.state.description}
                       onChange={e => this.updateDescription(e)}/></p>
               <p>Date Start</p>
