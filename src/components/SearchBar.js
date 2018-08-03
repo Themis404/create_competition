@@ -2,21 +2,21 @@ import React from 'react';
 import BaseComponent from '../containers/baseComponent'
 import { Redirect } from 'react-router-dom';
 import lupa from './lup.png'
-import * as actions from '../actions/index';  
+import * as actions from '../actions/index';
 
 class SearchBar extends BaseComponent {
     constructor(props) {
         super(props);
         this.state = {
-            searchString: ''
+            searchByName: ''
         }
     }
 
     handleChange(e){
 		this.setState({
-            searchString: e && e.target && e.target.value ? e.target.value : ''
+            searchByName: e && e.target && e.target.value ? e.target.value : ''
         });
-        
+        console.log(this.state)
     }
 
     render() {
@@ -27,8 +27,8 @@ class SearchBar extends BaseComponent {
         return (
             <div className="Search">
                 <form className="searchF">
-                     <input type="search"  placeholder="Поиск..."  value={this.state.searchString} onChange={(e) => this.handleChange(e)}/> 
-                     <button className='SearchButton' onClick={() => this.props.onSearch(this.state.searchString)}><img src={lupa} alt='lupa' className="lupa"/></button>
+                     <input type="search"  placeholder="Поиск..."  value={this.state.searchByName} onChange={ e => this.handleChange(e)}/>
+                     <button className='SearchButton' onClick={() => this.props.onSearch(this.state.searchByName)}><img src={lupa} alt='lupa' className="lupa"/></button>
                  </form>
               </div>
         )

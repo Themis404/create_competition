@@ -48,7 +48,7 @@ class DaysTable extends BaseComponent {
       }
 
       return (
-          <div className="flex-container width_tabel">
+          <div className="flex-container width_tabel marginTopStandart">
             <table className="table">
               <tbody>
               <tr className="tr">

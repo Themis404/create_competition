@@ -38,7 +38,7 @@ class CardCompetition extends BaseComponent {
       }
 
       return (
-          <div className="createComp marginTopStandart">
+          <div className="createComp marginTopStandart marginBotStandart">
             <form className='positionInput'>
               <div className='textInput width_input'>
                 <h2>Card competition</h2>
@@ -47,11 +47,11 @@ class CardCompetition extends BaseComponent {
                 <p>Description</p>
                 <p> <textarea rows = "4" className="cardCompForm" value={this.state.content.description}/></p>
                 <p>Date first</p>
-                <p> <input className="cardCompForm" value={this.state.content.dateStart}/></p>
+                <p> <input type='date' className="cardCompForm" value={this.state.content.dateStart}/></p>
                 <p>Date last</p>
-                <p> <input className="cardCompForm" value={this.state.content.dateFinish}/></p>
+                <p> <input type='date' className="cardCompForm" value={this.state.content.dateFinish}/></p>
                 <p>Date deadline for applications</p>
-                <p> <input className="cardCompForm" value={this.state.content.registrationEndTimestamp} placeholder = "DD-MM-YYYY" /></p>
+                <p> <input type='date' className="cardCompForm" value={this.state.content.registrationEndTimestamp} placeholder = "DD-MM-YYYY" /></p>
               </div>
             </form>
             <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/create-day')} className='button flex-container'>Create day</button>

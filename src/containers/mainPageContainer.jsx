@@ -30,12 +30,12 @@ class MainPage extends BaseComponent {
           ]
         };
       }
-    
+
       componentDidMount() {
         this.getCompetitionInfo();
       }
-    
-    
+
+
       goToPrev() {
           if (!this.state.pageNo) {
             return;
@@ -44,7 +44,7 @@ class MainPage extends BaseComponent {
             pageNo: this.state.pageNo - 1
           }, () => this.getCompetitionInfo());
       }
-    
+
       goToNext() {
           if (this.state.pageNo === this.state.totalPages - 1) {
             return;
@@ -53,31 +53,19 @@ class MainPage extends BaseComponent {
             pageNo: this.state.pageNo + 1
           }, () => this.getCompetitionInfo());
       }
-    
+
       getCompetitionInfo = () => {
         actions.list({
           page: this.state.pageNo,
           size: this.state.pageSize,
-          sort: this.state.sortValue ? this.state.sortValue : null
+          sort: this.state.sortValue ? this.state.sortValue : null,
+          searchByName: this.state.searchByName ? this.state.searchByName: null
         }).then((content) => {
               this.setState({
                 content: content,
                 totalPages: content.totalPages
               });
             });
-            console.log(this.state)
-      };
-    
-      search(name) {
-        console.log(name)
-        actions.fetchSearch(name)
-            .then(res => {
-                console.log(res);
-                this.setState({
-                    content: res ? res : null
-                })
-            })
-            
       }
 
       render() {
@@ -87,9 +75,9 @@ class MainPage extends BaseComponent {
         }
         return (
             <div className="flex-container width_tabel">
-             <SearchBar onSearch={(searchString) => this.search(searchString)}/>
-              <div className="positionButtonComp">
-                <button onClick={() => this.goToState('/create-competition')} className='button marginBotStandart'>Create competition</button>
+             <SearchBar onSearch={ e => this.setState({searchByName: e}, () => this.getCompetitionInfo())}/>
+              <div className="positionButtonComp marginBotStandart marginTopStandart">
+                <button onClick={() => this.goToState('/create-competition')} className='button'>Create competition</button>
                 <select className='button selectForm' onChange={event => this.setState({sortValue: event && event.target && event.target.value ? event.target.value : null}, () => this.getCompetitionInfo())} value={this.state.sortValue ? this.state.sortValue : ''}>
                   <option disabled>select by</option>
                   {
@@ -100,14 +88,14 @@ class MainPage extends BaseComponent {
                 </select>
                 {
                   !!this.state.pageNo &&
-                  <button className='marginBotStandart' onClick={() => this.goToPrev()}>left</button>
+                  <button className='button marginBotStandart' onClick={() => this.goToPrev()}>left</button>
                 }
                 {
                   this.state.pageNo < this.state.totalPages - 1 &&
-                  <button className='marginBotStandart' onClick={() => this.goToNext()}>right</button>
+                  <button className='button marginBotStandart' onClick={() => this.goToNext()}>right</button>
                 }
               </div>
-    
+
               <table className="table">
                 <tbody>
                 <tr className="tr">
@@ -123,7 +111,6 @@ class MainPage extends BaseComponent {
                         <td className="td">{contentRow.dateStart}</td>
                         <td className="td">{contentRow.dateFinish}</td>
                         {/* <td className="td">{contentRow.description}</td> */}
-
                       </tr>
                   )
                 }

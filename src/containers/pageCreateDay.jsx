@@ -5,7 +5,6 @@ import BaseComponent from '../containers/baseComponent'
 import { Redirect } from 'react-router-dom';
 import DaysTable from '../components/daysTable';
 import CreateDay from '../components/createDay';
-import CompetitionTable from '../components/CompetitionTable'
 
 class PageCreateDay extends BaseComponent {
     constructor(params) {
@@ -20,6 +19,7 @@ class PageCreateDay extends BaseComponent {
       }
       return (
         <div className='marginElem'>
+          <button onClick={() => this.goToState('/competition/' + this.props.id)} className='button flex-container'>Back</button>
           <CreateDay id={this.props.match.params.id}/>
         </div>
       );

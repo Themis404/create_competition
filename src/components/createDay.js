@@ -13,8 +13,7 @@ class CreateDay extends BaseComponent {
       date: '',
       timeStart: '',
       timeFinish: '',
-      sequenceNumber: '',
-      submitButtonDisabled: true  //т.к. поля пустые
+      sequenceNumber: ''
     }
   }
 
@@ -59,45 +58,29 @@ class CreateDay extends BaseComponent {
   };
 
   updateName(e) {
-    // this.checkFieldsEmpty() //можно проверять здесь
     this.setState( {name: e.target.value} );
   }
 
   updateTimeStart(e) {
-    // this.checkFieldsEmpty()
     this.setState( {timeStart: e.target.value} )
   }
 
   updateTimeFinish(e) {
-    // this.checkFieldsEmpty()
     this.setState( {timeFinish: e.target.value} )
   }
 
   updateDate(e) {
-    // this.checkFieldsEmpty()
     this.setState( {date: e.target.value} )
   }
 
   updateSequenceNumber(e) {
-    // this.checkFieldsEmpty()
     this.setState( {sequenceNumber: e.target.value} )
   }
 
   updateCompetitionId(e) {
-    // this.checkFieldsEmpty()
     this.setState( {competitionId: this.props.id} )
     console.log(this.state.competitionId)
   }
-
-
-  checkFieldsEmpty = () => {
-    if ((this.state.name.length&&this.state.timeStart.length&&this.state.timeFinish.length&&this.state.date.length&&this.state.sequenceNuber.length) === 0) {
-      this.setState({submitButtonDisabled: true});
-    } else {
-      this.setState({submitButtonDisabled: false});
-    }
-    console.log(this.state.submitButtonDisabled);
-  };
 
   render() {
     if (this.reload) {
@@ -110,32 +93,32 @@ class CreateDay extends BaseComponent {
             <div className='textInput width_input'>
                 <h2>Create day</h2>
                 <p>Name</p>
-                <p><input id='inputName' className="cardCompForm" placeholder = "NAME DAY"
+                <p><input required name='name' className="cardCompForm" placeholder = "NAME DAY"
                         value={this.state.name}
-                        onChange={e => this.updateName(e)}/></p>
+                        onChange={ e => this.updateName(e)}/></p>
                 <p>Date</p>
-                <p><input id='inputDate' className="cardCompForm" placeholder = "DD-MM-YYYY"
+                <p><input required type='date' name='date'className="cardCompForm" placeholder = "DD-MM-YYYY"
                         value={this.state.date}
-                        onChange={e => this.updateDate(e)}/></p>
+                        onChange={ e => this.updateDate(e)}/></p>
                 <p>Time Start</p>
-                <p><input id='inputTimeStart' className="cardCompForm" placeholder = "HH-MM-SS"
+                <p><input required type='time' name='timeStart' className="cardCompForm" placeholder = "HH-MM"
                         value={this.state.dateStart}
-                        onChange={e => this.updateTimeStart(e)}/></p>
+                        onChange={ e => this.updateTimeStart(e)}/></p>
                 <p>Time Finish</p>
-                <p><input id='inpuTimeFinish' className="cardCompForm" placeholder = "HH-MM-SS"
+                <p><input required type='time' name='timeFinish' className="cardCompForm" placeholder = "HH-MM"
                         value={this.state.dateFinish}
-                        onChange={e => this.updateTimeFinish(e)}/></p>
+                        onChange={ e => this.updateTimeFinish(e)}/></p>
                 <p>Sequence Nuber</p>
-                <p><input id='inputSequenceNuber' className="cardCompForm" placeholder = "Number day"
+                <p><input required name='numberDay' className="cardCompForm" placeholder = "Number day"
                         value={this.state.sequenceNumber}
-                        onChange={e => this.updateSequenceNumber(e)}/></p>
+                        onChange={ e => this.updateSequenceNumber(e)}/></p>
                 <p>Competition Id</p>
-                <p id='inputCompetitionId' className="cardCompForm" placeholder = "Number COMPETITION"
+                <p className="cardCompForm" placeholder = "Number COMPETITION"
                         value={this.state.competitionId}
-                        onChange={e => this.updateCompetitionId(e)}></p>
+                        onChange={  e => this.updateCompetitionId(e)}></p>
             </div>
             <div>
-              <button type="submit" className="button" disabled={false}>Create</button>
+              <button type="submit" name='submit' className="button" >Create</button>
             </div>
           </form>
         </div>

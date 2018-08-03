@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import InputInfo from '../components/InputInfo.js'
+import CompetitionCreate from '../components/competitionCreate.js'
 import BaseComponent from '../containers/baseComponent'
 import { Redirect } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ class CreateCompetition extends BaseComponent {
       return (
         <div className='marginElem'>
           <button onClick={() => this.goToState('/main')} className='button flex-container'>Back</button>
-          <InputInfo/>
+          <CompetitionCreate/>
         </div>
       );
     }
