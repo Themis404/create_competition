@@ -205,7 +205,6 @@
   outline: none;
   position: relative;
   transition: .3s linear;
-  right: 0%;
 }
 .Search input:focus {
   width: 300px;
