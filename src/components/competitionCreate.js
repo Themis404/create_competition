@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import BaseComponent from '../containers/baseComponent'
 import ReactDOM from 'react-dom';
 
@@ -30,12 +30,12 @@ class CompetitionCreate extends BaseComponent {
       body: JSON.stringify({
         name: this.state.name,
         description: this.state.description,
-        dateStart : this.state.dateStart,
+        dateStart: this.state.dateStart,
         dateFinish: this.state.dateFinish,
         registrationStart: this.state.registrationStart,
         registrationEnd: this.state.registrationEnd
       })
-    }).then(res=>{
+    }).then(res => {
       console.log(res);
       this.setState({name: '', description: '', dateStart: '', dateFinish: '', registrationEnd: '', registrationStart: ''});
       console.log(this.state);
@@ -71,8 +71,8 @@ class CompetitionCreate extends BaseComponent {
 
   render() {
     if (this.reload) {
-        this.reload = false;
-        return <Redirect to={this.redirect} push={true} />;
+      this.reload = false;
+      return <Redirect to={this.redirect} push={true}/>;
     }
     return (
         <div className="createComp marginTopStandart">

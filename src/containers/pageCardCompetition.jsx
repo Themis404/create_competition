@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import CardCompetition from '../components/cardCompetition'
+import CompetitionCard from '../components/CompetitionCard'
 import BaseComponent from '../containers/baseComponent'
 import { Redirect } from 'react-router-dom';
-import DaysTable from '../components/daysTable';
+import DaysTable from '../components/DaysTable';
 
 class PageCardCompetition extends BaseComponent {
     constructor(params) {
@@ -19,8 +19,13 @@ class PageCardCompetition extends BaseComponent {
       return (
         <div className='marginElem'>
           <button onClick={() => this.goToState('/main')} className='button flex-container'>Back</button>
+<<<<<<< HEAD
           <CardCompetition id={this.props.match.params.id}/>
           <DaysTable className='center' id={this.props.match.params.id}/>
+=======
+          <CompetitionCard id={this.props.match.params.id}/>
+          <DaysTable id={this.props.match.params.id}/>
+>>>>>>> 7de8b1b83c8da7cb51fa30d3acf2851fe3ae993a
         </div>
       );
     }
