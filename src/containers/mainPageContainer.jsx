@@ -10,10 +10,9 @@ class MainPage extends BaseComponent {
         super(props);
         this.state = {
           content: [],
-          items: [],
           sortValue: null,
           pageNo: 0,
-          pageSize: 10,
+          pageSize: 2,
           totalPages: 0,
           sorts: [
             {
@@ -75,9 +74,10 @@ class MainPage extends BaseComponent {
             .then(res => {
                 console.log(res);
                 this.setState({
-                    items: res.content
+                    content: res ? res : null
                 })
             })
+            
       }
 
       render() {
@@ -123,6 +123,7 @@ class MainPage extends BaseComponent {
                         <td className="td">{contentRow.dateStart}</td>
                         <td className="td">{contentRow.dateFinish}</td>
                         {/* <td className="td">{contentRow.description}</td> */}
+
                       </tr>
                   )
                 }
