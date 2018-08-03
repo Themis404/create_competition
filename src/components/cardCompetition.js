@@ -51,7 +51,7 @@ class CardCompetition extends BaseComponent {
                 <p>Date last</p>
                 <p> <input type='date' className="cardCompForm" value={this.state.content.dateFinish}/></p>
                 <p>Date deadline for applications</p>
-                <p> <input type='date' className="cardCompForm" value={this.state.content.registrationEndTimestamp} placeholder = "DD-MM-YYYY" /></p>
+                <p> <input type='date' className="cardCompForm" value={this.state.content.registrationEnd} placeholder = "DD-MM-YYYY" /></p>
               </div>
             </form>
             <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/create-day')} className='button flex-container'>Create day</button>

@@ -11,7 +11,6 @@ class SearchBar extends BaseComponent {
             searchByName: ''
         }
     }
-  }
 
     handleChange(e){
 		this.setState({
@@ -34,16 +33,6 @@ class SearchBar extends BaseComponent {
               </div>
         )
     }
-    return (
-        <div className="Search">
-          <form className="searchF">
-            <input type="search" placeholder="Поиск..." value={this.state.searchString}
-                   onChange={(e) => this.handleChange(e)}/>
-            <button className='SearchButton' onClick={() => this.props.onSearch(this.state.searchString)}><img
-                src={lupa} alt='lupa' className="lupa"/></button>
-          </form>
-        </div>
-    )
+
   }
-}
 export default SearchBar;
