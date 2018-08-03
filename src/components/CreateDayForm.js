@@ -1,9 +1,9 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import BaseComponent from '../containers/baseComponent'
 import ReactDOM from 'react-dom';
 
-class CreateDay extends BaseComponent {
+class CreateDayForm extends BaseComponent {
 
   constructor(props) {
     super(props);
@@ -41,14 +41,14 @@ class CreateDay extends BaseComponent {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        competitionId : this.state.competitionId,
+        competitionId: this.state.competitionId,
         name: this.state.name,
         date: this.state.date,
-        timeStart : this.state.timeStart,
+        timeStart: this.state.timeStart,
         timeFinish: this.state.timeFinish,
         sequenceNumber: this.state.sequenceNumber
       })
-    }).then(res=>{
+    }).then(res => {
       console.log(res);
       this.setState({name: '', date: '', timeStart: '', timeFinish: '', sequenceNumber: '', competitionId: ''});
       console.log(this.state);
@@ -60,38 +60,42 @@ class CreateDay extends BaseComponent {
 
   updateName(e) {
     // this.checkFieldsEmpty() //можно проверять здесь
-    this.setState( {name: e.target.value} );
+    this.setState({name: e.target.value});
   }
 
   updateTimeStart(e) {
     // this.checkFieldsEmpty()
-    this.setState( {timeStart: e.target.value} )
+    this.setState({timeStart: e.target.value});
   }
 
   updateTimeFinish(e) {
     // this.checkFieldsEmpty()
-    this.setState( {timeFinish: e.target.value} )
+    this.setState({timeFinish: e.target.value});
   }
 
   updateDate(e) {
     // this.checkFieldsEmpty()
-    this.setState( {date: e.target.value} )
+    this.setState({date: e.target.value});
   }
 
   updateSequenceNumber(e) {
     // this.checkFieldsEmpty()
-    this.setState( {sequenceNumber: e.target.value} )
+    this.setState({sequenceNumber: e.target.value});
   }
 
   updateCompetitionId(e) {
     // this.checkFieldsEmpty()
-    this.setState( {competitionId: this.props.id} )
+    this.setState({competitionId: this.props.id});
     console.log(this.state.competitionId)
   }
 
-
   checkFieldsEmpty = () => {
-    if ((this.state.name.length&&this.state.timeStart.length&&this.state.timeFinish.length&&this.state.date.length&&this.state.sequenceNuber.length) === 0) {
+    if ((this.state.name.length
+        && this.state.timeStart.length
+        && this.state.timeFinish.length
+        && this.state.date.length
+        && this.state.sequenceNuber.length) === 0)
+    {
       this.setState({submitButtonDisabled: true});
     } else {
       this.setState({submitButtonDisabled: false});
@@ -101,39 +105,45 @@ class CreateDay extends BaseComponent {
 
   render() {
     if (this.reload) {
-        this.reload = false;
-        return <Redirect to={this.redirect} push={true} />;
+      this.reload = false;
+      return <Redirect to={this.redirect} push={true}/>;
     }
     return (
         <div className="createComp marginTopStandart">
           <form onSubmit={this.handleSubmit} className='positionInput'>
             <div className='textInput width_input'>
-                <h2>Create day</h2>
-                <p>Name</p>
-                <p><input id='inputName' className="cardCompForm" placeholder = "NAME DAY"
+              <h2>Create day</h2>
+              <p>Name</p>
+              <p><input id='inputName' className="cardCompForm" placeholder="NAME DAY"
                         value={this.state.name}
                         onChange={e => this.updateName(e)}/></p>
-                <p>Date</p>
-                <p><input id='inputDate' className="cardCompForm" placeholder = "DD-MM-YYYY"
+
+              <p>Date</p>
+              <p><input id='inputDate' className="cardCompForm" placeholder="DD-MM-YYYY"
                         value={this.state.date}
                         onChange={e => this.updateDate(e)}/></p>
-                <p>Time Start</p>
-                <p><input id='inputTimeStart' className="cardCompForm" placeholder = "HH-MM-SS"
+
+              <p>Time Start</p>
+              <p><input id='inputTimeStart' className="cardCompForm" placeholder="HH-MM-SS"
                         value={this.state.dateStart}
                         onChange={e => this.updateTimeStart(e)}/></p>
-                <p>Time Finish</p>
-                <p><input id='inpuTimeFinish' className="cardCompForm" placeholder = "HH-MM-SS"
+
+              <p>Time Finish</p>
+              <p><input id='inpuTimeFinish' className="cardCompForm" placeholder="HH-MM-SS"
                         value={this.state.dateFinish}
                         onChange={e => this.updateTimeFinish(e)}/></p>
-                <p>Sequence Nuber</p>
-                <p><input id='inputSequenceNuber' className="cardCompForm" placeholder = "Number day"
+
+              <p>Sequence Nuber</p>
+              <p><input id='inputSequenceNuber' className="cardCompForm" placeholder="Number day"
                         value={this.state.sequenceNumber}
                         onChange={e => this.updateSequenceNumber(e)}/></p>
-                <p>Competition Id</p>
-                <p id='inputCompetitionId' className="cardCompForm" placeholder = "Number COMPETITION"
+
+              <p>Competition Id</p>
+              <p><input id='inputCompetitionId' className="cardCompForm" placeholder="Number COMPETITION"
                         value={this.state.competitionId}
-                        onChange={e => this.updateCompetitionId(e)}></p>
+                        onChange={e => this.updateCompetitionId(e)}/></p>
             </div>
+
             <div>
               <button type="submit" className="button" disabled={false}>Create</button>
             </div>
@@ -143,4 +153,4 @@ class CreateDay extends BaseComponent {
   }
 }
 
-export default CreateDay;
+export default CreateDayForm;

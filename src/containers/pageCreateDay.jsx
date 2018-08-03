@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import CardCompetition from '../components/cardCompetition'
+import CompetitionCard from '../components/CompetitionCard'
 import BaseComponent from '../containers/baseComponent'
 import { Redirect } from 'react-router-dom';
-import DaysTable from '../components/daysTable';
-import CreateDay from '../components/createDay';
+import DaysTable from '../components/DaysTable';
+import CreateDayForm from '../components/CreateDayForm';
 import CompetitionTable from '../components/CompetitionTable'
 
 class PageCreateDay extends BaseComponent {
@@ -20,7 +20,7 @@ class PageCreateDay extends BaseComponent {
       }
       return (
         <div className='marginElem'>
-          <CreateDay id={this.props.match.params.id}/>
+          <CreateDayForm id={this.props.match.params.id}/>
         </div>
       );
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import BaseComponent from '../containers/baseComponent'
 import ReactDOM from 'react-dom';
 
@@ -30,11 +30,11 @@ class InputInfo extends BaseComponent {
       body: JSON.stringify({
         name: this.state.name,
         description: this.state.description,
-        dateStart : this.state.dateStart,
+        dateStart: this.state.dateStart,
         dateFinish: this.state.dateFinish,
         registrationEndTimestamp: this.state.registrationEndTimestamp
       })
-    }).then(res=>{
+    }).then(res => {
       console.log(res);
       this.setState({name: '', description: '', dateStart: '', dateFinish: '', registrationEndTimestamp: ''});
       console.log(this.state);
@@ -45,32 +45,32 @@ class InputInfo extends BaseComponent {
   };
 
   updateName(e) {
-    this.checkFieldsEmpty() //можно проверять здесь
-    this.setState( {name: e.target.value} );
+    this.checkFieldsEmpty(); //можно проверять здесь
+    this.setState({name: e.target.value});
   }
 
   updateDateStart(e) {
-    this.checkFieldsEmpty()
-    this.setState( {dateStart: e.target.value} )
+    this.checkFieldsEmpty();
+    this.setState({dateStart: e.target.value})
   }
 
   updateDateFinish(e) {
-    this.checkFieldsEmpty()
-    this.setState( {dateFinish: e.target.value} )
+    this.checkFieldsEmpty();
+    this.setState({dateFinish: e.target.value})
   }
 
   updateDescription(e) {
-    this.checkFieldsEmpty()
-    this.setState( {description: e.target.value} )
+    this.checkFieldsEmpty();
+    this.setState({description: e.target.value})
   }
 
   updateRegistrationEndTimestamp(e) {
-    this.checkFieldsEmpty()
-    this.setState( {registrationEndTimestamp: e.target.value} )
+    this.checkFieldsEmpty();
+    this.setState({registrationEndTimestamp: e.target.value})
   }
 
   checkFieldsEmpty = () => {
-    if ((this.state.name.length&&this.state.description.length&&this.state.dateStart.length&&this.state.dateFinish.length&&this.state.registrationEndTimestamp.length) === 0) {
+    if ((this.state.name.length && this.state.description.length && this.state.dateStart.length && this.state.dateFinish.length && this.state.registrationEndTimestamp.length) === 0) {
       this.setState({submitButtonDisabled: true});
     } else {
       this.setState({submitButtonDisabled: false});
@@ -80,8 +80,8 @@ class InputInfo extends BaseComponent {
 
   render() {
     if (this.reload) {
-        this.reload = false;
-        return <Redirect to={this.redirect} push={true} />;
+      this.reload = false;
+      return <Redirect to={this.redirect} push={true}/>;
     }
     return (
         <div className="createComp marginTopStandart">
@@ -89,25 +89,26 @@ class InputInfo extends BaseComponent {
             <div className='textInput width_input'>
               <h2>Create competition</h2>
               <p>Name</p>
-              <p><input id='inputName' className="cardCompForm" placeholder = "Name competition"
-                      value={this.state.name}
-                      onChange={e => this.updateName(e)}/></p>
+              <p><input id='inputName' className="cardCompForm" placeholder="Name competition"
+                        value={this.state.name}
+                        onChange={e => this.updateName(e)}/></p>
               <p>Description</p>
-              <p><textarea rows = "4" id='inputDescription' className="cardCompForm" placeholder = "Information about competition" maxLength="300"
-                      value={this.state.description}
-                      onChange={e => this.updateDescription(e)}/></p>
+              <p><textarea rows="4" id='inputDescription' className="cardCompForm"
+                           placeholder="Information about competition" maxLength="300"
+                           value={this.state.description}
+                           onChange={e => this.updateDescription(e)}/></p>
               <p>Date Start</p>
-              <p><input id='inputDateStart' className="cardCompForm" placeholder = " DD-MM-YYYY"
-                      value={this.state.dateStart}
-                      onChange={e => this.updateDateStart(e)}/></p>
+              <p><input id='inputDateStart' className="cardCompForm" placeholder=" DD-MM-YYYY"
+                        value={this.state.dateStart}
+                        onChange={e => this.updateDateStart(e)}/></p>
               <p>Date Finish</p>
-              <p><input id='inputDateFinish' className="cardCompForm" placeholder = " DD-MM-YYYY"
-                      value={this.state.dateFinish}
-                      onChange={e => this.updateDateFinish(e)}/></p>
+              <p><input id='inputDateFinish' className="cardCompForm" placeholder=" DD-MM-YYYY"
+                        value={this.state.dateFinish}
+                        onChange={e => this.updateDateFinish(e)}/></p>
               <p>Deadline for applications</p>
-              <p><input id='inputRegistrationEndTimestamp' className="cardCompForm" placeholder = " DD-MM-YYYY_HH:MM:SS"
-                      value={this.state.registrationEndTimestamp}
-                      onChange={e => this.updateRegistrationEndTimestamp(e)}/></p>  
+              <p><input id='inputRegistrationEndTimestamp' className="cardCompForm" placeholder=" DD-MM-YYYY_HH:MM:SS"
+                        value={this.state.registrationEndTimestamp}
+                        onChange={e => this.updateRegistrationEndTimestamp(e)}/></p>
             </div>
             <div>
               <button type="submit" className="button" disabled={this.state.submitButtonDisabled}>Create</button>
