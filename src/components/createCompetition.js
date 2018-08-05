@@ -39,7 +39,6 @@ class CreateCompetition extends BaseComponent {
       console.log(res);
       this.setState({name: '', description: '', dateStart: '', dateFinish: '', registrationEnd: '', registrationStart: ''});
       console.log(this.state);
-      this.checkFieldsEmpty();
       res.ok ? console.log('success') : console.warn('something gone wrong');
     });
     e.preventDefault();

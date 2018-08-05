@@ -16,15 +16,19 @@ class MenuBar extends BaseComponent{
         return <Redirect to={this.redirect} push={true} />;
     }
     return(
-      <div className='menuPositionPage backgroundMenu'>
-        <ul className='menuPage menu'>
-          <div className='imgLogoForm'> <img src={logo} alt='logo' className='imgLogo'/> </div>
-          <p><li onClick={() => this.goToState('/main')} >TABLE COMPETITIONS</li></p>
-          <p><li onClick={() => this.goToState('/users')} >USERS</li></p>
-          <p><li onClick={() => this.goToState('/announcement')} >ANNOUNCEMENT</li></p>
-          <p><li onClick={() => this.goToState('/regulations')} >REGULATIONS</li></p>
-        </ul>
-      </div>
+      <nav className='navbar navbar-default'>
+        <div className='container'>
+          <div className="navbar-header">
+            <a className='navbar-brand'> ENDURO </a>
+          </div>
+          <ul className='nav navbar-nav'>
+            <li> <a className='active' onClick={() => this.goToState('/main')} >TABLE COMPETITIONS</a></li>
+            <li> <a  onClick={() => this.goToState('/users')} >USERS</a></li>
+            <li> <a  onClick={() => this.goToState('/announcement')} >ANNOUNCEMENT</a></li>
+            <li> <a  onClick={() => this.goToState('/regulations')} >REGULATIONS</a></li>
+          </ul>
+        </div>
+      </nav>
     );
   }
 }

@@ -39,23 +39,23 @@ class DaysTable extends BaseComponent {
     let rows = undefined;
     if (contents.content) {
       rows = contents.content.map((contentRow, key) =>
-          <tr key={key} className="tr">
-            <td className="td"
+          <tr key={key} className="">
+            <td className=""
                 onClick={() => this.goToState('/competition/' + contentRow.id)}>{contentRow.sequenceNumber}</td>
-            <td className="td" onClick={() => this.goToState('/competition/' + contentRow.id)}>{contentRow.name}</td>
-            <td className="td">{contentRow.countPoints}</td>
+            <td className="" onClick={() => this.goToState('/competition/' + contentRow.id)}>{contentRow.name}</td>
+            <td className="">{contentRow.countPoints}</td>
           </tr>
       )
     }
 
     return (
-        <div className="flex-container width_tabel">
-          <table className="table">
+        <div className="row container col-md-centerl">
+          <table className="table table-bordered table-striped">
             <tbody>
-            <tr className="tr">
-              <th className="th">DAY</th>
-              <th className="th">NAME</th>
-              <th className="th">POINTS</th>
+            <tr className="info active">
+              <th className="">DAY</th>
+              <th className="">NAME</th>
+              <th className="">POINTS</th>
             </tr>
             {rows}
             </tbody>

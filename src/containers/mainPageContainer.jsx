@@ -12,7 +12,7 @@ class MainPage extends BaseComponent {
           content: [],
           sortValue: null,
           pageNo: 0,
-          pageSize: 2,
+          pageSize: 10,
           totalPages: 0,
           sorts: [
             {
@@ -74,11 +74,12 @@ class MainPage extends BaseComponent {
             return <Redirect to={this.redirect} push={true} />;
         }
         return (
-            <div className="flex-container width_tabel">
-             <SearchBar onSearch={ e => this.setState({searchByName: e}, () => this.getCompetitionInfo())}/>
-              <div className="positionButtonComp marginBotStandart marginTopStandart">
-                <button onClick={() => this.goToState('/create-competition')} className='button'>Create competition</button>
-                <select className='button selectForm' onChange={event => this.setState({sortValue: event && event.target && event.target.value ? event.target.value : null}, () => this.getCompetitionInfo())} value={this.state.sortValue ? this.state.sortValue : ''}>
+          <div className='container'>
+            <div className="center-block">
+              <SearchBar onSearch={ e => this.setState({searchByName: e}, () => this.getCompetitionInfo())}/>
+              <div className='btn-group marginBotStandart'>
+                <button onClick={() => this.goToState('/create-competition')} className='btn btn-info heightButton'>Create competition</button>
+                <select className='btn btn-info heightButton' onChange={event => this.setState({sortValue: event && event.target && event.target.value ? event.target.value : null}, () => this.getCompetitionInfo())} value={this.state.sortValue ? this.state.sortValue : ''}>
                   <option disabled>select by</option>
                   {
                     this.state.sorts.map((sort, key) =>
@@ -88,35 +89,37 @@ class MainPage extends BaseComponent {
                 </select>
                 {
                   !!this.state.pageNo &&
-                  <button className='button marginBotStandart' onClick={() => this.goToPrev()}>left</button>
+                  <button className='btn btn-info' onClick={() => this.goToPrev()}>left</button>
                 }
                 {
                   this.state.pageNo < this.state.totalPages - 1 &&
-                  <button className='button marginBotStandart' onClick={() => this.goToNext()}>right</button>
+                  <button className='btn btn-info' onClick={() => this.goToNext()}>right</button>
                 }
               </div>
-
-              <table className="table">
-                <tbody>
-                <tr className="tr">
-                  <th className="th">NAME COMPETITION</th>
-                  <th className="th">DATE START COMPETITION</th>
-                  <th className="th">DATE END COMPETITION</th>
-                  {/* <th className="th">Description</th> */}
-                </tr>
-                {
-                  !!this.state.content.content && this.state.content.content.map((contentRow, key) =>
-                      <tr key={key} className="tr">
-                        <td className="td" onClick={() =>  this.goToState('/competition/'+contentRow.id)}>{contentRow.name}</td>
-                        <td className="td">{contentRow.dateStart}</td>
-                        <td className="td">{contentRow.dateFinish}</td>
-                        {/* <td className="td">{contentRow.description}</td> */}
-                      </tr>
-                  )
-                }
-                </tbody>
-              </table>
+              <div className='row container col-md-center'>
+                <table className="table table-bordered table-striped">
+                  <tbody>
+                  <tr className="info active">
+                    <th className="">NAME COMPETITION</th>
+                    <th className="">DATE START COMPETITION</th>
+                    <th className="">DATE END COMPETITION</th>
+                    {/* <th className="th">Description</th> */}
+                  </tr>
+                  {
+                    !!this.state.content.content && this.state.content.content.map((contentRow, key) =>
+                        <tr key={key} className="tr">
+                          <td className="" onClick={() =>  this.goToState('/competition/'+contentRow.id)}>{contentRow.name}</td>
+                          <td className="">{contentRow.dateStart}</td>
+                          <td className="">{contentRow.dateFinish}</td>
+                          {/* <td className="td">{contentRow.description}</td> */}
+                        </tr>
+                    )
+                  }
+                  </tbody>
+                </table>
+              </div>
             </div>
+          </div>
         )
     }
 }
