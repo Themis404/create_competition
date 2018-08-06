@@ -118,7 +118,7 @@ class MainPage extends BaseComponent {
                 <div className='col-md-offset-5'>
                 {
                   !!this.state.pageNo &&
-                  <button className='btn heightButton col-md-3 colMargin' onClick={() => this.goToPrev()}>left</button>
+                  <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}>left</button>
                 }
                 {
                   !this.state.pageNo &&
