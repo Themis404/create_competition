@@ -38,24 +38,22 @@ class CardCompetition extends BaseComponent {
       }
 
       return (
-          <div className="createComp marginTopStandart marginBotStandart">
-            <form className='positionInput'>
-              <div className='textInput width_input'>
-                <h2>Card competition</h2>
-                <p>Name</p>
-                <p> <input className="cardCompForm" value={this.state.content.name}/></p>
-                <p>Description</p>
-                <p> <textarea rows = "4" className="cardCompForm" value={this.state.content.description}/></p>
-                <p>Date first</p>
-                <p> <input type='date' className="cardCompForm" value={this.state.content.dateStart}/></p>
-                <p>Date last</p>
-                <p> <input type='date' className="cardCompForm" value={this.state.content.dateFinish}/></p>
-                <p>Date deadline for applications</p>
-                <p> <input type='date' className="cardCompForm" value={this.state.content.registrationEnd} placeholder = "DD-MM-YYYY" /></p>
+            <form className='col-md-12 nonePadding'>
+              <div>
+                <h2 className="text-center col-md-12 marginTopStandart">Card competition</h2>
+                <h5><p className='col-md-12 nonePadding'>Name</p></h5>
+                <p> <input className="form-control" value={this.state.content.name}/></p>
+                <h5><p className='col-md-12 nonePadding marginTopStandart'>Description</p></h5>
+                <p> <textarea rows = "4" className="form-control" value={this.state.content.description}/></p>
+                <h5><p className='col-md-12 nonePadding marginTopStandart'>Date first</p></h5>
+                <p> <input type='date' className="form-control" value={this.state.content.dateStart}/></p>
+                <h5><p className='col-md-12 nonePadding marginTopStandart'>Date last</p></h5>
+                <p> <input type='date' className="form-control" value={this.state.content.dateFinish}/></p>
+                <h5><p className='col-md-12 nonePadding marginTopStandart'>Date deadline for applications</p></h5>
+                <p> <input type='date' className="form-control" value={this.state.content.registrationEnd} placeholder = "DD-MM-YYYY" /></p>
               </div>
-            </form>
-            <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/create-day')} className='button flex-container'>Create day</button>
-          </div>
+              <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/create-day')} className='btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart'>Create day</button>
+          </form>
       )
     }
 }

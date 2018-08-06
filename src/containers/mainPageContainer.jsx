@@ -97,24 +97,26 @@ class MainPage extends BaseComponent {
                 }
               </div>
               <div className='row container col-md-center'>
-                <table className="table table-bordered table-striped">
+                <table className="table table-bordered table-striped table-hover">
+                  <thead>
+                    <tr className="info active">
+                      <th className="">NAME COMPETITION</th>
+                      <th className="">DATE START COMPETITION</th>
+                      <th className="">DATE END COMPETITION</th>
+                      {/* <th className="th">Description</th> */}
+                    </tr>
+                  </thead>
                   <tbody>
-                  <tr className="info active">
-                    <th className="">NAME COMPETITION</th>
-                    <th className="">DATE START COMPETITION</th>
-                    <th className="">DATE END COMPETITION</th>
-                    {/* <th className="th">Description</th> */}
-                  </tr>
-                  {
-                    !!this.state.content.content && this.state.content.content.map((contentRow, key) =>
-                        <tr key={key} className="tr">
-                          <td className="" onClick={() =>  this.goToState('/competition/'+contentRow.id)}>{contentRow.name}</td>
-                          <td className="">{contentRow.dateStart}</td>
-                          <td className="">{contentRow.dateFinish}</td>
-                          {/* <td className="td">{contentRow.description}</td> */}
-                        </tr>
-                    )
-                  }
+                    {
+                      !!this.state.content.content && this.state.content.content.map((contentRow, key) =>
+                          <tr key={key} className="tr">
+                            <td className="" onClick={() =>  this.goToState('/competition/'+contentRow.id)}>{contentRow.name}</td>
+                            <td className="">{contentRow.dateStart}</td>
+                            <td className="">{contentRow.dateFinish}</td>
+                            {/* <td className="td">{contentRow.description}</td> */}
+                          </tr>
+                      )
+                    }
                   </tbody>
                 </table>
               </div>

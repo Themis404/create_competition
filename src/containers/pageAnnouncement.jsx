@@ -15,7 +15,7 @@ class PageAnnouncement extends BaseComponent {
       }
       return (
         <div className='marginElem'>
-          <button onClick={() => this.goToState('/main')} className='button flex-container'>Back</button>
+          <button onClick={() => this.goToState('/main')} className='btn btn-warning col-md-2 noneFloat'>Back</button>
           <p>IMPORTANT MESSAGE</p>
         </div>
       );

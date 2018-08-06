@@ -77,7 +77,7 @@ class CreateDayForm extends BaseComponent {
     this.setState( {sequenceNumber: e.target.value} )
   }
 
-  updateCompetitionId(e) {
+  updateCompetitionId() {
     this.setState( {competitionId: this.props.id} )
     console.log(this.state.competitionId)
   }
@@ -88,39 +88,31 @@ class CreateDayForm extends BaseComponent {
       return <Redirect to={this.redirect} push={true}/>;
     }
     return (
-        <div className="createComp marginTopStandart">
-          <form onSubmit={this.handleSubmit} className='positionInput'>
-            <div className='textInput width_input'>
-                <h2>Create day</h2>
-                <p>Name</p>
-                <p><input required name='name' className="cardCompForm" placeholder = "NAME DAY"
-                        value={this.state.name}
-                        onChange={ e => this.updateName(e)}/></p>
-                <p>Date</p>
-                <p><input required type='date' name='date'className="cardCompForm" placeholder = "DD-MM-YYYY"
-                        value={this.state.date}
-                        onChange={ e => this.updateDate(e)}/></p>
-                <p>Time Start</p>
-                <p><input required type='time' name='timeStart' className="cardCompForm" placeholder = "HH-MM"
-                        value={this.state.dateStart}
-                        onChange={ e => this.updateTimeStart(e)}/></p>
-                <p>Time Finish</p>
-                <p><input required type='time' name='timeFinish' className="cardCompForm" placeholder = "HH-MM"
-                        value={this.state.dateFinish}
-                        onChange={ e => this.updateTimeFinish(e)}/></p>
-                <p>Sequence Nuber</p>
-                <p><input required name='numberDay' className="cardCompForm" placeholder = "Number day"
-                        value={this.state.sequenceNumber}
-                        onChange={ e => this.updateSequenceNumber(e)}/></p>
-                <p>Competition Id</p>
-                <p className="cardCompForm" placeholder = "Number COMPETITION"
-                        value={this.state.competitionId}
-                        onChange={  e => this.updateCompetitionId(e)}></p>
-            </div>
-
-            <div>
-              <button type="submit" name='submit' className="button" >Create</button>
-            </div>
+        <div className="col-md-12">
+        <button onClick={() => this.goToState('/competition/' + this.props.id)} className='btn btn-warning col-md-2 noneFloat'>Back</button>
+          <form onSubmit={this.handleSubmit} className=''>
+            <h2 className="text-center col-md-12 marginTopStandart">Create day</h2>
+            <h5><p className='col-md-12 nonePadding marginTopStandart'>Name</p></h5>
+            <input required name='name' className="form-control" placeholder = "NAME DAY"
+                    value={this.state.name}
+                    onChange={ e => this.updateName(e)}></input>
+            <h5><p className='col-md-12 nonePadding marginTopStandart'>Date</p></h5>
+            <input required type='date' name='date'className="form-control" placeholder = "DD-MM-YYYY"
+                    value={this.state.date}
+                    onChange={ e => this.updateDate(e)}></input>
+            <h5><p className='col-md-12 nonePadding marginTopStandart'>Time Start</p></h5>
+            <input required type='time' name='timeStart' className="form-control" placeholder = "HH-MM"
+                    value={this.state.dateStart}
+                    onChange={ e => this.updateTimeStart(e)}></input>
+            <h5><p className='col-md-12 nonePadding marginTopStandart'>Time Finish</p></h5>
+            <input required type='time' name='timeFinish' className="form-control" placeholder = "HH-MM"
+                    value={this.state.dateFinish}
+                    onChange={ e => this.updateTimeFinish(e)}></input>
+            <h5><p className='col-md-12 nonePadding marginTopStandart'>Sequence Nuber</p></h5>
+            <input required name='numberDay' className="form-control" placeholder = "Number day"
+                    value={this.state.sequenceNumber}
+                    onChange={ e => this.updateSequenceNumber(e)}></input>
+            <button type="submit" name='submit' className="btn btn-success col-md-3 col-md-offset-4 marginTopStandart marginBotStandart" >Create</button>
           </form>
         </div>
     )

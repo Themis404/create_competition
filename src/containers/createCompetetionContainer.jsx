@@ -15,8 +15,7 @@ class PageCreateCompetition extends BaseComponent {
           return <Redirect to={this.redirect} push={true} />;
       }
       return (
-        <div className='marginElem'>
-          <button onClick={() => this.goToState('/main')} className='button flex-container'>Back</button>
+        <div className=''>
           <CreateCompetition/>
         </div>
       );

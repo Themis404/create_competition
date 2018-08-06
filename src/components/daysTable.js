@@ -49,16 +49,18 @@ class DaysTable extends BaseComponent {
     }
 
     return (
-        <div className="row container col-md-centerl">
-          <table className="table table-bordered table-striped">
-            <tbody>
+        <div className="row container col-md-8 col-md-offset-2 nonePadding">
+          <table className="table table-bordered table-striped table-hover">
+            <thead>
             <tr className="info active">
               <th className="">DAY</th>
               <th className="">NAME</th>
               <th className="">POINTS</th>
             </tr>
+          </thead>
+          <tbody>
             {rows}
-            </tbody>
+          </tbody>
           </table>
         </div>
     )

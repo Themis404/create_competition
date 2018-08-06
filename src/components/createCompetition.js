@@ -74,38 +74,38 @@ class CreateCompetition extends BaseComponent {
       return <Redirect to={this.redirect} push={true}/>;
     }
     return (
-        <div className="createComp marginTopStandart">
-          <form onSubmit={this.handleSubmit} className='positionInput'>
-            <div className='textInput width_input'>
-              <h2>Create competition</h2>
-              <p>Name</p>
-              <p><input required id='inputName' className="cardCompForm" placeholder = "Name competition"
+        <div className='col-md-4 col-md-offset-4'>
+          <button onClick={() => this.goToState('/main')} className='btn btn-warning col-md-2'>Back</button>
+          <form onSubmit={this.handleSubmit} className=''>
+              <h2 className="text-center col-md-12 marginTopStandart">Create competition</h2>
+              <h5><p className='col-md-12 nonePadding'>Name</p></h5>
+              <input required id='inputName' className="form-control" placeholder = "Name competition"
                       value={this.state.name}
-                      onChange={e => this.updateName(e)}/></p>
-              <p>Description</p>
-              <p><textarea required rows = "4" id='inputDescription' className="cardCompForm" placeholder = "Information about competition" maxLength="86"
+                      onChange={e => this.updateName(e)}></input>
+              <h5><p className='col-md-12 marginTopStandart nonePadding'>Description</p></h5>
+              <textarea required rows = "4" id='inputDescription' className="form-control" placeholder = "Information about competition" maxLength="360"
                       value={this.state.description}
-                      onChange={e => this.updateDescription(e)}/></p>
-              <p>Date Start</p>
-              <p><input required type='date' id='inputDateStart' className="cardCompForm"
+                      onChange={e => this.updateDescription(e)}></textarea>
+              <h5><p className='col-md-12 marginTopStandart nonePadding'>Date Start</p></h5>
+              <input required type='date' id='inputDateStart' className="form-control"
                       value={this.state.dateStart}
-                      onChange={e => this.updateDateStart(e)}/></p>
-              <p>Date Finish</p>
-              <p><input required type='date' id='inputDateFinish' className="cardCompForm"
+                      onChange={e => this.updateDateStart(e)}></input>
+              <h5><p className='col-md-12 marginTopStandart nonePadding'>Date Finish</p></h5>
+              <input required type='date' id='inputDateFinish' className="form-control"
                       value={this.state.dateFinish}
-                      onChange={e => this.updateDateFinish(e)}/></p>
-              <p>Start date registration</p>
-              <p><input required type='date' id='inputRegistrationStart' className="cardCompForm"
+                      onChange={e => this.updateDateFinish(e)}></input>
+              <h5><p className='col-md-12 marginTopStandart nonePadding'>Start date registration</p></h5>
+              <input required type='date' id='inputRegistrationStart' className="form-control"
                       value={this.state.registrationStart}
-                      onChange={e => this.updateRegistrationStart(e)}/></p>
-              <p>End date registration</p>
-              <p><input required type='date' id='inputRegistrationEnd' className="cardCompForm"
+                      onChange={e => this.updateRegistrationStart(e)}></input>
+              <h5><p className='col-md-12 marginTopStandart nonePadding'>End date registration</p></h5>
+              <input required type='date' id='inputRegistrationEnd' className="form-control"
                       value={this.state.registrationEnd}
-                      onChange={e => this.updateRegistrationEnd(e)}/></p>
-            </div>
-            <div>
-              <button type="submit" className="button">Create</button>
-            </div>
+                      onChange={e => this.updateRegistrationEnd(e)}></input>
+
+              <div className="col-md-12">
+                <button type="submit" className="btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart">Create</button>
+              </div>
           </form>
         </div>
     )

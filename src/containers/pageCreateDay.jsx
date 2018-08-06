@@ -18,8 +18,7 @@ class PageCreateDay extends BaseComponent {
           return <Redirect to={this.redirect} push={true} />;
       }
       return (
-        <div className='marginElem'>
-          <button onClick={() => this.goToState('/competition/' + this.props.id)} className='button flex-container'>Back</button>
+        <div className='container col-md-4 col-md-offset-4'>
           <CreateDay id={this.props.match.params.id}/>
         </div>
       );
