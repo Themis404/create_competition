@@ -88,25 +88,7 @@ class MainPage extends BaseComponent {
                   }
                 </select>
               </div>
-              <div className='row-md-1 heightButton marginBotStandart'>
-                {
-                  !!this.state.pageNo &&
-                  <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}>left</button>
-                }
-                {
-                  !this.state.pageNo &&
-                  <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}>left</button>
-                }
-                  <h5><p className='col-md-1 colMargin heightButton text-center'>{this.state.pageNo+1}/{this.state.totalPages}</p></h5>
-                {
-                  this.state.pageNo < this.state.totalPages - 1 &&
-                  <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}>right</button>
-                }
-                {
-                  this.state.pageNo >= this.state.totalPages - 1 &&
-                  <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}>right</button>
-                }
-              </div>
+
               <div className='row container col-md-center'>
                 <table className="table table-bordered table-striped table-hover">
                   <thead>
@@ -131,6 +113,29 @@ class MainPage extends BaseComponent {
                   </tbody>
                 </table>
               </div>
+
+              <div className='row-md-1 heightButton'>
+                <div className='col-md-offset-5'>
+                {
+                  !!this.state.pageNo &&
+                  <button className='btn heightButton col-md-3 colMargin' onClick={() => this.goToPrev()}>left</button>
+                }
+                {
+                  !this.state.pageNo &&
+                  <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}>left</button>
+                }
+                  <h4><p className='col-md-1 colMargin heightButton text-center'>{this.state.pageNo+1}/{this.state.totalPages}</p></h4>
+                {
+                  this.state.pageNo < this.state.totalPages - 1 &&
+                  <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}>right</button>
+                }
+                {
+                  this.state.pageNo >= this.state.totalPages - 1 &&
+                  <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}>right</button>
+                }
+              </div>
+            </div>
+
             </div>
           </div>
         )
