@@ -27,12 +27,6 @@
   align-content: stretch;
   flex-wrap: nowrap;
 }
-.marginTopStandart{
-  margin-top: 10px;
-}
-.marginBotStandart{
-  margin-bottom: 1%;
-}
 .width_tabel{
   width: auto;
   position: relative;
@@ -187,24 +181,18 @@
 .heightButton{
   height: 32px;
 }
-.centerBox{
-  margin: 0 auto;
-  float: none;
-}
-.startElem{
-  margin: 0 0;
-  float: none;
-}
 .noneFloat{
-  float: none;
-}
-.centerElem{
-  margin: auto 100%;
   float: none;
 }
 .nonePadding{
   padding-left: 0px;
   padding-right: 0px;
+}
+.marginTopStandart{
+  margin-top: 10px;
+}
+.marginBotStandart{
+  margin-bottom: 1%;
 }
 @keyframes App-logo-spin {
 from { transform: rotate(0deg); }

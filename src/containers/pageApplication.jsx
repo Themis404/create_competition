@@ -16,7 +16,7 @@ class PageApplication extends BaseComponent {
           return <Redirect to={this.redirect} push={true} />;
       }
       return (
-        <div className='marginElem'>
+        <div className='col-md-4 col-md-offset-4'>
           {/* <button onClick={() => this.goToState('/main')} className='button flex-container'>Back</button> */}
           <CreateApplication/>
         </div>
