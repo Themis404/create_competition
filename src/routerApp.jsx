@@ -9,6 +9,7 @@ import PageUsers from './containers/pageUsers'
 import PageAnnouncement from './containers/pageAnnouncement'
 import PageRegulations from './containers/pageRegulations'
 import PageCreateDay from './containers/pageCreateDay';
+import PageApplication from './containers/pageApplication'
 
 export default class RouterApp extends Component {
     constructor(props) {
@@ -28,6 +29,7 @@ export default class RouterApp extends Component {
                     <Route exact path="/users" component={PageUsers} />
                     <Route exact path="/announcement" component={PageAnnouncement} />
                     <Route exact path="/regulations" component={PageRegulations} />
+                    <Route exact path="/application" component={PageApplication}/>
                 </Switch>
               </MenuPage>
             </HashRouter>
