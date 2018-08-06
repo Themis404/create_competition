@@ -89,11 +89,11 @@ class MainPage extends BaseComponent {
                 </select>
                 {
                   !!this.state.pageNo &&
-                  <button className='btn btn-info' onClick={() => this.goToPrev()}>left</button>
+                  <button className='btn btn-info heightButton' onClick={() => this.goToPrev()}>left</button>
                 }
                 {
                   this.state.pageNo < this.state.totalPages - 1 &&
-                  <button className='btn btn-info' onClick={() => this.goToNext()}>right</button>
+                  <button className='btn btn-info heightButton' onClick={() => this.goToNext()}>right</button>
                 }
               </div>
               <div className='row container col-md-center'>
