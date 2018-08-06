@@ -188,11 +188,17 @@
   padding-left: 0px;
   padding-right: 0px;
 }
+.colMargin{
+  margin: auto auto;
+}
 .marginTopStandart{
   margin-top: 10px;
 }
 .marginBotStandart{
   margin-bottom: 1%;
+}
+.float{
+  float: left right;
 }
 @keyframes App-logo-spin {
 from { transform: rotate(0deg); }

@@ -12,7 +12,7 @@ class MainPage extends BaseComponent {
           content: [],
           sortValue: null,
           pageNo: 0,
-          pageSize: 10,
+          pageSize: 4,
           totalPages: 0,
           sorts: [
             {
@@ -87,13 +87,24 @@ class MainPage extends BaseComponent {
                     )
                   }
                 </select>
+              </div>
+              <div className='row-md-1 heightButton marginBotStandart'>
                 {
                   !!this.state.pageNo &&
-                  <button className='btn btn-info heightButton' onClick={() => this.goToPrev()}>left</button>
+                  <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}>left</button>
                 }
                 {
+                  !this.state.pageNo &&
+                  <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}>left</button>
+                }
+                  <h5><p className='col-md-1 colMargin heightButton text-center'>{this.state.pageNo+1}/{this.state.totalPages}</p></h5>
+                {
                   this.state.pageNo < this.state.totalPages - 1 &&
-                  <button className='btn btn-info heightButton' onClick={() => this.goToNext()}>right</button>
+                  <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}>right</button>
+                }
+                {
+                  this.state.pageNo >= this.state.totalPages - 1 &&
+                  <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}>right</button>
                 }
               </div>
               <div className='row container col-md-center'>
