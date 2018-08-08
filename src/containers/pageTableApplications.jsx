@@ -36,8 +36,8 @@ class PageTableTaApplications extends BaseComponent {
               value: 'recingMastery,asc' /*уровень подготовки*/
             },
             {
-              name: 'position application',
-              value: 'recingMastery,asc' /*уровень подготовки*/
+              name: 'status application',
+              value: 'recingMastery,asc' /*статус заявки*/
             }
           ]
         };
@@ -89,19 +89,21 @@ class PageTableTaApplications extends BaseComponent {
           <div className='container'>
             <div className="center-block">
               <SearchBar onSearch={ e => this.setState({searchByName: e}, () => this.getCompetitionInfo())}/>
-              <div className='btn-group marginBotStandart'>
-                <select className='btn btn-info heightButton' onChange={event => this.setState({sortValue: event && event.target && event.target.value ? event.target.value : null}, () => this.getCompetitionInfo())} value={this.state.sortValue ? this.state.sortValue : ''}>
-                  <option disabled>select by</option>
-                  {
-                    this.state.sorts.map((sort, key) =>
-                      <option key={key} value={sort.value}>{sort.name}</option>
-                    )
-                  }
-                </select>
-              </div>
+              <div className='row container col-md-12'>
 
-              <div className='row container col-md-center'>
-                <h3><p className="text-center col-md-12 marginTopStandart">APPLICATIONS TABLE</p></h3>
+                <div className='row col-md-12'>
+                  <select className='btn btn-info heightButton col-md-2 noneMarginBot' onChange={event => this.setState({sortValue: event && event.target && event.target.value ? event.target.value : null}, () => this.getCompetitionInfo())} value={this.state.sortValue ? this.state.sortValue : ''}>
+                    <option disabled>select by</option>
+                    {
+                      this.state.sorts.map((sort, key) =>
+                        <option key={key} value={sort.value}>{sort.name}</option>
+                      )
+                    }
+                  </select>
+
+                  <h3><p className="text-center col-md-4 col-md-offset-2">APPLICATIONS TABLE</p></h3>
+                </div>
+
                 <table className="table table-bordered table-striped table-hover">
                   <thead>
                     <tr className="info active">
@@ -122,7 +124,7 @@ class PageTableTaApplications extends BaseComponent {
                             <td className="">{contentRow.dateCreateApplication}</td>
                             <td className="">{contentRow.vehicleType}</td>
                             <td className="">{contentRow.recingMastery}</td>
-                            <td className="">{contentRow.positionApplication}</td>
+                            <td className="">{contentRow.statusApplication}</td>
                             {/* <td className="td">{contentRow.description}</td> */}
                           </tr>
                       )
@@ -133,26 +135,25 @@ class PageTableTaApplications extends BaseComponent {
 
               <div className='row-md-1 heightButton'>
                 <div className='col-md-offset-5'>
-                {
-                  !!this.state.pageNo &&
-                  <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}>left</button>
-                }
-                {
-                  !this.state.pageNo &&
-                  <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}>left</button>
-                }
-                  <h4><p className='col-md-1 colMargin heightButton text-center'>{this.state.pageNo+1}/{this.state.totalPages}</p></h4>
-                {
-                  this.state.pageNo < this.state.totalPages - 1 &&
-                  <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}>right</button>
-                }
-                {
-                  this.state.pageNo >= this.state.totalPages - 1 &&
-                  <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}>right</button>
-                }
+                  {
+                    !!this.state.pageNo &&
+                    <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}>left</button>
+                  }
+                  {
+                    !this.state.pageNo &&
+                    <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}>left</button>
+                  }
+                    <h4><p className='col-md-1 colMargin heightButton text-center'>{this.state.pageNo+1}/{this.state.totalPages}</p></h4>
+                  {
+                    this.state.pageNo < this.state.totalPages - 1 &&
+                    <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}>right</button>
+                  }
+                  {
+                    this.state.pageNo >= this.state.totalPages - 1 &&
+                    <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}>right</button>
+                  }
+                </div>
               </div>
-            </div>
-
             </div>
           </div>
         )

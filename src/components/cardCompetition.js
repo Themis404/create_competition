@@ -39,19 +39,22 @@ class CardCompetition extends BaseComponent {
 
       return (
             <form className='col-md-12 nonePadding'>
-              <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/application')} className='btn btn-warning col-md-3'>Applications</button>
+              <button onClick={() => this.goToState('/main')} className='btn btn-warning col-md-2 noneFloat'>Back</button>
+              <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/application')} className='btn btn-info col-md-3 noneFloat col-md-offset-7'>Applications</button>
               <div>
                 <h2 className="text-center col-md-12 marginTopStandart">Card competition</h2>
                 <h5><p className='col-md-12 nonePadding'>Name</p></h5>
-                <p> <input className="form-control" value={this.state.content.name}/></p>
+                <input className="form-control" value={this.state.content.name}></input>
                 <h5><p className='col-md-12 nonePadding marginTopStandart'>Description</p></h5>
-                <p> <textarea rows = "4" className="form-control" value={this.state.content.description}/></p>
+                <textarea rows = "4" className="form-control" value={this.state.content.description}></textarea>
                 <h5><p className='col-md-12 nonePadding marginTopStandart'>Date first</p></h5>
-                <p> <input type='date' className="form-control" value={this.state.content.dateStart}/></p>
+                <input type='date' className="form-control" value={this.state.content.dateStart}></input>
                 <h5><p className='col-md-12 nonePadding marginTopStandart'>Date last</p></h5>
-                <p> <input type='date' className="form-control" value={this.state.content.dateFinish}/></p>
+                <input type='date' className="form-control" value={this.state.content.dateFinish}></input>
+                <h5><p className='col-md-12 nonePadding marginTopStandart'>Date start for applications</p></h5>
+                <input type='date' className="form-control" value={this.state.content.registrationStart} placeholder = "DD-MM-YYYY" ></input> 
                 <h5><p className='col-md-12 nonePadding marginTopStandart'>Date deadline for applications</p></h5>
-                <p> <input type='date' className="form-control" value={this.state.content.registrationEnd} placeholder = "DD-MM-YYYY" /></p>
+                <input type='date' className="form-control" value={this.state.content.registrationEnd} placeholder = "DD-MM-YYYY" ></input>
               </div>
               <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/create-day')} className='btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart'>Create day</button>
           </form>

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Redirect } from 'react-router-dom';
 import BaseComponent from './baseComponent'
-import * as actions from '../actions/index';
 import CardApplications from '../components/cardApplications'
 
 class PageCardApplications extends BaseComponent {

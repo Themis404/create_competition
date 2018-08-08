@@ -18,7 +18,6 @@ class PageCardCompetition extends BaseComponent {
       }
       return (
         <div className='container col-md-4 col-md-offset-4'>
-          <button onClick={() => this.goToState('/main')} className='btn btn-warning col-md-2 noneFloat'>Back</button>
           <CardCompetition id={this.props.match.params.id}/>
           <DaysTable id={this.props.match.params.id}/>
         </div>

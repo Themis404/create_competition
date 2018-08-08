@@ -43,17 +43,19 @@ class CardApplications extends BaseComponent {
               <div>
                 <h2 className="text-center col-md-12 marginTopStandart">Card application</h2>
                 <h5><p className='col-md-12 nonePadding'>FIO</p></h5>
-                <p> <input className="form-control" value={this.state.content.name, this.state.content.surname, this.state.content.fatherName}/></p>
+                <input className="form-control" value={this.state.content.name, this.state.content.surname, this.state.content.fatherName}></input>
                 <h5><p className='col-md-12 nonePadding marginTopStandart'>Age</p></h5>
-                <p> <textarea type='number' rows = "4" className="form-control" value={this.state.content.age}/></p>
+                <input type='number' className="form-control" value={this.state.content.age}></input>
                 <h5><p className='col-md-12 nonePadding marginTopStandart'>Gender</p></h5>
-                <p> <input className="form-control" value={this.state.content.gender}/></p>
+                <input className="form-control" value={this.state.content.gender}></input>
                 <h5><p className='col-md-12 nonePadding marginTopStandart'>Date create application</p></h5>
-                <p> <input type='date' className="form-control" value={this.state.content.dateCreateApplication}/></p>
+                <input type='date' className="form-control" value={this.state.content.dateCreateApplication}></input>
                 <h5><p className='col-md-12 nonePadding marginTopStandart'>Vehicle type</p></h5>
-                <p> <input className="form-control" value={this.state.content.vehicleType} placeholder = "moto/atv" /></p>
-                <h5><p className='col-md-12 nonePadding marginTopStandart'></p>Recing astery</h5>
-                <p> <input className="form-control" value={this.state.content.recingMastery} placeholder = "beginner/tourist/pro" /></p>
+                <input className="form-control" value={this.state.content.vehicleType} placeholder = "moto/atv" ></input>
+                <h5><p className='col-md-12 nonePadding marginTopStandart'>Recing astery</p></h5>
+                <input className="form-control" value={this.state.content.recingMastery} placeholder = "beginner/tourist/pro" ></input>
+                <h5><p className='col-md-12 nonePadding marginTopStandart'>Status</p></h5>
+                <input className="form-control" value={this.state.content.statusApplication} placeholder = "+/-" ></input>
               </div>
               <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/application')} className='btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart'>Save</button>
           </form>

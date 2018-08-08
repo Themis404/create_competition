@@ -102,13 +102,13 @@ class CreateDayForm extends BaseComponent {
                     onChange={ e => this.updateDate(e)}></input>
             <h5><p className='col-md-12 nonePadding marginTopStandart'>Time Start</p></h5>
             <input required type='time' name='timeStart' className="form-control" placeholder = "HH-MM"
-                    value={this.state.dateStart}
+                    value={this.state.timeStart}
                     onChange={ e => this.updateTimeStart(e)}></input>
             <h5><p className='col-md-12 nonePadding marginTopStandart'>Time Finish</p></h5>
             <input required type='time' name='timeFinish' className="form-control" placeholder = "HH-MM"
-                    value={this.state.dateFinish}
+                    value={this.state.timeFinish}
                     onChange={ e => this.updateTimeFinish(e)}></input>
-            <h5><p className='col-md-12 nonePadding marginTopStandart'>Sequence Nuber</p></h5>
+                  <h5><p className='col-md-12 nonePadding marginTopStandart'>Sequence Number</p></h5>
             <input required name='numberDay' className="form-control" placeholder = "Number day"
                     value={this.state.sequenceNumber}
                     onChange={ e => this.updateSequenceNumber(e)}></input>
