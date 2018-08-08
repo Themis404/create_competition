@@ -17,6 +17,7 @@ class CreateCompetition extends BaseComponent {
     }
   }
 
+
   handleSubmit = (e) => {
     console.log(this.state);
     fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/create', {
@@ -43,6 +44,25 @@ class CreateCompetition extends BaseComponent {
     });
     e.preventDefault();
   };
+
+  /*  handleSubmit = (e) => {
+      console.log(this.state);
+      actions.createCompetition({
+        name: this.state.name,
+        description: this.state.description,
+        dateStart: this.state.dateStart,
+        dateFinish: this.state.dateFinish,
+        registrationStart: this.state.registrationStart,
+        registrationEnd: this.state.registrationEnd
+        }).then(res => {
+          console.log(res);
+          this.setState({name: '', description: '', dateStart: '', dateFinish: '', registrationEnd: '', registrationStart: ''});
+            console.log(this.state);
+            this.checkFieldsEmpty();
+            res.ok ? console.log('success') : console.warn('something gone wrong');
+        });
+          e.preventDefault();
+      }*/
 
   updateName(e) {
     this.setState( {name: e.target.value} );
@@ -75,7 +95,7 @@ class CreateCompetition extends BaseComponent {
     }
     return (
         <div className='col-md-4 col-md-offset-4'>
-          <button onClick={() => this.goToState('/main')} className='btn btn-warning col-md-2'>Back</button>
+          <button onClick={() => this.goToState('/main')} className='btn btn-warning row-md-1 col-md-2'>Back</button>
           <form onSubmit={this.handleSubmit} className=''>
               <h2 className="text-center col-md-12 marginTopStandart">Create competition</h2>
               <h5><p className='col-md-12 nonePadding'>Name</p></h5>

@@ -10,13 +10,15 @@ class createApplication extends BaseComponent {
     this.state = {
       name: '',
       surname: '',
-      lastName: '',
+      fatherName: '',
       age: '',
-      number: '',
-      numberEs: '',
+      phone: '',
+      emergencyPhone: '',
       email: '',
-      level: '',
-      typeTransport: ''
+      recingMastery: '',
+      vehicleType: '',
+      gender: '',
+      competition: ''
     }
   }
 
@@ -33,17 +35,18 @@ class createApplication extends BaseComponent {
       body: JSON.stringify({
         name: this.state.name,
         surname: this.state.surname,
-        lastName: this.state.lastName,
+        fatherName: this.state.fatherName,
         age: this.state.age,
-        number: this.state.number,
-        numberEs: this.state.numberEs,
+        phone: this.state.phone,
+        emergencyPhone: this.state.emergencyPhone,
         email: this.state.email,
-        level: this.state. level,
-        typeTransport: this.state.typeTransport
+        recingMastery: this.state. recingMastery,
+        vehicleType: this.state.vehicleType,
+        competition: this.state.competition
       })
     }).then(res => {
       console.log(res);
-      this.setState({name: '', surname: '', lastName: '', age: '',number: '',numberEs: '',email: '', level: '', typeTransport: ''});
+      this.setState({name: '', surname: '', fatherName: '', age: '', phone: '', emergencyPhone: '', email: '', recingMastery: '', vehicleType: ''});
       console.log(this.state);
       res.ok ? console.log('success') : console.warn('something gone wrong');
     });
@@ -58,29 +61,29 @@ class createApplication extends BaseComponent {
     this.setState( {surname: e.target.value} )
   }
 
-  updateLastName(e) {
-    this.setState( {lastName: e.target.value} )
+  updateFatherName(e) {
+    this.setState( {fatherName: e.target.value} )
   }
 
   updateAge(e) {
     this.setState( {age: e.target.value} )
   }
 
-  updateNumber(e) {
-    this.setState( {number: e.target.value} )
+  updatePhone(e) {
+    this.setState( {phone: e.target.value} )
   }
 
-  updateNumberEs(e) {
-    this.setState( {numberEs: e.target.value} )
+  updateEmergencyPhone(e) {
+    this.setState( {emergencyPhone: e.target.value} )
   }
   updateEmail(e) {
     this.setState( {email: e.target.value} )
   }
-  updateLevel(e) {
-    this.setState( {level: e.target.value} )
+  updateRecingMastery(e) {
+    this.setState( {recingMastery: e.target.value} )
   }
-  updateTypeTransport(e) {
-    this.setState( {typeTransport: e.target.value} )
+  updateVehicleType(e) {
+    this.setState( {vehicleType: e.target.value} )
   }
 
   render() {

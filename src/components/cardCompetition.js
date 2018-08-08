@@ -39,6 +39,7 @@ class CardCompetition extends BaseComponent {
 
       return (
             <form className='col-md-12 nonePadding'>
+              <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/application')} className='btn btn-warning col-md-3'>Applications</button>
               <div>
                 <h2 className="text-center col-md-12 marginTopStandart">Card competition</h2>
                 <h5><p className='col-md-12 nonePadding'>Name</p></h5>
