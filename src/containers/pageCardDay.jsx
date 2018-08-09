@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import CardCompetition from '../components/cardCompetition'
 import BaseComponent from '../containers/baseComponent'
 import { Redirect } from 'react-router-dom';
-import DaysTable from '../components/daysTable';
+import PointTable from '../components/pointTable';
+import CardDay from '../components/cardDay'
 
-class PageCardCompetition extends BaseComponent {
+class PageCardDay extends BaseComponent {
     constructor(params) {
         super(params),
         this.props.match.params.id,
-        this.props.match.params.idDay
+        this.props.match.params.idDay,
+        this.props.match.params.idPoint
     }
 
     render() {
@@ -19,11 +20,11 @@ class PageCardCompetition extends BaseComponent {
       }
       return (
         <div className='container col-md-4 col-md-offset-4'>
-          <CardCompetition id={this.props.match.params.id}/>
-          <DaysTable id={this.props.match.params.id} idDay={this.props.match.params.idDay}/>
+          <CardDay id={this.props.match.params.id} idDay={this.props.match.params.idDay}/>
+          <PointTable id={this.props.match.params.id} idDay={this.props.match.params.idDay} idPoint={this.props.match.params.idPoint}/>
         </div>
       );
     }
 }
 
-export default PageCardCompetition;
+export default PageCardDay;

@@ -1,13 +1,16 @@
 import React from 'react';
 import BaseComponent from '../containers/baseComponent'
 import {Redirect} from 'react-router-dom';
+import * as actions from '../actions/getDays';
 
 class DaysTable extends BaseComponent {
 
   constructor(props) {
     super(props);
     this.state = {
-      content: []
+      content: [],
+      id: this.props.id,
+      idDay: this.props.idDay
     };
   }
 
@@ -16,19 +19,15 @@ class DaysTable extends BaseComponent {
   }
 
   getCompetitionInfo = () => {
-    fetch('https://afternoon-woodland-86438.herokuapp.com/days/list?competitionId=' + this.props.id)
-        .then(response => {
-          console.log(response);
-          return response.json()
-        })
-        .then((content) => {
-          console.warn(content);
+    actions.getDaysTable({
+      competitionId: this.state.id
+    }).then((content) => {
           this.setState({
             content: content
           });
         });
-    console.log(this.state);
-  };
+        console.log(this.state)
+  }
 
   render() {
     if (this.reload) {
@@ -40,9 +39,8 @@ class DaysTable extends BaseComponent {
     if (contents.content) {
       rows = contents.content.map((contentRow, key) =>
           <tr key={key} className="">
-            <td className=""
-                onClick={() => this.goToState('/competition/' + contentRow.id)}>{contentRow.sequenceNumber}</td>
-            <td className="" onClick={() => this.goToState('/competition/' + contentRow.id)}>{contentRow.name}</td>
+            <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.sequenceNumber}</td>
+            <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.name}</td>
             <td className="">{contentRow.countPoints}</td>
           </tr>
       )

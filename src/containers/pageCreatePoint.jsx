@@ -2,8 +2,9 @@ import React from 'react';
 import {Redirect} from 'react-router-dom';
 import BaseComponent from '../containers/baseComponent'
 import ReactDOM from 'react-dom';
+import PageCardCompetition from './pageCardCompetition'
 
-class CreatePoint extends BaseComponent {
+class PageCreatePoint extends BaseComponent {
 
   constructor(props) {
     super(props);
@@ -12,19 +13,20 @@ class CreatePoint extends BaseComponent {
       sequenceNumber: '',
       placePointType: '',
       competitionDayId: ''
+    };
   }
 
-  componentDidMount() {
+  componentDidMount(){
     this.setState({
       competitionDayId: this.props.idDay
-    });
-  }
+    })
+  };
 
-  componentWillReceiveProps(newProps) {
+  componentWillReceiveProps(newProps){
     this.setState({
       competitionDayId: newProps.idDay
-    });
-  }
+    })
+  };
 
   handleSubmit = (e) => {
     console.log(this.state);
@@ -66,6 +68,7 @@ class CreatePoint extends BaseComponent {
 
   updateCompetitionDayId(e) {
     this.setState( {competitionDayId:this.props.idDay} )
+  }
 
   render() {
     if (this.reload) {
@@ -96,4 +99,4 @@ class CreatePoint extends BaseComponent {
   }
 }
 
-export default CreatePoint;
+export default PageCreatePoint;

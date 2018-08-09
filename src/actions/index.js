@@ -24,4 +24,4 @@ export function getApplications(params) {
   return axios.get('https://afternoon-woodland-86438.herokuapp.com/applications/list', {
     params: _params
   }).then(res => res.data);
-} 
+}

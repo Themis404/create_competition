@@ -20,7 +20,7 @@ class createApplication extends BaseComponent {
       vehicleType: '',
       gender: '',
       competition: '',
-      competitionId: ''
+      competitionId: 1
     }
   }
 

@@ -31,6 +31,24 @@ class CardCompetition extends BaseComponent {
       console.log(this.state);
     }
 
+    putAccessStatus = (e) => {
+      fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/' +  this.props.id, {
+      method: 'PUT',
+      headers: {
+        'Access-Control-Allow-Headers': 'origin, content-type, accept',
+        'Access-Control-Allow-Origin': '*',
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        accessStatus: 'ALIVE'})
+      }).then(res => {
+      this.setState({ accessStatus: ''});
+      console.log(this.state);
+      res.ok ? console.log('success') : console.warn('something gone wrong');
+    });
+    };
+
     render() {
       if (this.reload) {
           this.reload = false;
@@ -40,7 +58,8 @@ class CardCompetition extends BaseComponent {
       return (
             <form className='col-md-12 nonePadding'>
               <button onClick={() => this.goToState('/main')} className='btn btn-warning col-md-2 noneFloat'>Back</button>
-              <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/application')} className='btn btn-info col-md-3 noneFloat col-md-offset-7'>Applications</button>
+              <button onClick={() => this.putAccessStatus()} type='submit' className='btn btn-success noneFloat col-md-3 col-md-offset-2'>Activation</button>
+              <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/application')} className='btn btn-info col-md-3 noneFloat col-md-offset-2 '>Applications</button>
               <div>
                 <h2 className="text-center col-md-12 marginTopStandart">Card competition</h2>
                 <h5><p className='col-md-12 nonePadding'>Name</p></h5>
@@ -52,7 +71,7 @@ class CardCompetition extends BaseComponent {
                 <h5><p className='col-md-12 nonePadding marginTopStandart'>Date last</p></h5>
                 <input type='date' className="form-control" value={this.state.content.dateFinish}></input>
                 <h5><p className='col-md-12 nonePadding marginTopStandart'>Date start for applications</p></h5>
-                <input type='date' className="form-control" value={this.state.content.registrationStart} placeholder = "DD-MM-YYYY" ></input> 
+                <input type='date' className="form-control" value={this.state.content.registrationStart} placeholder = "DD-MM-YYYY" ></input>
                 <h5><p className='col-md-12 nonePadding marginTopStandart'>Date deadline for applications</p></h5>
                 <input type='date' className="form-control" value={this.state.content.registrationEnd} placeholder = "DD-MM-YYYY" ></input>
               </div>
