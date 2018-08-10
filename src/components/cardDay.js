@@ -43,17 +43,15 @@ class CardDay extends BaseComponent {
             <h5><p className='col-md-12 nonePadding'>Name</p></h5>
             <input className="form-control" value={this.state.content.name}></input>
             <h5><p className='col-md-12 nonePadding marginTopStandart'>Date</p></h5>
-            <input type='number' className="form-control" value={this.state.content.date}></input>
+            <input type='date' className="form-control" value={this.state.content.date}></input>
             <h5><p className='col-md-12 nonePadding marginTopStandart'>Time start</p></h5>
-            <input className="form-control" value={this.state.content.timeStart}></input>
+            <input type='time' className="form-control" value={this.state.content.timeStart}></input>
             <h5><p className='col-md-12 nonePadding marginTopStandart'>Time finish</p></h5>
-            <input type='date' className="form-control" value={this.state.content.timeFinish}></input>
-            <h5><p className='col-md-12 nonePadding marginTopStandart'>Vehicle type</p></h5>
-            <input className="form-control" value={this.state.content.vehicleType} placeholder = "moto/atv" ></input>
+            <input type='time' className="form-control" value={this.state.content.timeFinish}></input>
             <h5><p className='col-md-12 nonePadding marginTopStandart'>Number day</p></h5>
             <input className="form-control" value={this.state.content.sequenceNumber} placeholder = "beginner/tourist/pro" ></input>
           </div>
-          /*<button onClick={() => this.goToState('/competition/'+this.state.content.id+'/application')} className='btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart'>Save</button>*/
+          <button onClick={() => this.goToState('/competition/'+this.state.competitionId+'/day/'+this.state.content.id+'/create-point')} className='btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart'>Create point</button>
       </form>
     )
   }

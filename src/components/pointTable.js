@@ -21,7 +21,7 @@ class PointTable extends BaseComponent {
 
   getCompetitionInfo = () => {
     actions.getPointTable({
-    pointId: this.state.idPoint
+    competitionDayId: this.state.idDay
     }).then((content) => {
           this.setState({
             content: content
@@ -40,21 +40,21 @@ class PointTable extends BaseComponent {
     if (contents.content) {
       rows = contents.content.map((contentRow, key) =>
           <tr key={key} className="">
-             <td className="">{contentRow.sequenceNumber}</td>
+             <td className="" onClick={() => this.goToState('/competition/' + this.state.id + '/day/' + this.state.idDay + '/point/' + contentRow.id)}>{contentRow.sequenceNumber}</td>
              <td className="">{contentRow.name}</td>
-          /*  <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.sequenceNumber}</td>
-            <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.name}</td>*/
+            <td className="">{contentRow.placePointType}</td>
           </tr>
       )
     }
 
     return (
-        <div className="row container col-md-8 col-md-offset-2 nonePadding">
+        <div className="row container col-md-6 col-md-offset-3 nonePadding">
           <table className="table table-bordered table-striped table-hover">
             <thead>
             <tr className="info active">
               <th className="">SEQUENCE NUMBER</th>
               <th className="">NAME</th>
+              <th className="">TYPE</th>
             </tr>
           </thead>
           <tbody>
@@ -67,3 +67,6 @@ class PointTable extends BaseComponent {
 }
 
 export default PointTable;
+
+/*  <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.sequenceNumber}</td>
+  <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.name}</td>*/

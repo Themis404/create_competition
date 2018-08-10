@@ -21,7 +21,7 @@ class PageCardDay extends BaseComponent {
       return (
         <div className='container col-md-4 col-md-offset-4'>
           <CardDay id={this.props.match.params.id} idDay={this.props.match.params.idDay}/>
-          <PointTable id={this.props.match.params.id} idDay={this.props.match.params.idDay} idPoint={this.props.match.params.idPoint}/>
+          <PointTable  id={this.props.match.params.id} idDay={this.props.match.params.idDay} idPoint={this.props.match.params.idPoint}/>
         </div>
       );
     }

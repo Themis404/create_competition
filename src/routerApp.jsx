@@ -14,7 +14,7 @@ import PageApplication from './containers/pageApplication'
 import PageCardApplications from './containers/pageCardApplications'
 import PageCreatePoint from './containers/pageCreatePoint'
 import PageCardDay from './containers/pageCardDay'
-
+import PageCardPoint from './containers/pageCardPoint'
 
 export default class RouterApp extends Component {
     constructor(props) {
@@ -30,6 +30,7 @@ export default class RouterApp extends Component {
                     <Route exact path="/main" component={MainPage} />
                     <Route exact path="/competition/:id" component={PageCardCompetition } />
                     <Route exact path="/competition/:id/day/:idDay" component={PageCardDay} />
+                    <Route exact path="/competition/:id/day/:idDay/point/:idPoint" component={PageCardPoint} />
                     <Route exact path="/competition/:id/create-day" component={PageCreateDay} />
                     <Route exact path="/competition/:id/day/:idDay/create-point" component={PageCreatePoint} />
                     <Route exact path="/create-competition" component={CreateCompetition} />

@@ -1,7 +1,8 @@
 import React from 'react';
 import BaseComponent from '../containers/baseComponent'
 import {Redirect} from 'react-router-dom';
-import * as actions from '../actions/getDays';
+import * as actionsDay from '../actions/getDays';
+import * as actionsPoint from '../actions/getPoint';
 
 class DaysTable extends BaseComponent {
 
@@ -19,7 +20,7 @@ class DaysTable extends BaseComponent {
   }
 
   getCompetitionInfo = () => {
-    actions.getDaysTable({
+    actionsDay.getDaysTable({
       competitionId: this.state.id
     }).then((content) => {
           this.setState({
@@ -36,15 +37,14 @@ class DaysTable extends BaseComponent {
     }
     const contents = this.state.content;
     let rows = undefined;
-    if (contents.content) {
+    if (contents.content){
       rows = contents.content.map((contentRow, key) =>
           <tr key={key} className="">
             <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.sequenceNumber}</td>
             <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.name}</td>
-            <td className="">{contentRow.countPoints}</td>
+            <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.sequenceNumber}</td> /*исправить на кол-во элементов*/
           </tr>
-      )
-    }
+      )}
 
     return (
         <div className="row container col-md-8 col-md-offset-2 nonePadding">

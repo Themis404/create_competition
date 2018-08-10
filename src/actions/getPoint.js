@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export function getPointTable(params) {
   let _params = Object.assign({
-    competitionId: 0
+    competitionDayId: 0
   }, params);
   console.log(_params);
   return axios.get('https://afternoon-woodland-86438.herokuapp.com/points/list?', {
@@ -10,7 +10,7 @@ export function getPointTable(params) {
   }).then(res => res.data);
 }
 
-export function getDaysCard(params) {
+export function getPointCard(params) {
   let _params = Object.assign({
     pointId: 0
   }, params);

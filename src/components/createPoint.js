@@ -12,23 +12,24 @@ class CreatePoint extends BaseComponent {
       sequenceNumber: '',
       placePointType: '',
       competitionDayId: ''
+    };
   }
 
-  componentDidMount() {
+  componentDidMount(){
     this.setState({
       competitionDayId: this.props.idDay
-    });
-  }
+    })
+  };
 
-  componentWillReceiveProps(newProps) {
+  componentWillReceiveProps(newProps){
     this.setState({
       competitionDayId: newProps.idDay
-    });
-  }
+    })
+  };
 
   handleSubmit = (e) => {
     console.log(this.state);
-    fetch('https://afternoon-woodland-86438.herokuapp.com/days/create', {
+    fetch('https://afternoon-woodland-86438.herokuapp.com/points/create', {
       method: 'POST',
       headers: {
         'Access-Control-Allow-Headers': 'origin, content-type, accept',
@@ -40,7 +41,7 @@ class CreatePoint extends BaseComponent {
         name: this.state.name,
         sequenceNumber: this.state.sequenceNumber,
         placePointType: this.state.placePointType,
-        competitionDayId: this.state.competitionDayId
+        competitionDayId: this.props.idDay
       })
     }).then(res => {
       console.log(res);
@@ -65,7 +66,8 @@ class CreatePoint extends BaseComponent {
   }
 
   updateCompetitionDayId(e) {
-    this.setState( {competitionDayId:this.props.idDay} )
+    this.setState( {competitionDayId: this.props.idDay} )
+  }
 
   render() {
     if (this.reload) {
@@ -74,7 +76,7 @@ class CreatePoint extends BaseComponent {
     }
     return (
         <div className="col-md-12">
-        <button onClick={() => this.goToState('/competition/' + this.props.id)} className='btn btn-warning col-md-2 noneFloat'>Back</button>
+        <button onClick={() => this.goToState('/competition/' + this.props.id + '/day/' + this.props.idDay)} className='btn btn-warning col-md-2 noneFloat'>Back</button>
           <form onSubmit={this.handleSubmit} className=''>
             <h2 className="text-center col-md-12 marginTopStandart">Create point</h2>
             <h5><p className='col-md-12 nonePadding marginTopStandart'>Name</p></h5>
@@ -86,7 +88,7 @@ class CreatePoint extends BaseComponent {
                     value={this.state.sequenceNumber}
                     onChange={ e => this.updateSequenceNumber(e)}></input>
                   <h5><p className='col-md-12 nonePadding marginTopStandart'>Place Point Type</p></h5>
-            <input required name='timeStart' className="form-control" placeholder = "какие-то типы поинтов"
+            <input required name='timeStart' className="form-control" placeholder = 'START/CHECKPOINT/GAS/FINISH'
                     value={this.state.placePointType}
                     onChange={ e => this.updatePlacePointType(e)}></input>
             <button type="submit" name='submit' className="btn btn-success col-md-3 col-md-offset-4 marginTopStandart marginBotStandart" >Create</button>
