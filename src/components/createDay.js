@@ -108,8 +108,8 @@ class CreateDayForm extends BaseComponent {
             <input required type='time' name='timeFinish' className="form-control" placeholder = "HH-MM"
                     value={this.state.timeFinish}
                     onChange={ e => this.updateTimeFinish(e)}></input>
-                  <h5><p className='col-md-12 nonePadding marginTopStandart'>Sequence Number</p></h5>
-            <input required name='numberDay' className="form-control" placeholder = "Number day"
+            <h5><p className='col-md-12 nonePadding marginTopStandart'>Sequence Number</p></h5>
+            <input required name='numberDay'  type='number' className="form-control" placeholder = "Number day"
                     value={this.state.sequenceNumber}
                     onChange={ e => this.updateSequenceNumber(e)}></input>
             <button type="submit" name='submit' className="btn btn-success col-md-3 col-md-offset-4 marginTopStandart marginBotStandart" >Create</button>

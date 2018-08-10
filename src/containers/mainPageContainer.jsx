@@ -77,9 +77,9 @@ class MainPage extends BaseComponent {
           <div className='container'>
             <div className="center-block">
               <SearchBar onSearch={ e => this.setState({searchByName: e}, () => this.getCompetitionInfo())}/>
-              <div className='btn-group marginBotStandart'>
-                <button onClick={() => this.goToState('/create-competition')} className='btn btn-info heightButton'>Create competition</button>
-                <select className='btn btn-info heightButton' onChange={event => this.setState({sortValue: event && event.target && event.target.value ? event.target.value : null}, () => this.getCompetitionInfo())} value={this.state.sortValue ? this.state.sortValue : ''}>
+              <div className='btn-group marginBotStandart col-md-12 nonePadding'>
+                <button onClick={() => this.goToState('/create-competition')} className='btn btn-info heightButton col-md-2'>Create competition</button>
+                <select className='btn btn-info heightButton col-md-2' onChange={event => this.setState({sortValue: event && event.target && event.target.value ? event.target.value : null}, () => this.getCompetitionInfo())} value={this.state.sortValue ? this.state.sortValue : ''}>
                   <option disabled>select by</option>
                   {
                     this.state.sorts.map((sort, key) =>
@@ -88,7 +88,7 @@ class MainPage extends BaseComponent {
                   }
                 </select>
               </div>
-
+              <h3><p className="text-center col-md-4 col-md-offset-4 nonePadding">APPLICATIONS TABLE</p></h3>
               <div className='row container col-md-center'>
                 <table className="table table-bordered table-striped table-hover">
                   <thead>

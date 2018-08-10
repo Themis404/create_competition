@@ -16,12 +16,55 @@ class createApplication extends BaseComponent {
       phone: '',
       emergencyPhone: '',
       email: '',
-      recingMastery: '',
-      vehicleType: '',
+      competitionId: '1',
       gender: '',
-      competition: '',
-      competitionId: 1
+      typeGender: [
+        {
+          name: 'Select by',
+          value: ''
+        },
+        {
+          name: 'Female',
+          value: 'FEMALE'
+        },
+        {
+          name: 'Male',
+          value: 'MALE'
+        }],
+      recingMastery: '',
+      typeMastery: [
+        {
+          name: 'Select by',
+          value: ''
+        },
+        {
+          name: 'Newbie',
+          value: 'NEWBIE'
+        },
+        {
+          name: 'Intermediate',
+          value: 'INTERMEDIATE'
+        },
+        {
+          name: 'Professional',
+          value: 'PROFESSIONAL'
+        }],
+        vehicleType: '',
+        typeVehicle: [
+          {
+            name: 'Select by',
+            value: ''
+          },
+          {
+            name: 'Motorcycle',
+            value: 'MOTORCYCLE'
+          },
+          {
+            name: 'ATV',
+            value: 'ATV'
+          }],
     }
+
   }
 
   componentDidMount() {
@@ -35,10 +78,6 @@ class createApplication extends BaseComponent {
             content: content
           });
         });
-  }
-
-  getActivCompetition = () => {
-
   }
 
   handleSubmit = (e) => {
@@ -61,7 +100,7 @@ class createApplication extends BaseComponent {
         email: this.state.email,
         recingMastery: this.state. recingMastery,
         vehicleType: this.state.vehicleType,
-        competition: this.state.competition,
+        competitionId: this.state.competition,
         gender: this.state.gender
       })
     }).then(res => {
@@ -138,10 +177,14 @@ class createApplication extends BaseComponent {
           <input required type = 'number' id='inputAge' className="form-control"
                   value={this.state.age}
                   onChange={e => this.updateAge(e)}></input>
-                <h5><p className='col-md-12 nonePadding marginTopStandart'>Пол*</p></h5>
-          <input required id='inputSurname' className="form-control" placeholder = "MALE/FEMALE"
-                  value={this.state.gender}
-                  onChange={e => this.updateGender(e)}></input>
+          <h5><p className='col-md-12 nonePadding marginTopStandart'>Пол*</p></h5>
+          <select required className='btn btn-default heightButton noneFloat col-md-12' onChange={event => this.setState({gender: event && event.target && event.target.value ? event.target.value : null})} value={this.state.gender ? this.state.gender : ''}>
+            {
+              this.state.typeGender.map((typeGender, key) =>
+                <option key={key} value={typeGender.value}>{typeGender.name}</option>
+              )
+            }
+          </select>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Введите свой номер телефона*</p></h5>
           <input required type='tel' id='inputNumber' className="form-control" placeholder = "+7 "
                   value={this.state.phone}
@@ -155,13 +198,21 @@ class createApplication extends BaseComponent {
                   value={this.state.email}
                   onChange={e => this.updateEmail(e)}></input>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Уровень подготовки*</p></h5>
-          <input required id='inputLevel' className="form-control"  placeholder = 'NEWBIE, INTERMEDIATE, PROFESSIONAL'
-                  value={this.state.recingMastery}
-                  onChange={e => this.updateRecingMastery(e)}></input>
+          <select required className='btn btn-default heightButton noneFloat col-md-12' onChange={event => this.setState({recingMastery: event && event.target && event.target.value ? event.target.value : null})} value={this.state.recingMastery ? this.state.recingMastery : ''}>
+            {
+              this.state.typeMastery.map((typeMastery, key) =>
+                <option key={key} value={typeMastery.value}>{typeMastery.name}</option>
+              )
+            }
+          </select>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Тип транспортного средсва*</p></h5>
-          <input required id='inputTypeTransport' className="form-control" placeholder = 'MOTORCYCLE/ATV'
-                  value={this.state.vehicleType}
-                  onChange={e => this.updateVehicleType(e)}></input>
+          <select required className='btn btn-default heightButton noneFloat col-md-12' onChange={event => this.setState({vehicleType: event && event.target && event.target.value ? event.target.value : null})} value={this.state.vehicleType ? this.state.vehicleType : ''}>
+            {
+              this.state.typeVehicle.map((typeVehicle, key) =>
+                <option key={key} value={typeVehicle.value}>{typeVehicle.name}</option>
+              )
+            }
+          </select>
           <button type="submit" className="btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart">Отправить</button>
         </form>
       </div>

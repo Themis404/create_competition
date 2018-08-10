@@ -11,7 +11,30 @@ class CreatePoint extends BaseComponent {
       name: '',
       sequenceNumber: '',
       placePointType: '',
-      competitionDayId: ''
+      competitionDayId: '',
+      placePointType: null,
+      typeAT: [
+        {
+          name: 'Select by',
+          value: ''
+        },
+        {
+          name: 'Start',
+          value:'START'
+        },
+        {
+          name: 'Checkpoint',
+          value: 'CHECKPOINT'
+        },
+        {
+          name: 'Gas',
+          value: 'GAS'
+        },
+        {
+          name: 'Finish',
+          value: 'FINISH'
+        }
+      ]
     };
   }
 
@@ -87,10 +110,14 @@ class CreatePoint extends BaseComponent {
             <input required name='number' type='number' className="form-control" placeholder = "id"
                     value={this.state.sequenceNumber}
                     onChange={ e => this.updateSequenceNumber(e)}></input>
-                  <h5><p className='col-md-12 nonePadding marginTopStandart'>Place Point Type</p></h5>
-            <input required name='timeStart' className="form-control" placeholder = 'START/CHECKPOINT/GAS/FINISH'
-                    value={this.state.placePointType}
-                    onChange={ e => this.updatePlacePointType(e)}></input>
+            <h5><p className='col-md-12 nonePadding marginTopStandart'>Place Point Type</p></h5>
+            <select required className='btn btn-default heightButton noneFloat col-md-12' onChange={event => this.setState({placePointType: event && event.target && event.target.value ? event.target.value : null})} value={this.state.placePointType ? this.state.placePointType : ''}>
+              {
+                this.state.typeAT.map((typeAT, key) =>
+                  <option key={key} value={typeAT.value}>{typeAT.name}</option>
+                )
+              }
+            </select>
             <button type="submit" name='submit' className="btn btn-success col-md-3 col-md-offset-4 marginTopStandart marginBotStandart" >Create</button>
           </form>
         </div>
