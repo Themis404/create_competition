@@ -147,7 +147,7 @@ class TableTaApplications extends BaseComponent {
                     {
                       !!this.state.content.content && this.state.content.content.map((contentRow, key) =>
                           <tr key={key} className="tr">
-                            <td className="" onClick={() =>  this.goToState('/competition/'+contentRow.id+'/application/applicationId')}>
+                            <td className="" onClick={() =>  this.goToState('/competition/'+this.state.competitionId+'/application/'+this.state.participantsId)}>
                               {contentRow.name} {contentRow.surname} {contentRow.fatherName}</td>
                             <td className="">{contentRow.dateCreateApplication}</td>
                             <td className="">{contentRow.vehicleType}</td>

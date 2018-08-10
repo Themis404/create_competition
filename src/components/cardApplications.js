@@ -1,11 +1,13 @@
 import React from 'react'
 import BaseComponent from '../containers/baseComponent'
 import { Redirect } from 'react-router-dom'
+import * as actions from '../actions/getApplications'
 
 class CardApplications extends BaseComponent {
 
   constructor(props) {
     super(props);
+    idParticipants: this.props.idParticipants,
     this.state = {
       content: []
     };
@@ -16,20 +18,15 @@ class CardApplications extends BaseComponent {
   }
 
   getCompetitionInfo = () => {
-      console.log(this.props);
-      fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/' + this.props.id + '/applications/' + this.props.applicationId)
-          .then(response => {
-            console.log(response);
-            return response.json()
-          })
-          .then((content) => {
-            console.warn(content);
-            this.setState({
-              content: content
-            });
+    actions.getApplicationsCard({
+      participantsId: this.state.idParticipants
+    }).then((content) => {
+          this.setState({
+            content: content
           });
-      console.log(this.state);
-    }
+        });
+        console.log(this.state)
+  }
 
     render() {
       if (this.reload) {
@@ -57,7 +54,7 @@ class CardApplications extends BaseComponent {
                 <h5><p className='col-md-12 nonePadding marginTopStandart'>Status</p></h5>
                 <input className="form-control" value={this.state.content.statusApplication} placeholder = "+/-" ></input>
               </div>
-              <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/application')} className='btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart'>Save</button>
+              <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/application/')} className='btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart'>Save</button>
           </form>
       )
     }

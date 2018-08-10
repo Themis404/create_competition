@@ -2,12 +2,10 @@ import axios from 'axios';
 
 export function getApplicationsCard(params) {
   let _params = Object.assign({
-    competitionId: 0
+    participantsId: 0
   }, params);
   console.log(_params);
-  return axios.get('https://afternoon-woodland-86438.herokuapp.com/days/list?', {
-    params: _params
-  }).then(res => res.data);
+  return axios.get('https://afternoon-woodland-86438.herokuapp.com/participants'+params.participantsId).then(res => res.data);
 }
 
 export function getApplicationsTable(params) {

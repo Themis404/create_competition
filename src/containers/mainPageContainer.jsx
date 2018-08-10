@@ -88,7 +88,7 @@ class MainPage extends BaseComponent {
                   }
                 </select>
               </div>
-              <h3><p className="text-center col-md-4 col-md-offset-4 nonePadding">APPLICATIONS TABLE</p></h3>
+              <h3><p className="text-center col-md-4 col-md-offset-4 nonePadding">COMPETITIONS TABLE</p></h3>
               <div className='row container col-md-center'>
                 <table className="table table-bordered table-striped table-hover">
                   <thead>
