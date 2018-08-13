@@ -16,24 +16,6 @@ class TableApplications extends BaseComponent {
           pageNo: 0,
           pageSize: 4,
           totalPages: 0,
-          sorts: [
-            {
-              name: 'none select',
-              value: ''
-            },
-            {
-              name: 'name',
-              value: 'name,asc'
-            },
-            {
-              name: 'vehcile type',
-              value: 'vehcileType,asc' /*тип тс*/
-            },
-            {
-              name: 'recing mastery',
-              value: 'recingMastery,asc' /*уровень подготовки*/
-            },
-          ],
           status: [
             {
               name: 'not processed',
@@ -90,7 +72,7 @@ class TableApplications extends BaseComponent {
             });
       }
 
-      sortNameCompetitions = () => {
+      sortNameApplication = () => {
         {
           !!(this.state.sortValue==='name,asc')&&
           this.setState({sortValue: 'name,desc'});
@@ -103,15 +85,54 @@ class TableApplications extends BaseComponent {
           this.getCompetitionInfo()
       }
 
-      sortDateCompetitions = () => {
+      sortAgeApplication = () => {
         {
-          !!(this.state.sortValue==='dateStart,asc')&&
-          this.setState({sortValue: 'dateStart,desc'})
+          !!(this.state.sortValue==='age,asc')&&
+          this.setState({sortValue: 'age,desc'})
         }
 
         {
-          !(this.state.sortValue==='dateStart,asc')&&
-          this.setState({sortValue: 'dateStart,asc'})
+          !(this.state.sortValue==='age,asc')&&
+          this.setState({sortValue: 'age,asc'})
+        }
+        this.getCompetitionInfo()
+      }
+
+      sortTypeVehcileApplication = () => {
+        {
+          !!(this.state.sortValue==='vehicleType,asc')&&
+          this.setState({sortValue: 'vehicleType,desc'})
+        }
+
+        {
+          !(this.state.sortValue==='vehicleType,asc')&&
+          this.setState({sortValue: 'vehicleType,asc'})
+        }
+        this.getCompetitionInfo()
+      }
+
+      sortRecingMasteryApplication = () => {
+        {
+          !!(this.state.sortValue==='racingMastery,asc')&&
+          this.setState({sortValue: 'racingMastery,desc'})
+        }
+
+        {
+          !(this.state.sortValue==='racingMastery,asc')&&
+          this.setState({sortValue: 'racingMastery,asc'})
+        }
+        this.getCompetitionInfo()
+      }
+
+      sortGenderApplication = () => {
+        {
+          !!(this.state.sortValue==='gender,asc')&&
+          this.setState({sortValue: 'gender,desc'})
+        }
+
+        {
+          !(this.state.sortValue==='gender,asc')&&
+          this.setState({sortValue: 'gender,asc'})
         }
         this.getCompetitionInfo()
       }
@@ -144,11 +165,12 @@ class TableApplications extends BaseComponent {
                 <table className="table table-bordered table-striped table-hover">
                   <thead>
                     <tr className="info active">
-                      <th className="">NAME</th>
-                      <th className="">AGE</th>
-                      <th className="">TYPE VEHCILE</th>
-                      <th className="">RECING MASTERY</th>
-                      <th className="">STATUS</th>
+                      <th className="" onClick={() => this.sortNameApplication()}>NAME</th>
+                      <th className="" onClick={() => this.sortAgeApplication()}>AGE</th>
+                      <th className="" onClick={() => this.sortGenderApplication()}>GENDER</th>
+                      <th className="" onClick={() => this.sortTypeVehcileApplication()}>TYPE VEHCILE</th>
+                      <th className="" onClick={() => this.sortRecingMasteryApplication()}>RECING MASTERY</th>
+                      <th className="" >STATUS</th>
                       {/* <th className="th">Description</th> */}
                     </tr>
                   </thead>
@@ -159,6 +181,7 @@ class TableApplications extends BaseComponent {
                             <td className="" onClick={() =>  this.goToState('/application/'+contentRow.id)}>
                               {contentRow.name} {contentRow.surname} {contentRow.fatherName}</td>
                             <td className="">{contentRow.age}</td>
+                            <td className="">{contentRow.gender}</td>
                             <td className="">{contentRow.vehicleType}</td>
                             <td className="">{contentRow.racingMastery}</td>
                             <td className="">{contentRow.applicationStatus}</td>
