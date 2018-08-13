@@ -5,7 +5,7 @@ import BaseComponent from '../containers/baseComponent'
 import SearchBar from '../components/SearchBar.js';
 import * as actions from '../actions/getApplications';
 
-class TableTaApplications extends BaseComponent {
+class TableApplications extends BaseComponent {
     constructor(props) {
         super(props),
         this.state = {
@@ -26,10 +26,6 @@ class TableTaApplications extends BaseComponent {
               value: 'name,asc'
             },
             {
-              name: 'date create application',
-              value: 'dateCreateApplication,asc' /*дата подачи заявления*/
-            },
-            {
               name: 'vehcile type',
               value: 'vehcileType,asc' /*тип тс*/
             },
@@ -37,10 +33,6 @@ class TableTaApplications extends BaseComponent {
               name: 'recing mastery',
               value: 'recingMastery,asc' /*уровень подготовки*/
             },
-            {
-              name: 'status application',
-              value: 'recingMastery,asc' /*статус заявки*/
-            }
           ],
           status: [
             {
@@ -89,13 +81,39 @@ class TableTaApplications extends BaseComponent {
           competitionId: this.props.id,
           sort: this.state.sortValue ? this.state.sortValue : null,
           status: this.state.statusValue ? this.state.statusValue: null,
-          searchByName: this.state.searchByName ? this.state.searchByName: null,
+          search: this.state.searchByName ? this.state.searchByName: null,
         }).then((content) => {
               this.setState({
                 content: content,
                 totalPages: content.totalPages
               });
             });
+      }
+
+      sortNameCompetitions = () => {
+        {
+          !!(this.state.sortValue==='name,asc')&&
+          this.setState({sortValue: 'name,desc'});
+        }
+
+        {
+          !(this.state.sortValue==='name,asc')&&
+          this.setState({sortValue: 'name,asc'});
+        }
+          this.getCompetitionInfo()
+      }
+
+      sortDateCompetitions = () => {
+        {
+          !!(this.state.sortValue==='dateStart,asc')&&
+          this.setState({sortValue: 'dateStart,desc'})
+        }
+
+        {
+          !(this.state.sortValue==='dateStart,asc')&&
+          this.setState({sortValue: 'dateStart,asc'})
+        }
+        this.getCompetitionInfo()
       }
 
       render() {
@@ -111,15 +129,6 @@ class TableTaApplications extends BaseComponent {
 
                 <div className='row col-md-12'>
                   <div className='btn-group marginBotStandart col-md-12 nonePadding'>
-                    <select className='btn btn-info heightButton col-md-2 noneMarginBot' onChange={event => this.setState({sortValue: event && event.target && event.target.value ? event.target.value : null}, () => this.getCompetitionInfo())} value={this.state.sortValue ? this.state.sortValue : ''}>
-                      <option disabled>select by</option>
-                      {
-                        this.state.sorts.map((sort, key) =>
-                          <option key={key} value={sort.value}>{sort.name}</option>
-                        )
-                      }
-                    </select>
-
                     <select className='btn btn-info heightButton col-md-2 noneMarginBot' onChange={event => this.setState({statusValue: event && event.target && event.target.value ? event.target.value : null}, () => this.getCompetitionInfo())} value={this.state.statusValue ? this.state.statusValue : ''}>
                       <option disabled>select by</option>
                       {
@@ -136,7 +145,7 @@ class TableTaApplications extends BaseComponent {
                   <thead>
                     <tr className="info active">
                       <th className="">NAME</th>
-                      <th className="">DATECREATE APPLICATION</th>
+                      <th className="">AGE</th>
                       <th className="">TYPE VEHCILE</th>
                       <th className="">RECING MASTERY</th>
                       <th className="">STATUS</th>
@@ -147,12 +156,12 @@ class TableTaApplications extends BaseComponent {
                     {
                       !!this.state.content.content && this.state.content.content.map((contentRow, key) =>
                           <tr key={key} className="tr">
-                            <td className="" onClick={() =>  this.goToState('/competition/'+this.state.competitionId+'/application/'+this.state.participantsId)}>
+                            <td className="" onClick={() =>  this.goToState('/application/'+contentRow.id)}>
                               {contentRow.name} {contentRow.surname} {contentRow.fatherName}</td>
-                            <td className="">{contentRow.dateCreateApplication}</td>
+                            <td className="">{contentRow.age}</td>
                             <td className="">{contentRow.vehicleType}</td>
-                            <td className="">{contentRow.recingMastery}</td>
-                            <td className="">{contentRow.statusApplication}</td>
+                            <td className="">{contentRow.racingMastery}</td>
+                            <td className="">{contentRow.applicationStatus}</td>
                             {/* <td className="td">{contentRow.description}</td> */}
                           </tr>
                       )
@@ -188,4 +197,4 @@ class TableTaApplications extends BaseComponent {
     }
 }
 
-export default TableTaApplications;
+export default TableApplications;

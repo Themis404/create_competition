@@ -5,7 +5,8 @@ export function getApplicationsCard(params) {
     participantsId: 0
   }, params);
   console.log(_params);
-  return axios.get('https://afternoon-woodland-86438.herokuapp.com/participants'+params.participantsId).then(res => res.data);
+  return axios.get('https://afternoon-woodland-86438.herokuapp.com/participants/'+ params.participantsId
+  ).then(res => res.data);
 }
 
 export function getApplicationsTable(params) {
@@ -14,7 +15,7 @@ export function getApplicationsTable(params) {
     size: 0,
     competitionId: 0,
     sort: null,
-    searchByName: null,
+    search: null,
     status: null
   }, params);
   console.log(_params);
@@ -22,3 +23,15 @@ export function getApplicationsTable(params) {
     params:_params
   }).then(res => res.data);
 }
+
+export function saveApplicationStatus(params){
+  let _params = Object.assign({
+    participantsId: 0
+  }, params);
+  console.log(_params);
+  axios.put('https://afternoon-woodland-86438.herokuapp.com/participants/'+ params.participantsId,{
+    applicationStatus: ''
+  }).then( function (response) {console.log(this.response)
+  }).catch( function (error) {console.log(this.error)});
+
+};

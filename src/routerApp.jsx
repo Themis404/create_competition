@@ -9,7 +9,7 @@ import PageUsers from './containers/pageUsers'
 import PageAnnouncement from './containers/pageAnnouncement'
 import PageRegulations from './containers/pageRegulations'
 import PageCreateDay from './containers/pageCreateDay';
-import PageTableTaApplications from './containers/pageTableApplications'
+import PageTableApplications from './containers/pageTableApplications'
 import PageApplication from './containers/pageApplication'
 import PageCardApplications from './containers/pageCardApplications'
 import PageCreatePoint from './containers/pageCreatePoint'
@@ -38,8 +38,8 @@ export default class RouterApp extends Component {
                     <Route exact path="/announcement" component={PageAnnouncement} />
                     <Route exact path="/regulations" component={PageRegulations} />
                     <Route exact path="/create-application" component={PageApplication}/>
-                    <Route exact path="/competition/:id/application" component={PageTableTaApplications}/>
-                    <Route exact path="/competition/:id/application/:applicationId" component={PageCardApplications}/>
+                    <Route exact path="/competition/:id/application" component={PageTableApplications}/>
+                    <Route exact path="/application/:idParticipants" component={PageCardApplications}/>
                 </Switch>
               </MenuPage>
             </HashRouter>

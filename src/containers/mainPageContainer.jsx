@@ -16,16 +16,20 @@ class MainPage extends BaseComponent {
           totalPages: 0,
           sorts: [
             {
-              name: 'none select',
-              value: null
-            },
-            {
-              name: 'name',
+              name: 'name asc',
               value: 'name,asc'
             },
             {
-              name: 'dateStart',
+              name: 'name desc',
+              value: 'name,desc'
+            },
+            {
+              name: 'dateStart asc',
               value: 'dateStart,asc'
+            },
+            {
+              name: 'dateStart desc',
+              value: 'dateStart,desc'
             }
           ]
         };
@@ -68,6 +72,32 @@ class MainPage extends BaseComponent {
             });
       }
 
+      sortNameCompetitions = () => {
+        {
+          !!(this.state.sortValue==='name,asc')&&
+          this.setState({sortValue: 'name,desc'});
+        }
+
+        {
+          !(this.state.sortValue==='name,asc')&&
+          this.setState({sortValue: 'name,asc'});
+        }
+          this.getCompetitionInfo()
+      }
+
+      sortDateCompetitions = () => {
+        {
+          !!(this.state.sortValue==='dateStart,asc')&&
+          this.setState({sortValue: 'dateStart,desc'})
+        }
+
+        {
+          !(this.state.sortValue==='dateStart,asc')&&
+          this.setState({sortValue: 'dateStart,asc'})
+        }
+        this.getCompetitionInfo()
+      }
+
       render() {
         if (this.reload) {
             this.reload = false;
@@ -79,23 +109,16 @@ class MainPage extends BaseComponent {
               <SearchBar onSearch={ e => this.setState({searchByName: e}, () => this.getCompetitionInfo())}/>
               <div className='btn-group marginBotStandart col-md-12 nonePadding'>
                 <button onClick={() => this.goToState('/create-competition')} className='btn btn-info heightButton col-md-2'>Create competition</button>
-                <select className='btn btn-info heightButton col-md-2' onChange={event => this.setState({sortValue: event && event.target && event.target.value ? event.target.value : null}, () => this.getCompetitionInfo())} value={this.state.sortValue ? this.state.sortValue : ''}>
-                  <option disabled>select by</option>
-                  {
-                    this.state.sorts.map((sort, key) =>
-                      <option key={key} value={sort.value}>{sort.name}</option>
-                    )
-                  }
-                </select>
+                
               </div>
               <h3><p className="text-center col-md-4 col-md-offset-4 nonePadding">COMPETITIONS TABLE</p></h3>
               <div className='row container col-md-center'>
                 <table className="table table-bordered table-striped table-hover">
                   <thead>
                     <tr className="info active">
-                      <th className="">NAME COMPETITION</th>
-                      <th className="">DATE START COMPETITION</th>
-                      <th className="">DATE END COMPETITION</th>
+                      <th className="text-center col-md-3" onClick={() => this.sortNameCompetitions()}>NAME COMPETITION</th>
+                      <th className="text-center col-md-2" onClick={() => this.sortDateCompetitions()}>DATE START COMPETITION</th>
+                      <th className="text-center  col-md-2">DATE END COMPETITION</th>
                       {/* <th className="th">Description</th> */}
                     </tr>
                   </thead>
@@ -103,9 +126,9 @@ class MainPage extends BaseComponent {
                     {
                       !!this.state.content.content && this.state.content.content.map((contentRow, key) =>
                           <tr key={key} className="tr">
-                            <td className="" onClick={() =>  this.goToState('/competition/'+contentRow.id)}>{contentRow.name}</td>
-                            <td className="">{contentRow.dateStart}</td>
-                            <td className="">{contentRow.dateFinish}</td>
+                            <td className="text-center col-md-3" onClick={() =>  this.goToState('/competition/'+contentRow.id)}>{contentRow.name}</td>
+                            <td className="text-center col-md-2">{contentRow.dateStart}</td>
+                            <td className="text-center col-md-2">{contentRow.dateFinish}</td>
                             {/* <td className="td">{contentRow.description}</td> */}
                           </tr>
                       )

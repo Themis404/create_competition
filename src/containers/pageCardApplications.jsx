@@ -7,7 +7,7 @@ import CardApplications from '../components/cardApplications'
 class PageCardApplications extends BaseComponent {
     constructor(params) {
         super(params);
-        this.props.match.params.id
+        this.props.match.params.idParticipants
     }
 
     render() {
@@ -18,7 +18,7 @@ class PageCardApplications extends BaseComponent {
       return (
         <div className='col-md-4 col-md-offset-4'>
           {/* <button onClick={() => this.goToState('/main')} className='button flex-container'>Back</button> */}
-          <CardApplications id={this.props.match.params.id}/>
+          <CardApplications idParticipants={this.props.match.params.idParticipants}/>
         </div>
       );
     }
