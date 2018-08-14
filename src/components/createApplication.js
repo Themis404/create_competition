@@ -160,7 +160,7 @@ class createApplication extends BaseComponent {
     return (
       <div className="col-md-12 nonePadding">
         <form onSubmit={this.handleSubmit} className=''>
-          <h2 className="text-center col-md-12 marginTopStandart">Заявление на участие в соревновании:</h2>
+          <h2 className="text-center col-md-12 marginTopStandart">Заявление на участие в соревновании</h2>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Имя*</p></h5>
           <input required id='inputName' className="form-control" placeholder = "Иван"
                   value={this.state.name}
@@ -186,11 +186,13 @@ class createApplication extends BaseComponent {
             }
           </select>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Введите свой номер телефона*</p></h5>
-          <input required type='tel' id='inputNumber' className="form-control" placeholder = "+7 "
+          <input required  type='text' id='phone' className="mask-phone form-control" placeholder = "+7 XXX XXX XXXX"
                   value={this.state.phone}
-                  onChange={e => this.updatePhone(e)}></input>
+                  onChange={e => this.updatePhone(e)}>
+             </input>
+
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Введите номер телефона в случае ЧС*</p></h5>
-          <input required type='tel' id='inputNumberEs' className="form-control" placeholder = "+7 "
+          <input required type='tel' id='inputNumberEs' className="form-control" placeholder = "+7 XXX XXX XXXX"
                   value={this.state.emergencyPhone}
                   onChange={e => this.updateEmergencyPhone(e)}></input>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Адрес электронной почты*</p></h5>
