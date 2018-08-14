@@ -100,7 +100,7 @@ class createApplication extends BaseComponent {
         email: this.state.email,
         racingMastery: this.state. racingMastery,
         vehicleType: this.state.vehicleType,
-        competitionId: this.state.competition,
+        competitionId: this.state.competitionId,
         gender: this.state.gender
       })
     }).then(res => {
