@@ -72,15 +72,15 @@ class TableApplications extends BaseComponent {
             });
       }
 
-      sortNameApplication = () => {
+      sortSurnameApplication = () => {
         {
-          !!(this.state.sortValue==='name,asc')&&
-          this.setState({sortValue: 'name,desc'});
+          !!(this.state.sortValue==='surname,asc')&&
+          this.setState({sortValue: 'surname,desc'});
         }
 
         {
-          !(this.state.sortValue==='name,asc')&&
-          this.setState({sortValue: 'name,asc'});
+          !(this.state.sortValue==='surname,asc')&&
+          this.setState({sortValue: 'surname,asc'});
         }
           this.getCompetitionInfo()
       }
@@ -165,7 +165,7 @@ class TableApplications extends BaseComponent {
                 <table className="table table-bordered table-striped table-hover">
                   <thead>
                     <tr className="info active">
-                      <th className="" onClick={() => this.sortNameApplication()}>NAME</th>
+                      <th className="" onClick={() => this.sortSurnameApplication()}>NAME</th>
                       <th className="" onClick={() => this.sortAgeApplication()}>AGE</th>
                       <th className="" onClick={() => this.sortGenderApplication()}>GENDER</th>
                       <th className="" onClick={() => this.sortTypeVehcileApplication()}>TYPE VEHCILE</th>
@@ -179,7 +179,8 @@ class TableApplications extends BaseComponent {
                       !!this.state.content.content && this.state.content.content.map((contentRow, key) =>
                           <tr key={key} className="tr">
                             <td className="" onClick={() =>  this.goToState('/application/'+contentRow.id)}>
-                              {contentRow.name} {contentRow.surname} {contentRow.fatherName}</td>
+                              {contentRow.surname} {contentRow.name} {contentRow.fatherName}
+                            </td>
                             <td className="">{contentRow.age}</td>
                             <td className="">{contentRow.gender}</td>
                             <td className="">{contentRow.vehicleType}</td>

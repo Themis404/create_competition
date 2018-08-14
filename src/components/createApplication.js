@@ -31,7 +31,7 @@ class createApplication extends BaseComponent {
           name: 'Male',
           value: 'MALE'
         }],
-      recingMastery: '',
+      racingMastery: '',
       typeMastery: [
         {
           name: 'Select by',
@@ -98,14 +98,14 @@ class createApplication extends BaseComponent {
         phone: this.state.phone,
         emergencyPhone: this.state.emergencyPhone,
         email: this.state.email,
-        recingMastery: this.state. recingMastery,
+        racingMastery: this.state. racingMastery,
         vehicleType: this.state.vehicleType,
         competitionId: this.state.competition,
         gender: this.state.gender
       })
     }).then(res => {
       console.log(res);
-      this.setState({name: '', surname: '', fatherName: '', age: '', phone: '', emergencyPhone: '', email: '', recingMastery: '', vehicleType: '', gender: ''});
+      this.setState({name: '', surname: '', fatherName: '', age: '', phone: '', emergencyPhone: '', email: '', racingMastery: '', vehicleType: '', gender: ''});
       console.log(this.state);
       res.ok ? console.log('success') : console.warn('something gone wrong');
     });
@@ -140,8 +140,8 @@ class createApplication extends BaseComponent {
     this.setState( {email: e.target.value} )
   }
 
-  updateRecingMastery(e) {
-    this.setState( {recingMastery: e.target.value} )
+  updateRacingMastery(e) {
+    this.setState( {racingMastery: e.target.value} )
   }
 
   updateVehicleType(e) {
@@ -200,7 +200,7 @@ class createApplication extends BaseComponent {
                   value={this.state.email}
                   onChange={e => this.updateEmail(e)}></input>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Уровень подготовки*</p></h5>
-          <select required className='btn btn-default heightButton noneFloat col-md-12' onChange={event => this.setState({recingMastery: event && event.target && event.target.value ? event.target.value : null})} value={this.state.recingMastery ? this.state.recingMastery : ''}>
+          <select required className='btn btn-default heightButton noneFloat col-md-12' onChange={event => this.setState({racingMastery: event && event.target && event.target.value ? event.target.value : null})} value={this.state.racingMastery ? this.state.racingMastery : ''}>
             {
               this.state.typeMastery.map((typeMastery, key) =>
                 <option key={key} value={typeMastery.value}>{typeMastery.name}</option>
