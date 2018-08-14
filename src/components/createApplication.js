@@ -49,20 +49,20 @@ class createApplication extends BaseComponent {
           name: 'Professional',
           value: 'PROFESSIONAL'
         }],
-        vehicleType: '',
-        typeVehicle: [
-          {
-            name: 'Select by',
-            value: ''
-          },
-          {
-            name: 'Motorcycle',
-            value: 'MOTORCYCLE'
-          },
-          {
-            name: 'ATV',
-            value: 'ATV'
-          }],
+      vehicleType: '',
+      typeVehicle: [
+        {
+          name: 'Select by',
+          value: ''
+        },
+        {
+          name: 'Motorcycle',
+          value: 'MOTORCYCLE'
+        },
+        {
+          name: 'ATV',
+          value: 'ATV'
+        }],
     }
 
   }

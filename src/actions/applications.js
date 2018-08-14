@@ -29,8 +29,8 @@ export function saveApplicationStatus(params){
     participantsId: 0
   }, params);
   console.log(_params);
-  axios.put('https://afternoon-woodland-86438.herokuapp.com/participants/'+ params.participantsId,{
-    applicationStatus: ''
+  return axios.put('https://afternoon-woodland-86438.herokuapp.com/participants/'+ params.participantsId,{
+    applicationStatus: params.applicationStatus
   }).then( function (response) {console.log(this.response)
   }).catch( function (error) {console.log(this.error)});
 

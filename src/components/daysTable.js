@@ -1,8 +1,8 @@
 import React from 'react';
 import BaseComponent from '../containers/baseComponent'
 import {Redirect} from 'react-router-dom';
-import * as actionsDay from '../actions/getDays';
-import * as actionsPoint from '../actions/getPoint';
+import * as actionsDay from '../actions/days';
+import * as actionsPoint from '../actions/points';
 
 class DaysTable extends BaseComponent {
 
@@ -75,7 +75,7 @@ class DaysTable extends BaseComponent {
           <table className="table table-bordered table-striped table-hover">
             <thead>
             <tr className="info active">
-              <th className="">DAY</th>
+              <th className="">№</th>
               <th className="">NAME</th>
               <th className="">POINTS</th>
             </tr>

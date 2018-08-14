@@ -1,7 +1,7 @@
 import React from 'react'
 import BaseComponent from '../containers/baseComponent'
 import { Redirect } from 'react-router-dom'
-import * as actions from '../actions/getPoint';
+import * as actions from '../actions/points';
 
 class CardPoint extends BaseComponent {
 

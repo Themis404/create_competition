@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseComponent from '../containers/baseComponent'
 import {Redirect} from 'react-router-dom';
-import * as actions from '../actions/getPoint';
+import * as actions from '../actions/points';
 
 class PointTable extends BaseComponent {
 
@@ -48,11 +48,11 @@ class PointTable extends BaseComponent {
     }
 
     return (
-        <div className="row container col-md-6 col-md-offset-3 nonePadding">
+        <div className="row container col-md-8 col-md-offset-2 nonePadding">
           <table className="table table-bordered table-striped table-hover">
             <thead>
             <tr className="info active">
-              <th className="">SEQUENCE NUMBER</th>
+              <th className="">№</th>
               <th className="">NAME</th>
               <th className="">TYPE</th>
             </tr>

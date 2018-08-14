@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Redirect } from 'react-router-dom';
 import BaseComponent from '../containers/baseComponent'
 import SearchBar from '../components/SearchBar.js';
-import * as actions from '../actions/getApplications';
+import * as actions from '../actions/applications';
 
 class TableApplications extends BaseComponent {
     constructor(props) {
@@ -14,7 +14,7 @@ class TableApplications extends BaseComponent {
           sortValue: '',
           statusValue: 'not_processed',
           pageNo: 0,
-          pageSize: 4,
+          pageSize: 8,
           totalPages: 0,
           status: [
             {
