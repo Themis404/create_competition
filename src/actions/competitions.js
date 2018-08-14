@@ -22,7 +22,7 @@ export function saveAccessStatus(params){
     accessStatus: params.accessStatus
   }).then( function (response) {console.log(this.response)
   }).catch( function (error) {console.log(this.error)});
-
+ 
 };
 
 export function createCompetition(params){
