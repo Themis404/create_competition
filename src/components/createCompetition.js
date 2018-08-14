@@ -2,6 +2,7 @@ import React from 'react';
 import {Redirect} from 'react-router-dom';
 import BaseComponent from '../containers/baseComponent'
 import ReactDOM from 'react-dom';
+import * as actions from '../actions/post';
 
 class CreateCompetition extends BaseComponent {
 
@@ -18,7 +19,7 @@ class CreateCompetition extends BaseComponent {
   }
 
 
-  handleSubmit = (e) => {
+/*  handleSubmit = (e) => {
     console.log(this.state);
     fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/create', {
       method: 'POST',
@@ -44,8 +45,8 @@ class CreateCompetition extends BaseComponent {
     });
     e.preventDefault();
   };
-
-  /*  handleSubmit = (e) => {
+*/
+    handleSubmit = (e) => {
       console.log(this.state);
       actions.createCompetition({
         name: this.state.name,
@@ -58,11 +59,8 @@ class CreateCompetition extends BaseComponent {
           console.log(res);
           this.setState({name: '', description: '', dateStart: '', dateFinish: '', registrationEnd: '', registrationStart: ''});
             console.log(this.state);
-            this.checkFieldsEmpty();
-            res.ok ? console.log('success') : console.warn('something gone wrong');
         });
-          e.preventDefault();
-      }*/
+      }
 
   updateName(e) {
     this.setState( {name: e.target.value} );

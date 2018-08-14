@@ -2,7 +2,7 @@ import React from 'react';
 import BaseComponent from '../containers/baseComponent'
 import {Redirect} from 'react-router-dom';
 import lupa from './lup.png'
-import * as actions from '../actions/index';
+import * as actions from '../actions/competitions';
 
 class SearchBar extends BaseComponent {
     constructor(props) {

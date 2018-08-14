@@ -23,11 +23,11 @@ class TableApplications extends BaseComponent {
             },
             {
               name: 'denied',
-              value: 'denied' /*дата подачи заявления*/
+              value: 'denied'
             },
             {
               name: 'accepted',
-              value: 'accepted' /*тип тс*/
+              value: 'accepted'
             }
           ]
         };
@@ -73,69 +73,34 @@ class TableApplications extends BaseComponent {
       }
 
       sortSurnameApplication = () => {
-        {
-          !!(this.state.sortValue==='surname,asc')&&
-          this.setState({sortValue: 'surname,desc'});
-        }
-
-        {
-          !(this.state.sortValue==='surname,asc')&&
-          this.setState({sortValue: 'surname,asc'});
-        }
-          this.getCompetitionInfo()
+        this.setState({
+          sortValue: this.state.sortValue === 'surname,asc' ? 'surname,desc' : 'surname,asc'
+        }, () => this.getCompetitionInfo());
       }
 
       sortAgeApplication = () => {
-        {
-          !!(this.state.sortValue==='age,asc')&&
-          this.setState({sortValue: 'age,desc'})
+          this.setState({
+            sortValue: this.state.sortValue === 'age,asc' ? 'age,desc' : 'age,asc'
+          }, () => this.getCompetitionInfo());
         }
-
-        {
-          !(this.state.sortValue==='age,asc')&&
-          this.setState({sortValue: 'age,asc'})
-        }
-        this.getCompetitionInfo()
-      }
 
       sortTypeVehcileApplication = () => {
-        {
-          !!(this.state.sortValue==='vehicleType,asc')&&
-          this.setState({sortValue: 'vehicleType,desc'})
+          this.setState({
+            sortValue: this.state.sortValue === 'vehicleType,asc' ? 'vehicleType,desc' : 'vehicleType,asc'
+          }, () => this.getCompetitionInfo());
         }
-
-        {
-          !(this.state.sortValue==='vehicleType,asc')&&
-          this.setState({sortValue: 'vehicleType,asc'})
-        }
-        this.getCompetitionInfo()
-      }
 
       sortRecingMasteryApplication = () => {
-        {
-          !!(this.state.sortValue==='racingMastery,asc')&&
-          this.setState({sortValue: 'racingMastery,desc'})
+          this.setState({
+            sortValue: this.state.sortValue === 'racingMastery,asc' ? 'racingMastery,desc' : 'racingMastery,asc'
+          }, () => this.getCompetitionInfo());
         }
-
-        {
-          !(this.state.sortValue==='racingMastery,asc')&&
-          this.setState({sortValue: 'racingMastery,asc'})
-        }
-        this.getCompetitionInfo()
-      }
 
       sortGenderApplication = () => {
-        {
-          !!(this.state.sortValue==='gender,asc')&&
-          this.setState({sortValue: 'gender,desc'})
+          this.setState({
+            sortValue: this.state.sortValue === 'gender,asc' ? 'gender,desc' : 'gender,asc'
+          }, () => this.getCompetitionInfo());
         }
-
-        {
-          !(this.state.sortValue==='gender,asc')&&
-          this.setState({sortValue: 'gender,asc'})
-        }
-        this.getCompetitionInfo()
-      }
 
       render() {
         if (this.reload) {

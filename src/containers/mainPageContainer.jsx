@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Redirect } from 'react-router-dom';
 import BaseComponent from './baseComponent'
 import SearchBar from '../components/SearchBar.js';
-import * as actions from '../actions/index';
+import * as actions from '../actions/competitions';
 
 class MainPage extends BaseComponent {
     constructor(props) {
@@ -14,24 +14,6 @@ class MainPage extends BaseComponent {
           pageNo: 0,
           pageSize: 4,
           totalPages: 0,
-          sorts: [
-            {
-              name: 'name asc',
-              value: 'name,asc'
-            },
-            {
-              name: 'name desc',
-              value: 'name,desc'
-            },
-            {
-              name: 'dateStart asc',
-              value: 'dateStart,asc'
-            },
-            {
-              name: 'dateStart desc',
-              value: 'dateStart,desc'
-            }
-          ]
         };
       }
 
@@ -73,29 +55,15 @@ class MainPage extends BaseComponent {
       }
 
       sortNameCompetitions = () => {
-        {
-          !!(this.state.sortValue==='name,asc')&&
-          this.setState({sortValue: 'name,desc'});
-        }
-
-        {
-          !(this.state.sortValue==='name,asc')&&
-          this.setState({sortValue: 'name,asc'});
-        }
-          this.getCompetitionInfo()
+        this.setState({
+          sortValue: this.state.sortValue === 'name,asc' ? 'name,desc' : 'name,asc'
+        }, () => this.getCompetitionInfo());
       }
 
       sortDateCompetitions = () => {
-        {
-          !!(this.state.sortValue==='dateStart,asc')&&
-          this.setState({sortValue: 'dateStart,desc'})
-        }
-
-        {
-          !(this.state.sortValue==='dateStart,asc')&&
-          this.setState({sortValue: 'dateStart,asc'})
-        }
-        this.getCompetitionInfo()
+        this.setState({
+          sortValue: this.state.sortValue === 'dateStart,asc' ? 'dateStart,desc' : 'dateStart,asc'
+        }, () => this.getCompetitionInfo());
       }
 
       render() {
@@ -109,7 +77,7 @@ class MainPage extends BaseComponent {
               <SearchBar onSearch={ e => this.setState({searchByName: e}, () => this.getCompetitionInfo())}/>
               <div className='btn-group marginBotStandart col-md-12 nonePadding'>
                 <button onClick={() => this.goToState('/create-competition')} className='btn btn-info heightButton col-md-2'>Create competition</button>
-                
+
               </div>
               <h3><p className="text-center col-md-4 col-md-offset-4 nonePadding">COMPETITIONS TABLE</p></h3>
               <div className='row container col-md-center'>

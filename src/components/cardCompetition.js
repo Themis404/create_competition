@@ -1,13 +1,15 @@
 import React from 'react'
 import BaseComponent from '../containers/baseComponent'
 import { Redirect } from 'react-router-dom'
+import * as actionsCompetitions from '../actions/competitions'
 
 class CardCompetition extends BaseComponent {
 
   constructor(props) {
     super(props);
     this.state = {
-      content: []
+      content: [],
+      competitionId: this.props.id
     };
   }
 
@@ -32,22 +34,16 @@ class CardCompetition extends BaseComponent {
     }
 
     putAccessStatus = (e) => {
-      fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/' +  this.props.id, {
-      method: 'PUT',
-      headers: {
-        'Access-Control-Allow-Headers': 'origin, content-type, accept',
-        'Access-Control-Allow-Origin': '*',
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        accessStatus: 'ALIVE'})
-      }).then(res => {
-      this.setState({ accessStatus: ''});
       console.log(this.state);
-      res.ok ? console.log('success') : console.warn('something gone wrong');
-    });
-    };
+      actionsCompetitions.saveAccessStatus({
+        competitionId: this.state.competitionId,
+        accessStatus: 'ALIVE'
+        }).then(res => {
+          console.log(res);
+          this.setState({accessStatus: ''});
+            console.log(this.state);
+        });
+      }
 
     render() {
       if (this.reload) {

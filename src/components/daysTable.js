@@ -24,10 +24,34 @@ class DaysTable extends BaseComponent {
       competitionId: this.state.id
     }).then((content) => {
           this.setState({
-            content: content
+            content: content.content.map(day => {
+              day.totalElements = 0;
+              return day;
+            })
+          }, () => this.updateAllPoint());
+        });
+  }
+
+  updateAllPoint() {
+    this.state.content.forEach(day => {
+      this.getPointInfo(day.id);
+    });
+  }
+
+  getPointInfo = (dayId) => {
+    actionsPoint.getPointTable({
+      competitionDayId: dayId
+    }).then((content) => {
+          let days = this.state.content;
+          days.forEach(day => {
+            if (day.id === dayId) {
+              day.totalElements = content.totalElements;
+            }
+          });
+          this.setState({
+            content: days
           });
         });
-        console.log(this.state)
   }
 
   render() {
@@ -36,13 +60,13 @@ class DaysTable extends BaseComponent {
       return <Redirect to={this.redirect} push={true}/>;
     }
     const contents = this.state.content;
-    let rows = undefined;
-    if (contents.content){
-      rows = contents.content.map((contentRow, key) =>
+    let rows = [];
+    if (contents.length){
+      rows = contents.map((contentRow, key) =>
           <tr key={key} className="">
             <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.sequenceNumber}</td>
             <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.name}</td>
-            <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.sequenceNumber}</td> /*исправить на кол-во элементов*/
+            <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.totalElements}</td>
           </tr>
       )}
 

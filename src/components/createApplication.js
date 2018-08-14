@@ -2,7 +2,7 @@ import React from 'react';
 import {Redirect} from 'react-router-dom';
 import BaseComponent from '../containers/baseComponent'
 import ReactDOM from 'react-dom';
-import * as actions from '../actions/index';
+import * as actions from '../actions/competitions';
 
 class createApplication extends BaseComponent {
 
