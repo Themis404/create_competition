@@ -127,7 +127,7 @@ class TableApplications extends BaseComponent {
                   <h3><p className="text-center col-md-4 col-md-offset-4">APPLICATIONS TABLE</p></h3>
                 </div>
 
-                <table className="table table-bordered table-striped table-hover">
+                <table className="table table-condensed table-striped table-hover">
                   <thead>
                     <tr className="info active">
                       <th className="" onClick={() => this.sortSurnameApplication()}>NAME <span class="fa fa-sort float-right"></span></th>

@@ -51,7 +51,7 @@ class CreateDayForm extends BaseComponent {
       console.log(res);
       this.setState({name: '', date: '', timeStart: '', timeFinish: '', sequenceNumber: '', competitionId: ''});
       console.log(this.state);
-      this.checkFieldsEmpty();
+      () => this.checkFieldsEmpty();
       res.ok ? console.log('success') : console.warn('something gone wrong');
     });
     e.preventDefault();

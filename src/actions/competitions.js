@@ -20,10 +20,10 @@ export function saveAccessStatus(params){
   console.log(_params);
   return axios.put(`https://afternoon-woodland-86438.herokuapp.com/competitions/${params.competitionId}`,{
     accessStatus: params.accessStatus
-  }).then( function (response) {console.log(this.response)
-  }).catch( function (error) {console.log(this.error)});
- 
-};
+  }).then((response) => {
+    console.log(response)
+  }).catch((error) => {
+    console.log(error)})};
 
 export function createCompetition(params){
   return axios.post('https://afternoon-woodland-86438.herokuapp.com/competitions/create',{
@@ -33,7 +33,7 @@ export function createCompetition(params){
     dateFinish: params.dateFinish,
     registrationStart: params.registrationStart,
     registrationEnd: params.registrationEnd
-  }).then( function (response) {console.log(this.response)
-  }).catch( function (error) {console.log(this.error)});
-
-};
+  }).then((response) => {
+    console.log(response)
+  }).catch((error) => {
+    console.log(error)})};
