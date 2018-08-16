@@ -71,7 +71,7 @@ class CardCompetition extends BaseComponent {
                 <h5><p className='col-md-12 nonePadding marginTopStandart'>Date deadline for applications</p></h5>
                 <input type='date' className="form-control" value={this.state.content.registrationEnd} placeholder = "DD-MM-YYYY" ></input>
               </div>
-              <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/create-day')} className='btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart'>Create day</button>
+              <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/create-day')} className='btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart'><span className='fas fa-plus'></span> Create day</button>
           </form>
       )
     }

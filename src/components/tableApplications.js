@@ -130,11 +130,11 @@ class TableApplications extends BaseComponent {
                 <table className="table table-bordered table-striped table-hover">
                   <thead>
                     <tr className="info active">
-                      <th className="" onClick={() => this.sortSurnameApplication()}>NAME</th>
-                      <th className="" onClick={() => this.sortAgeApplication()}>AGE</th>
-                      <th className="" onClick={() => this.sortGenderApplication()}>GENDER</th>
-                      <th className="" onClick={() => this.sortTypeVehcileApplication()}>TYPE VEHCILE</th>
-                      <th className="" onClick={() => this.sortRecingMasteryApplication()}>RECING MASTERY</th>
+                      <th className="" onClick={() => this.sortSurnameApplication()}>NAME <span class="fa fa-sort float-right"></span></th>
+                      <th className="" onClick={() => this.sortAgeApplication()}>AGE <span class="fa fa-sort float-right"></span></th>
+                      <th className="" onClick={() => this.sortGenderApplication()}>GENDER <span class="fa fa-sort float-right"></span></th>
+                      <th className="" onClick={() => this.sortTypeVehcileApplication()}>TYPE VEHCILE <span class="fa fa-sort float-right"></span></th>
+                      <th className="" onClick={() => this.sortRecingMasteryApplication()}>RECING MASTERY <span class="fa fa-sort float-right"></span></th>
                       <th className="" >STATUS</th>
                       {/* <th className="th">Description</th> */}
                     </tr>
@@ -163,20 +163,21 @@ class TableApplications extends BaseComponent {
                 <div className='col-md-offset-5'>
                   {
                     !!this.state.pageNo &&
-                    <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}>left</button>
+                    <button className='btn heightButton col-md-1 colMargin nonePadding' onClick={() => this.goToPrev()}><span className="fas fa-angle-left"></span></button>
                   }
                   {
                     !this.state.pageNo &&
-                    <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}>left</button>
+                    <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}><span className="fas fa-angle-left"></span></button>
                   }
+
                     <h4><p className='col-md-1 colMargin heightButton text-center'>{this.state.pageNo+1}/{this.state.totalPages}</p></h4>
                   {
                     this.state.pageNo < this.state.totalPages - 1 &&
-                    <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}>right</button>
+                    <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}><span class="fas fa-angle-right"></span></button>
                   }
                   {
                     this.state.pageNo >= this.state.totalPages - 1 &&
-                    <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}>right</button>
+                    <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}><span class="fas fa-angle-right"></span></button>
                   }
                 </div>
               </div>
