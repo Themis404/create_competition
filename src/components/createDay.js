@@ -2,6 +2,7 @@ import React from 'react';
 import {Redirect} from 'react-router-dom';
 import BaseComponent from '../containers/baseComponent'
 import ReactDOM from 'react-dom';
+import * as actions from '../actions/days';
 
 class CreateDayForm extends BaseComponent {
 
@@ -20,42 +21,24 @@ class CreateDayForm extends BaseComponent {
   componentDidMount() {
     this.setState({
       competitionId: this.props.id
-    });
-  }
+    })
+  };
 
   componentWillReceiveProps(newProps) {
     this.setState({
       competitionId: newProps.id
-    });
-  }
+    })
+  };
 
   handleSubmit = (e) => {
-    console.log(this.state);
-    fetch('https://afternoon-woodland-86438.herokuapp.com/days/create', {
-      method: 'POST',
-      headers: {
-        'Access-Control-Allow-Headers': 'origin, content-type, accept',
-        'Access-Control-Allow-Origin': '*',
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        competitionId: this.state.competitionId,
-        name: this.state.name,
-        date: this.state.date,
-        timeStart: this.state.timeStart,
-        timeFinish: this.state.timeFinish,
-        sequenceNumber: this.state.sequenceNumber
-      })
-    }).then(res => {
-      console.log(res);
-      this.setState({name: '', date: '', timeStart: '', timeFinish: '', sequenceNumber: '', competitionId: ''});
-      console.log(this.state);
-      this.checkFieldsEmpty();
-      res.ok ? console.log('success') : console.warn('something gone wrong');
-    });
-    e.preventDefault();
-  };
+    actions.createDay({
+      competitionId: this.props.id,
+      name: this.state.name,
+      date: this.state.date,
+      timeStart: this.state.timeStart,
+      timeFinish: this.state.timeFinish,
+      sequenceNumber: this.state.sequenceNumber
+    }).then(res => this.goToState(`/competition/${this.props.id}`));};
 
   updateName(e) {
     this.setState( {name: e.target.value} );
@@ -77,7 +60,7 @@ class CreateDayForm extends BaseComponent {
     this.setState( {sequenceNumber: e.target.value} )
   }
 
-  updateCompetitionId() {
+  updateCompetitionId(e) {
     this.setState( {competitionId: this.props.id} )
     console.log(this.state.competitionId)
   }
@@ -90,7 +73,7 @@ class CreateDayForm extends BaseComponent {
     return (
         <div className="col-md-12">
         <button onClick={() => this.goToState('/competition/' + this.props.id)} className='btn btn-warning col-md-2 noneFloat'>Back</button>
-          <form onSubmit={this.handleSubmit} className=''>
+          <form onSubmit={e => this.handleSubmit(e)} className=''>
             <h2 className="text-center col-md-12 marginTopStandart">Create day</h2>
             <h5><p className='col-md-12 nonePadding marginTopStandart'>Name</p></h5>
             <input required name='name' className="form-control" placeholder = "NAME DAY"
@@ -112,7 +95,7 @@ class CreateDayForm extends BaseComponent {
             <input required name='numberDay'  type='number' className="form-control" placeholder = "Number day"
                     value={this.state.sequenceNumber}
                     onChange={ e => this.updateSequenceNumber(e)}></input>
-            <button type="submit" name='submit' className="btn btn-success col-md-3 col-md-offset-4 marginTopStandart marginBotStandart" >Create</button>
+                  <button type="submit" className="btn btn-success col-md-3 col-md-offset-4 marginTopStandart marginBotStandart" >Create</button>
           </form>
         </div>
     )

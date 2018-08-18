@@ -2,7 +2,7 @@ import React from 'react';
 import {Redirect} from 'react-router-dom';
 import BaseComponent from '../containers/baseComponent'
 import ReactDOM from 'react-dom';
-
+import * as actions from '../actions/points';
 class CreatePoint extends BaseComponent {
 
   constructor(props) {
@@ -51,30 +51,12 @@ class CreatePoint extends BaseComponent {
   };
 
   handleSubmit = (e) => {
-    console.log(this.state);
-    fetch('https://afternoon-woodland-86438.herokuapp.com/points/create', {
-      method: 'POST',
-      headers: {
-        'Access-Control-Allow-Headers': 'origin, content-type, accept',
-        'Access-Control-Allow-Origin': '*',
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: this.state.name,
-        sequenceNumber: this.state.sequenceNumber,
-        placePointType: this.state.placePointType,
-        competitionDayId: this.props.idDay
-      })
-    }).then(res => {
-      console.log(res);
-      this.setState({name: '', sequenceNumber: '', placePointType: '', competitionDayId: ''});
-      console.log(this.state);
-      this.checkFieldsEmpty();
-      res.ok ? console.log('success') : console.warn('something gone wrong');
-    });
-    e.preventDefault();
-  };
+    actions.createPoint({
+      name: this.state.name,
+      sequenceNumber: this.state.sequenceNumber,
+      placePointType: this.state.placePointType,
+      competitionDayId: this.props.idDay
+    }).then(res => this.goToState('/main'));};
 
   updateName(e) {
     this.setState( {name: e.target.value} );
