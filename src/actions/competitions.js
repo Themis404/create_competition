@@ -20,8 +20,15 @@ export function saveAccessStatus(params){
   console.log(_params);
   return axios.put(`https://afternoon-woodland-86438.herokuapp.com/competitions/${params.competitionId}`,{
     accessStatus: params.accessStatus
+<<<<<<< HEAD
   }).then(res => res.data);
 };
+=======
+  }).then((response) => {
+    console.log(response)
+  }).catch((error) => {
+    console.log(error)})};
+>>>>>>> 83aefc93efe9d1eeeedf412485cc671866319a41
 
 export function createCompetition(params){
   return axios.post('https://afternoon-woodland-86438.herokuapp.com/competitions/create',{
@@ -31,5 +38,12 @@ export function createCompetition(params){
     dateFinish: params.dateFinish,
     registrationStart: params.registrationStart,
     registrationEnd: params.registrationEnd
+<<<<<<< HEAD
   }).then(res => res.data);
 };
+=======
+  }).then((response) => {
+    console.log(response)
+  }).catch((error) => {
+    console.log(error)})};
+>>>>>>> 83aefc93efe9d1eeeedf412485cc671866319a41
