@@ -18,3 +18,12 @@ export function getPointCard(params) {
   return axios.get('https://afternoon-woodland-86438.herokuapp.com/points/' + params.pointId
   ).then(res => res.data);
 }
+
+export function createPoint(params){
+  return axios.post('https://afternoon-woodland-86438.herokuapp.com/points/create',{
+    name: params.name,
+    sequenceNumber: params.sequenceNumber,
+    placePointType: params.placePointType,
+    competitionDayId: params.idDay
+  }).then(res => res.data);
+};

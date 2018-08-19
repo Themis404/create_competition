@@ -51,7 +51,7 @@ class CardDay extends BaseComponent {
             <h5><p className='col-md-12 nonePadding marginTopStandart'>Number day</p></h5>
             <input className="form-control" value={this.state.content.sequenceNumber} placeholder = "beginner/tourist/pro" ></input>
           </div>
-          <button onClick={() => this.goToState('/competition/'+this.state.competitionId+'/day/'+this.state.content.id+'/create-point')} className='btn btn-success col-md-3 col-md-offset-4 marginTopStandart marginBotStandart'>Create point</button>
+          <button onClick={() => this.goToState('/competition/'+this.state.competitionId+'/day/'+this.state.content.id+'/create-point')} className='btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart'><span className='fas fa-plus'></span> Create point</button>
       </form>
     )
   }

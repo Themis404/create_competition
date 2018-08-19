@@ -76,16 +76,16 @@ class MainPage extends BaseComponent {
             <div className="center-block">
               <SearchBar onSearch={ e => this.setState({searchByName: e}, () => this.getCompetitionInfo())}/>
               <div className='btn-group marginBotStandart col-md-12 nonePadding'>
-                <button onClick={() => this.goToState('/create-competition')} className='btn btn-info heightButton col-md-2'>Create competition</button>
+                <button onClick={() => this.goToState('/create-competition')} className='btn btn-info heightButton col-md-2'><span className='fas fa-plus'></span> Create competition</button>
 
               </div>
               <h3><p className="text-center col-md-4 col-md-offset-4 nonePadding">COMPETITIONS TABLE</p></h3>
               <div className='row container col-md-center'>
-                <table className="table table-bordered table-striped table-hover">
+                <table className="table table-condensed table-striped table-hover">
                   <thead>
                     <tr className="info active">
-                      <th className="text-center col-md-3" onClick={() => this.sortNameCompetitions()}>NAME COMPETITION</th>
-                      <th className="text-center col-md-2" onClick={() => this.sortDateCompetitions()}>DATE START COMPETITION</th>
+                      <th className="text-center col-md-3" onClick={() => this.sortNameCompetitions()}>NAME COMPETITION <span class="fa fa-sort float-right"></span></th>
+                      <th className="text-center col-md-2" onClick={() => this.sortDateCompetitions()}>DATE START COMPETITION <span class="fa fa-sort float-right"></span></th>
                       <th className="text-center  col-md-2">DATE END COMPETITION</th>
                       {/* <th className="th">Description</th> */}
                     </tr>
@@ -109,20 +109,20 @@ class MainPage extends BaseComponent {
                 <div className='col-md-offset-5'>
                 {
                   !!this.state.pageNo &&
-                  <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}>left</button>
+                  <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}><span class="fas fa-angle-left"></span></button>
                 }
                 {
                   !this.state.pageNo &&
-                  <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}>left</button>
+                  <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}><span class="fas fa-angle-left"></span></button>
                 }
-                  <h4><p className='col-md-1 colMargin heightButton text-center'>{this.state.pageNo+1}/{this.state.totalPages}</p></h4>
+                  <h4><p className='col-md-1 colMargin heightButton text-center '>{this.state.pageNo+1}/{this.state.totalPages}</p></h4>
                 {
                   this.state.pageNo < this.state.totalPages - 1 &&
-                  <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}>right</button>
+                  <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}><span class="fas fa-angle-right"></span></button>
                 }
                 {
                   this.state.pageNo >= this.state.totalPages - 1 &&
-                  <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}>right</button>
+                  <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}><span class="fas fa-angle-right"></span></button>
                 }
               </div>
             </div>

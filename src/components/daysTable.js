@@ -72,7 +72,7 @@ class DaysTable extends BaseComponent {
 
     return (
         <div className="row container col-md-8 col-md-offset-2 nonePadding">
-          <table className="table table-bordered table-striped table-hover">
+          <table className="table table-striped table-hover">
             <thead>
             <tr className="info active">
               <th className="">№</th>
