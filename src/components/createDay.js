@@ -31,7 +31,6 @@ class CreateDayForm extends BaseComponent {
   };
 
   handleSubmit = (e) => {
-<<<<<<< HEAD
     actions.createDay({
       competitionId: this.props.id,
       name: this.state.name,
@@ -40,34 +39,9 @@ class CreateDayForm extends BaseComponent {
       timeFinish: this.state.timeFinish,
       sequenceNumber: this.state.sequenceNumber
     }).then(res => this.goToState(`/competition/${this.props.id}`));};
-=======
-    console.log(this.state);
-    fetch('https://afternoon-woodland-86438.herokuapp.com/days/create', {
-      method: 'POST',
-      headers: {
-        'Access-Control-Allow-Headers': 'origin, content-type, accept',
-        'Access-Control-Allow-Origin': '*',
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        competitionId: this.state.competitionId,
-        name: this.state.name,
-        date: this.state.date,
-        timeStart: this.state.timeStart,
-        timeFinish: this.state.timeFinish,
-        sequenceNumber: this.state.sequenceNumber
-      })
-    }).then(res => {
-      console.log(res);
-      this.setState({name: '', date: '', timeStart: '', timeFinish: '', sequenceNumber: '', competitionId: ''});
-      console.log(this.state);
-      () => this.checkFieldsEmpty();
-      res.ok ? console.log('success') : console.warn('something gone wrong');
-    });
-    e.preventDefault();
-  };
->>>>>>> 83aefc93efe9d1eeeedf412485cc671866319a41
+
+
+
 
   updateName(e) {
     this.setState( {name: e.target.value} );
