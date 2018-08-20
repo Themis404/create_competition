@@ -31,9 +31,6 @@ export function createCompetition(params){
     dateFinish: params.dateFinish,
     registrationStart: params.registrationStart,
     registrationEnd: params.registrationEnd
-<<<<<<< HEAD
-=======
-
   }).then(res => res.data);
 };
 
@@ -53,6 +50,5 @@ export function deleteCopmetitionCard1(params){
   }, params);
   console.log(_params);
   return axios.delete(`https://afternoon-woodland-86438.herokuapp.com/competitions/${params.competitionId}/delete`,{
->>>>>>> d1c141dea0890f131ee85ebfb9a485790b8c8143
   }).then(res => res.data);
 };
