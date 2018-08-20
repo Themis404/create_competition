@@ -35,6 +35,7 @@ class CardCompetition extends BaseComponent {
 
     putAccessStatus = (e) => {
       console.log(this.state);
+      e.preventDefault();
       actionsCompetitions.saveAccessStatus({
         competitionId: this.state.competitionId,
         accessStatus: 'ALIVE'
@@ -45,6 +46,14 @@ class CardCompetition extends BaseComponent {
         });
       }
 
+    daleteCompetition = (e) => {
+      console.log(this.state);
+      e.preventDefault();
+      actionsCompetitions.daleteCopmetitionCard({
+        competitionId: this.state.competitionId,
+        }).then(res => { console.log(res);});
+      }
+
     render() {
       if (this.reload) {
           this.reload = false;
@@ -53,9 +62,10 @@ class CardCompetition extends BaseComponent {
 
       return (
             <form className='col-md-12 nonePadding'>
-              <button onClick={() => this.goToState('/main')} className='btn btn-warning col-md-2 noneFloat'>Back</button>
-              <button onClick={() => this.putAccessStatus()} type='submit' className='btn btn-success noneFloat col-md-3 col-md-offset-2'>Activation</button>
-              <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/application')} className='btn btn-info col-md-3 noneFloat col-md-offset-2 '>Applications</button>
+              <button onClick={() => this.goToState('/main')} className='btn btn-warning col-md-3 noneFloat'>Back</button>
+              <button onClick={() => this.putAccessStatus()} type='submit' className='btn btn-success noneFloat col-md-3 col-md-offset-1'>Activation</button>
+              <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/application')} className='btn btn-info col-md-3 noneFloat col-md-offset-1 '>Applications</button>
+              <button onClick={e =>   this.daleteCompetition(e)} className='btn btn-info col-md-3 noneFloat col-md-offset-4 '>delete</button>
               <div>
                 <h2 className="text-center col-md-12 marginTopStandart">Card competition</h2>
                 <h5><p className='col-md-12 nonePadding'>Name</p></h5>

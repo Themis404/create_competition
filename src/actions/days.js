@@ -20,20 +20,12 @@ export function getDaysCard(params) {
 };
 
 export function createDay(params) {
-  return axios({
-    method: 'post',
-    url: 'https://afternoon-woodland-86438.herokuapp.com/days/create',
-    data: {
+  return axios.post('https://afternoon-woodland-86438.herokuapp.com/days/create',{
       competitionId: params.competitionId,
       name: params.name,
       date: params.date,
       timeStart: params.timeStart,
       timeFinish: params.timeFinish,
-      sequenceNumber: params.sequenceNumber},
-    headers: {
-      'Access-Control-Allow-Headers': 'origin, content-type, accept',
-      'Access-Control-Allow-Origin': '*',
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'}
+      sequenceNumber: params.sequenceNumber
     }).then(res => res.data);
 };

@@ -31,6 +31,7 @@ class CreateDayForm extends BaseComponent {
   };
 
   handleSubmit = (e) => {
+    e.preventDefault();
     actions.createDay({
       competitionId: this.props.id,
       name: this.state.name,
@@ -38,7 +39,10 @@ class CreateDayForm extends BaseComponent {
       timeStart: this.state.timeStart,
       timeFinish: this.state.timeFinish,
       sequenceNumber: this.state.sequenceNumber
-    }).then(res => this.goToState(`/competition/${this.props.id}`));};
+    }).then(res => {
+      this.goToState(`/competition/${this.props.id}`);
+    });
+  };
 
 
 

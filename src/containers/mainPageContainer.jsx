@@ -115,7 +115,7 @@ class MainPage extends BaseComponent {
                   !this.state.pageNo &&
                   <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}><span class="fas fa-angle-left"></span></button>
                 }
-                  <h4><p className='col-md-1 colMargin heightButton text-center '>{this.state.pageNo+1}/{this.state.totalPages}</p></h4>
+                  <h4><p className='col-md-1 colMargin heightButton btn text-center '>{this.state.pageNo+1}/{this.state.totalPages}</p></h4>
                 {
                   this.state.pageNo < this.state.totalPages - 1 &&
                   <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}><span class="fas fa-angle-right"></span></button>

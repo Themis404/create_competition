@@ -24,6 +24,6 @@ export function createPoint(params){
     name: params.name,
     sequenceNumber: params.sequenceNumber,
     placePointType: params.placePointType,
-    competitionDayId: params.idDay
+    competitionDayId: params.competitionDayId
   }).then(res => res.data);
 };
