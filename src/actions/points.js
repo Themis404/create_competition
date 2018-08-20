@@ -24,6 +24,16 @@ export function createPoint(params){
     name: params.name,
     sequenceNumber: params.sequenceNumber,
     placePointType: params.placePointType,
-    competitionDayId: params.idDay
+    competitionDayId: params.competitionDayId
   }).then(res => res.data);
+};
+
+export function daletePointCard(params){
+  return axios({
+    method: 'delete',
+    url: `https://afternoon-woodland-86438.herokuapp.com/points/${params.pointId}/delete`,
+    headers: {
+      'Access-Control-Allow-Headers': 'origin',
+      'Access-Control-Allow-Origin': '*'}
+    }).then(res => res.data);
 };

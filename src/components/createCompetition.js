@@ -19,6 +19,7 @@ class CreateCompetition extends BaseComponent {
   }
 
   handleSubmit = (e) => {
+    e.preventDefault();
     actions.createCompetition({
       name: this.state.name,
       description: this.state.description,

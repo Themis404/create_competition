@@ -51,12 +51,13 @@ class CreatePoint extends BaseComponent {
   };
 
   handleSubmit = (e) => {
+    e.preventDefault();
     actions.createPoint({
       name: this.state.name,
       sequenceNumber: this.state.sequenceNumber,
       placePointType: this.state.placePointType,
       competitionDayId: this.props.idDay
-    }).then(res => this.goToState('/main'));};
+    }).then(res => this.goToState(`/competition/${this.props.id}/day/${this.props.idDay}`));};
 
   updateName(e) {
     this.setState( {name: e.target.value} );

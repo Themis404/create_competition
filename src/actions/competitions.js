@@ -31,5 +31,28 @@ export function createCompetition(params){
     dateFinish: params.dateFinish,
     registrationStart: params.registrationStart,
     registrationEnd: params.registrationEnd
+<<<<<<< HEAD
+=======
+
+  }).then(res => res.data);
+};
+
+export function deleteCopmetitionCard(params){
+  return axios({
+    method: 'delete',
+    url: `https://afternoon-woodland-86438.herokuapp.com/competitions/${params.competitionId}/delete`,
+    headers: {
+      'Access-Control-Allow-Headers': 'origin',
+      'Access-Control-Allow-Origin': '*'}
+    }).then(res => res.data);
+};
+
+export function deleteCopmetitionCard1(params){
+  let _params = Object.assign({
+    competitionId: 0
+  }, params);
+  console.log(_params);
+  return axios.delete(`https://afternoon-woodland-86438.herokuapp.com/competitions/${params.competitionId}/delete`,{
+>>>>>>> d1c141dea0890f131ee85ebfb9a485790b8c8143
   }).then(res => res.data);
 };
