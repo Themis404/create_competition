@@ -46,12 +46,12 @@ class CardCompetition extends BaseComponent {
         });
       }
 
-    daleteCompetition = (e) => {
+    deleteCompetition = (e) => {
       console.log(this.state);
       e.preventDefault();
-      actionsCompetitions.daleteCopmetitionCard({
+      actionsCompetitions.deleteCopmetitionCard({
         competitionId: this.state.competitionId,
-        }).then(res => { console.log(res);});
+      }).then(res => {this.goToState('/main')})
       }
 
     render() {
@@ -63,9 +63,9 @@ class CardCompetition extends BaseComponent {
       return (
             <form className='col-md-12 nonePadding'>
               <button onClick={() => this.goToState('/main')} className='btn btn-warning col-md-3 noneFloat'>Back</button>
-              <button onClick={() => this.putAccessStatus()} type='submit' className='btn btn-success noneFloat col-md-3 col-md-offset-1'>Activation</button>
+              <button onClick={e => this.putAccessStatus(e)} type='submit' className='btn btn-success noneFloat col-md-3 col-md-offset-1'>Activation</button>
               <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/application')} className='btn btn-info col-md-3 noneFloat col-md-offset-1 '>Applications</button>
-              <button onClick={e =>   this.daleteCompetition(e)} className='btn btn-info col-md-3 noneFloat col-md-offset-4 '>delete</button>
+              <button onClick={e =>   this.deleteCompetition(e)} className='btn btn-info col-md-3 noneFloat col-md-offset-4 '>Delete</button>
               <div>
                 <h2 className="text-center col-md-12 marginTopStandart">Card competition</h2>
                 <h5><p className='col-md-12 nonePadding'>Name</p></h5>

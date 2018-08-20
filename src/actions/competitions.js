@@ -35,7 +35,7 @@ export function createCompetition(params){
   }).then(res => res.data);
 };
 
-export function daleteCopmetitionCard(params){
+export function deleteCopmetitionCard(params){
   return axios({
     method: 'delete',
     url: `https://afternoon-woodland-86438.herokuapp.com/competitions/${params.competitionId}/delete`,
@@ -45,7 +45,7 @@ export function daleteCopmetitionCard(params){
     }).then(res => res.data);
 };
 
-export function daleteCopmetitionCard1(params){
+export function deleteCopmetitionCard1(params){
   let _params = Object.assign({
     competitionId: 0
   }, params);

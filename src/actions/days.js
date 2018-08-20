@@ -29,3 +29,13 @@ export function createDay(params) {
       sequenceNumber: params.sequenceNumber
     }).then(res => res.data);
 };
+
+export function daleteDayCard(params){
+  return axios({
+    method: 'delete',
+    url: `https://afternoon-woodland-86438.herokuapp.com/days/${params.dayId}/delete`,
+    headers: {
+      'Access-Control-Allow-Headers': 'origin',
+      'Access-Control-Allow-Origin': '*'}
+    }).then(res => res.data);
+};

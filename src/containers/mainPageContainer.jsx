@@ -12,15 +12,15 @@ class MainPage extends BaseComponent {
           content: [],
           sortValue: null,
           pageNo: 0,
-          pageSize: 4,
+          pageSize: 2,
           totalPages: 0,
+          firstPage: 0
         };
       }
 
       componentDidMount() {
         this.getCompetitionInfo();
       }
-
 
       goToPrev() {
           if (!this.state.pageNo) {
@@ -29,6 +29,13 @@ class MainPage extends BaseComponent {
           this.setState({
             pageNo: this.state.pageNo - 1
           }, () => this.getCompetitionInfo());
+      }
+
+      goToPage(page){
+        this.setState({
+          pageNo: page},
+          () => this.getCompetitionInfo());
+          console.log(this.state)
       }
 
       goToNext() {
@@ -111,15 +118,25 @@ class MainPage extends BaseComponent {
                   !!this.state.pageNo &&
                   <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}><span class="fas fa-angle-left"></span></button>
                 }
+
                 {
                   !this.state.pageNo &&
                   <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}><span class="fas fa-angle-left"></span></button>
                 }
-                  <h4><p className='col-md-1 colMargin heightButton btn text-center '>{this.state.pageNo+1}/{this.state.totalPages}</p></h4>
+                {
+                  !!(this.state.firstPage+1 !== this.state.totalPages)&&
+                  <h4><p className='col-md-1 colMargin heightButton btn btn-info text-center' onClick={page => this.goToPage(this.state.firstPage)}>{this.state.firstPage+1}</p></h4>
+                }
+                {
+                  !!(this.state.firstPage+1 !== this.state.totalPages)&&
+                  <h4><p className='col-md-1 colMargin heightButton btn btn-info text-center' onClick={page => this.goToPage(this.state.totalPages-1)}>{this.state.totalPages}</p></h4>
+                }
+
                 {
                   this.state.pageNo < this.state.totalPages - 1 &&
                   <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}><span class="fas fa-angle-right"></span></button>
                 }
+
                 {
                   this.state.pageNo >= this.state.totalPages - 1 &&
                   <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}><span class="fas fa-angle-right"></span></button>
