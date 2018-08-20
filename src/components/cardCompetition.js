@@ -62,10 +62,12 @@ class CardCompetition extends BaseComponent {
 
       return (
             <form className='col-md-12 nonePadding'>
+              <div className='btn-group form-control'>
               <button onClick={() => this.goToState('/main')} className='btn btn-warning col-md-3 noneFloat'>Back</button>
-              <button onClick={e => this.putAccessStatus(e)} type='submit' className='btn btn-success noneFloat col-md-3 col-md-offset-1'>Activation</button>
-              <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/application')} className='btn btn-info col-md-3 noneFloat col-md-offset-1 '>Applications</button>
-              <button onClick={e =>   this.deleteCompetition(e)} className='btn btn-info col-md-3 noneFloat col-md-offset-4 '>Delete</button>
+              <button onClick={e => this.putAccessStatus(e)} type='submit' className='btn btn-success noneFloat col-md-3'>Activation</button>
+              <button onClick={() => this.goToState('/competition/'+this.state.content.id+'/application')} className='btn btn-info col-md-3 noneFloat'>Applications</button>
+              <button onClick={e =>   this.deleteCompetition(e)} className='btn btn-danger col-md-3 noneFloat'>Delete</button>
+              </div>
               <div>
                 <h2 className="text-center col-md-12 marginTopStandart">Card competition</h2>
                 <h5><p className='col-md-12 nonePadding'>Name</p></h5>

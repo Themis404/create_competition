@@ -47,7 +47,7 @@ class CardPoint extends BaseComponent {
     return (
         <form className='col-md-12 nonePadding'>
           <button onClick={() => this.goToState('/competition/'+this.state.competitionId+'/day/'+this.state.idDay)} className='btn btn-warning row-md-1 col-md-3'>Back</button>
-          <button onClick={e => this.deletePoint(e)} className='btn btn-info col-md-3 noneFloat col-md-offset-4 '>Delete</button>
+          <button onClick={e => this.deletePoint(e)} className='btn btn-danger col-md-3 noneFloat col-md-offset-6 '>Delete</button>
           <div>
             <h2 className="text-center col-md-12 marginTopStandart">Card point</h2>
             <h5><p className='col-md-12 nonePadding'>Name</p></h5>
