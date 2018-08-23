@@ -34,7 +34,7 @@ class TableApplications extends BaseComponent {
       }
 
       componentDidMount() {
-        this.getCompetitionInfo();
+        this.getApplicationsInfo();
       }
 
 
@@ -44,7 +44,7 @@ class TableApplications extends BaseComponent {
           }
           this.setState({
             pageNo: this.state.pageNo - 1
-          }, () => this.getCompetitionInfo());
+          }, () => this.getApplicationsInfo());
       }
 
       goToNext() {
@@ -53,10 +53,10 @@ class TableApplications extends BaseComponent {
           }
           this.setState({
             pageNo: this.state.pageNo + 1
-          }, () => this.getCompetitionInfo());
+          }, () => this.getApplicationsInfo());
       }
 
-      getCompetitionInfo = () => {
+      getApplicationsInfo = () => {
         actions.getApplicationsTable({
           page: this.state.pageNo,
           size: this.state.pageSize,
@@ -75,31 +75,31 @@ class TableApplications extends BaseComponent {
       sortSurnameApplication = () => {
         this.setState({
           sortValue: this.state.sortValue === 'surname,asc' ? 'surname,desc' : 'surname,asc'
-        }, () => this.getCompetitionInfo());
+        }, () => this.getApplicationsInfo());
       }
 
       sortAgeApplication = () => {
           this.setState({
             sortValue: this.state.sortValue === 'age,asc' ? 'age,desc' : 'age,asc'
-          }, () => this.getCompetitionInfo());
+          }, () => this.getApplicationsInfo());
         }
 
       sortTypeVehcileApplication = () => {
           this.setState({
             sortValue: this.state.sortValue === 'vehicleType,asc' ? 'vehicleType,desc' : 'vehicleType,asc'
-          }, () => this.getCompetitionInfo());
+          }, () => this.getApplicationsInfo());
         }
 
       sortRecingMasteryApplication = () => {
           this.setState({
             sortValue: this.state.sortValue === 'racingMastery,asc' ? 'racingMastery,desc' : 'racingMastery,asc'
-          }, () => this.getCompetitionInfo());
+          }, () => this.getApplicationsInfo());
         }
 
       sortGenderApplication = () => {
           this.setState({
             sortValue: this.state.sortValue === 'gender,asc' ? 'gender,desc' : 'gender,asc'
-          }, () => this.getCompetitionInfo());
+          }, () => this.getApplicationsInfo());
         }
 
       render() {
@@ -110,12 +110,12 @@ class TableApplications extends BaseComponent {
         return (
           <div className='container'>
             <div className="center-block">
-              <SearchBar onSearch={ e => this.setState({searchByName: e}, () => this.getCompetitionInfo())}/>
+              <SearchBar onSearch={ e => this.setState({searchByName: e}, () => this.getApplicationsInfo())}/>
               <div className='row container col-md-12'>
 
                 <div className='row col-md-12'>
                   <div className='btn-group marginBotStandart col-md-12 nonePadding'>
-                    <select className='btn btn-info heightButton col-md-2 noneMarginBot' onChange={event => this.setState({statusValue: event && event.target && event.target.value ? event.target.value : null}, () => this.getCompetitionInfo())} value={this.state.statusValue ? this.state.statusValue : ''}>
+                    <select className='btn btn-info heightButton col-md-2 noneMarginBot' onChange={event => this.setState({statusValue: event && event.target && event.target.value ? event.target.value : null}, () => this.getApplicationsInfo())} value={this.state.statusValue ? this.state.statusValue : ''}>
                       <option disabled>select by</option>
                       {
                         this.state.status.map((status, key) =>
@@ -143,15 +143,14 @@ class TableApplications extends BaseComponent {
                     {
                       !!this.state.content.content && this.state.content.content.map((contentRow, key) =>
                           <tr key={key} className="tr">
-                            <td className="" onClick={() =>  this.goToState('/application/'+contentRow.id)}>
-                              {contentRow.surname} {contentRow.name} {contentRow.fatherName}
-                            </td>
-                            <td className="">{contentRow.age}</td>
-                            <td className="">{contentRow.gender}</td>
-                            <td className="">{contentRow.vehicleType}</td>
-                            <td className="">{contentRow.racingMastery}</td>
-                            <td className="">{contentRow.applicationStatus}</td>
-                            {/* <td className="td">{contentRow.description}</td> */}
+                              <td className="" onClick={() =>  this.goToState('/competition/'+this.props.id+'/application/'+contentRow.id)}>
+                                {contentRow.surname} {contentRow.name} {contentRow.fatherName}
+                              </td>
+                              <td className="">{contentRow.age}</td>
+                              <td className="">{contentRow.gender}</td>
+                              <td className="">{contentRow.vehicleType}</td>
+                              <td className="">{contentRow.racingMastery}</td>
+                              <td className="">{contentRow.applicationStatus}</td>
                           </tr>
                       )
                     }

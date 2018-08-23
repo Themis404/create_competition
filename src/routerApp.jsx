@@ -39,7 +39,7 @@ export default class RouterApp extends Component {
                     <Route exact path="/regulations" component={PageRegulations} />
                     <Route exact path="/create-application" component={PageApplication}/>
                     <Route exact path="/competition/:id/application" component={PageTableApplications}/>
-                    <Route exact path="/application/:idParticipants" component={PageCardApplications}/>
+                    <Route exact path="/competition/:id/application/:idParticipants" component={PageCardApplications}/>
                 </Switch>
               </MenuPage>
             </HashRouter>

@@ -3,6 +3,7 @@ import {Redirect} from 'react-router-dom';
 import BaseComponent from '../containers/baseComponent'
 import ReactDOM from 'react-dom';
 import * as actions from '../actions/points';
+
 class CreatePoint extends BaseComponent {
 
   constructor(props) {

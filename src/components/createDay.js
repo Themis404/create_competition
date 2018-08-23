@@ -43,7 +43,7 @@ class CreateDayForm extends BaseComponent {
       this.goToState(`/competition/${this.props.id}`);
     });
   };
- 
+
   updateName(e) {
     this.setState( {name: e.target.value} );
   }
