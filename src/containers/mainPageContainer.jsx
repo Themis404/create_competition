@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import BaseComponent from './baseComponent'
 import SearchBar from '../components/SearchBar.js';
 import * as actions from '../actions/competitions';
-import ModalDialog from '../components/ModalDialog';
+import * as actionsCompetitions from '../actions/competitions'
 
 class MainPage extends BaseComponent {
     constructor(props) {
@@ -48,6 +48,25 @@ class MainPage extends BaseComponent {
           }, () => this.getCompetitionInfo());
       }
 
+      deleteCompetition = (e) => {
+        console.log(this.state);
+        e.preventDefault();
+        actionsCompetitions.deleteCopmetitionCard({
+          competitionId: this.state.competitionId,
+        }).then(res => {this.goToState('/main')})
+        }
+        putAccessStatus = (e) => {
+          console.log(this.state);
+          e.preventDefault();
+          actionsCompetitions.saveAccessStatus({
+            competitionId: this.state.competitionId,
+            accessStatus: 'ALIVE'
+            }).then(res => {
+              console.log(res);
+              this.setState({accessStatus: ''});
+                console.log(this.state);
+            });
+          }
       getCompetitionInfo = () => {
         actions.list({
           page: this.state.pageNo,
@@ -85,21 +104,22 @@ class MainPage extends BaseComponent {
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+                <h5 class="modal-title">Подтверждение</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                <p>Modal body text goes here.</p>
+                <p>Вы действительно хотите удалить соревнование?</p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Да</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
               </div>
             </div>
           </div>
         </div>
+
           <div className='container'>
             <div className="center-block">
               <SearchBar onSearch={ e => this.setState({searchByName: e}, () => this.getCompetitionInfo())}/>
@@ -127,11 +147,11 @@ class MainPage extends BaseComponent {
                             <td className="text-center col-md-2">{contentRow.dateStart}</td>
                             <td className="text-center col-md-2">{contentRow.dateFinish}</td>
                             <td className="text-center col-md-1">
-                              <button id="btn-tooltip" type="button" class="btn btn-default" aria-label="Eye" title="Activated">
-                                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                              <button id="btn-tooltip" type="button" data-target="#ModalDialog1" data-toggle="modal1" class="btn btn-default" aria-label="Eye" title="Activated">
+                                <span onClick={e => this.putAccessStatus(e)} class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
                               </button>
                               <button data-target="#ModalDialog" data-toggle="modal" id="btn-tooltip" type="button" class="btn btn-default" aria-label="Remove" title="Delete">
-                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                                <span  onClick={e => this.deleteCompetition(e)} class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                               </button>
                             </td>
                             {/* <td className="td">{contentRow.description}</td> */}
@@ -146,7 +166,7 @@ class MainPage extends BaseComponent {
                 <div className='col-md-offset-5'>
                 {
                   !!this.state.pageNo &&
-                  <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}><span class="fas fa-angle-left"></span></button>
+                  <button className='btn heightButton col-md-1 colMargin active' onClick={() => this.goToPrev()}><span class="fas fa-angle-left"></span></button>
                 }
 
                 {

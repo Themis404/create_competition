@@ -181,6 +181,9 @@
 .heightButton{
   height: 32px;
 }
+.active{
+  color: #287880; 
+}
 .noneFloat{
   float: none;
 }

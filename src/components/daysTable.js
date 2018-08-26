@@ -54,6 +54,14 @@ class DaysTable extends BaseComponent {
         });
   }
 
+  deleteDay = (e) => {
+    console.log(this.state);
+    e.preventDefault();
+    actionsDay.daleteDayCard({
+      competitionId: this.state.competitionId,
+    }).then(res => {this.goToState('/competition/:id')})
+    }
+
   render() {
     if (this.reload) {
       this.reload = false;
@@ -67,10 +75,36 @@ class DaysTable extends BaseComponent {
             <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.sequenceNumber}</td>
             <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.name}</td>
             <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.totalElements}</td>
+            
+            <button data-target="#ModalDialog" data-toggle="modal" id="btn-tooltip" type="button" class="btn btn-default" aria-label="Remove" title="Delete">
+              <span  onClick={e => this.deleteDay(e)} class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </button>
           </tr>
       )}
 
     return (
+      <div>
+      <div className="mod">
+          <div class="modal" id="ModalDialog" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Подтверждение</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Вы действительно хотите удалить день?</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Да</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
         <div className="row container col-md-8 col-md-offset-2 nonePadding">
           <table className="table table-striped table-hover">
             <thead>
@@ -78,12 +112,14 @@ class DaysTable extends BaseComponent {
               <th className="">№</th>
               <th className="">NAME</th>
               <th className="">POINTS</th>
+              <th className=""></th>
             </tr>
           </thead>
           <tbody>
             {rows}
           </tbody>
           </table>
+        </div>
         </div>
     )
   }
