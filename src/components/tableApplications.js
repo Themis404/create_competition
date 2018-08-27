@@ -16,6 +16,7 @@ class TableApplications extends BaseComponent {
           pageNo: 0,
           pageSize: 8,
           totalPages: 0,
+          pageInf: [],
           status: [
             {
               name: 'not processed',
@@ -56,6 +57,14 @@ class TableApplications extends BaseComponent {
           }, () => this.getApplicationsInfo());
       }
 
+      countPage(){
+      this.state.pageInf= [];
+      for (var i = 1; i < this.state.content.totalPages+1; i++){
+        console.log(this.state)
+        this.state.pageInf.push(i);
+      }
+      }
+
       getApplicationsInfo = () => {
         actions.getApplicationsTable({
           page: this.state.pageNo,
@@ -68,7 +77,7 @@ class TableApplications extends BaseComponent {
               this.setState({
                 content: content,
                 totalPages: content.totalPages
-              });
+              }, () => this.countPage());
             });
       }
 
@@ -157,27 +166,38 @@ class TableApplications extends BaseComponent {
                   </tbody>
                 </table>
               </div>
+                <div className='row-md-1 heightButton'>
+                  <div className='col-md-9 col-md-offset-3'>
 
-              <div className='row-md-1 heightButton'>
-                <div className='col-md-offset-5'>
-                  {
-                    !!this.state.pageNo &&
-                    <button className='btn heightButton col-md-1 colMargin nonePadding' onClick={() => this.goToPrev()}><span className="fas fa-angle-left"></span></button>
-                  }
-                  {
-                    !this.state.pageNo &&
-                    <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}><span className="fas fa-angle-left"></span></button>
-                  }
+                    <h5 className='col-md-1 nonePadding noneFloat'><p>Страница</p></h5>
 
-                    <h4><p className='col-md-1 colMargin heightButton text-center'>{this.state.pageNo+1}/{this.state.totalPages}</p></h4>
-                  {
-                    this.state.pageNo < this.state.totalPages - 1 &&
-                    <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}><span class="fas fa-angle-right"></span></button>
-                  }
-                  {
-                    this.state.pageNo >= this.state.totalPages - 1 &&
-                    <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}><span class="fas fa-angle-right"></span></button>
-                  }
+                    <select className="btn btn-default heightButton noneFloat" onChange={event => this.setState({pageNo: event && event.target && event.target.value ? event.target.value : null})} onClick={() => this.getApplicationsInfo()} value={this.state.pageNo ? this.state.pageNo : ''}>
+                       {
+                         !!this.state.pageInf && this.state.pageInf.map((pageCount, key) =>
+                         <option className="col-md-2" key={key} className="" value={pageCount-1}>{pageCount}</option>)
+                       }
+                    </select>
+
+                    <h5 className='col-md-1 nonePadding noneFloat'><p>из {this.state.totalPages}</p></h5>
+
+                    {
+                      !!this.state.pageNo &&
+                      <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}><span class="fas fa-angle-left"></span></button>
+                    }
+
+                    {
+                      !this.state.pageNo &&
+                      <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}><span class="fas fa-angle-left"></span></button>
+                    }
+                    {
+                      this.state.pageNo < this.state.totalPages - 1 &&
+                      <button className='noneFloat btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}><span class="fas fa-angle-right"></span></button>
+                    }
+
+                    {
+                      this.state.pageNo >= this.state.totalPages - 1 &&
+                      <button disabled className='noneFloat btn heightButton col-md-1 colMargin' onClick={() => this.goToNext()}><span class="fas fa-angle-right"></span></button>
+                    }
                 </div>
               </div>
             </div>
