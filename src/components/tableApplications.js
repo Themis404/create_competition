@@ -166,18 +166,16 @@ class TableApplications extends BaseComponent {
                   </tbody>
                 </table>
               </div>
-              <div className='row-md-2 heightButton col-md-6 col-md-offset-6'>
+              <div className='row-md-2 heightButton col-md-6 col-md-offset-4'>
                 <h5 className='col-md-1 sizePageText nonePadding'><p>Страница</p></h5>
-
                 <div className="col-md-2">
                   <select className="btn btn-default heightButton" onChange={event => this.setState({pageNo: event && event.target && event.target.value ? event.target.value : null})} onClick={() => this.getApplicationsInfo()} value={this.state.pageNo ? this.state.pageNo : ''}>
-                   {
-                     !!this.state.pageInf && this.state.pageInf.map((pageCount, key) =>
-                     <option key={key} className="" value={pageCount-1}>{pageCount}</option>)
-                   }
-                 </select>
-               </div>
-
+                    {
+                      !!this.state.pageInf && this.state.pageInf.map((pageCount, key) =>
+                      <option key={key} className="" value={pageCount-1}>{pageCount}</option>)
+                    }
+                  </select>
+                </div>
                 <h5 className='col-md-1 nonePadding marginTopPage'><p>из {this.state.totalPages}</p></h5>
                 <div className='btn-group'>
                     {
