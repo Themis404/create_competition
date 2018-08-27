@@ -182,7 +182,7 @@
   height: 32px;
 }
 .active{
-  color: #287880; 
+  color: #287880;
 }
 .noneFloat{
   float: none;
@@ -205,6 +205,12 @@
 }
 .noneMarginBot{
   margin-bottom: 0;
+}
+.sizePageText{
+  width: 70px;
+}
+.marginTopPage{
+  padding-right: 5px ;
 }
 @keyframes App-logo-spin {
 from { transform: rotate(0deg); }

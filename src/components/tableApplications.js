@@ -166,20 +166,20 @@ class TableApplications extends BaseComponent {
                   </tbody>
                 </table>
               </div>
-                <div className='row-md-1 heightButton'>
-                  <div className='col-md-9 col-md-offset-3'>
+              <div className='row-md-2 heightButton col-md-6 col-md-offset-6'>
+                <h5 className='col-md-1 sizePageText nonePadding'><p>Страница</p></h5>
 
-                    <h5 className='col-md-1 nonePadding noneFloat'><p>Страница</p></h5>
+                <div className="col-md-2">
+                  <select className="btn btn-default heightButton" onChange={event => this.setState({pageNo: event && event.target && event.target.value ? event.target.value : null})} onClick={() => this.getApplicationsInfo()} value={this.state.pageNo ? this.state.pageNo : ''}>
+                   {
+                     !!this.state.pageInf && this.state.pageInf.map((pageCount, key) =>
+                     <option key={key} className="" value={pageCount-1}>{pageCount}</option>)
+                   }
+                 </select>
+               </div>
 
-                    <select className="btn btn-default heightButton noneFloat" onChange={event => this.setState({pageNo: event && event.target && event.target.value ? event.target.value : null})} onClick={() => this.getApplicationsInfo()} value={this.state.pageNo ? this.state.pageNo : ''}>
-                       {
-                         !!this.state.pageInf && this.state.pageInf.map((pageCount, key) =>
-                         <option className="col-md-2" key={key} className="" value={pageCount-1}>{pageCount}</option>)
-                       }
-                    </select>
-
-                    <h5 className='col-md-1 nonePadding noneFloat'><p>из {this.state.totalPages}</p></h5>
-
+                <h5 className='col-md-1 nonePadding marginTopPage'><p>из {this.state.totalPages}</p></h5>
+                <div className='btn-group'>
                     {
                       !!this.state.pageNo &&
                       <button className='btn heightButton col-md-1 colMargin' onClick={() => this.goToPrev()}><span class="fas fa-angle-left"></span></button>
