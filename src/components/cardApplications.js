@@ -14,7 +14,8 @@ class CardApplications extends BaseComponent {
       idParticipants: this.props.idParticipants,
       competitionId: this.props.id,
       activeButton: false,
-      tagId: ''
+      tagId: '',
+      applicationStatus: ''
     };
   }
 
@@ -36,13 +37,14 @@ class CardApplications extends BaseComponent {
 
   putApplicationStatus = () => {
     actions.saveApplicationStatus({
+        applicationStatus: this.state.applicationStatus,
       participantsId: this.state.idParticipants
     }).then((content) => {
           this.setState({
-            applicationStatus: this.state.content.applicationStatus
+            applicationStatus: ''
           });
         });
-    this.getCompetitionInfo();
+    this.getApplicationInfo();
   }
 
   getTagFree = () => {
@@ -69,16 +71,16 @@ class CardApplications extends BaseComponent {
 
   acceptedApplication = () => {
     this.setState({
-      applicationStatus: this.state.application.applicationStatus === 'NOT_PROCESSED' ? 'ACCEPTED' : this.state.application.applicationStatus,
+      applicationStatus: 'ACCEPTED',
       activeButton: this.state.activeButton === false ? true : false
-    }, () => this.putApplicationStatus())
+    }, () => this.putApplicationStatus(), console.log(this.state))
   }
 
   deniedApplication = () => {
     this.setState({
-      applicationStatus: this.state.application.applicationStatus === 'NOT_PROCESSED' ? 'DENIED' : this.state.application.applicationStatus,
+      applicationStatus: 'DENIED',
       activeButton: this.state.activeButton === false ? true : false
-    }, () => this.putApplicationStatus())
+    }, () => this.putApplicationStatus(), console.log(this.state))
   }
 
   render() {
