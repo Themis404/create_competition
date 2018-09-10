@@ -16,7 +16,7 @@ class TableApplications extends BaseComponent {
           pageNo: 0,
           pageSize: 8,
           totalPages: 0,
-          pageInf: [],
+          pageInf: [1],
           status: [
             {
               name: 'not processed',

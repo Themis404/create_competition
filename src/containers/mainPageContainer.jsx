@@ -16,7 +16,7 @@ class MainPage extends BaseComponent {
         pageSize: 10,
         totalPages: 0,
         firstPage: 0,
-        pageInf: []
+        pageInf: [1]
       };
   }
 
@@ -175,7 +175,7 @@ class MainPage extends BaseComponent {
               <div className='row-md-2 heightButton col-md-6 col-md-offset-4'>
                 <h5 className='col-md-1 sizePageText nonePadding'><p>Страница</p></h5>
                 <div className="col-md-2">
-                  <select className="btn btn-default heightButton" onChange={event => this.setState({pageNo: event && event.target && event.target.value ? event.target.value : null})} onClick={() => this.getApplicationsInfo()} value={this.state.pageNo ? this.state.pageNo : ''}>
+                  <select className="btn btn-default heightButton" onChange={event => this.setState({pageNo: event && event.target && event.target.value ? event.target.value : null})} onClick={() => this.getCompetitionInfo()} value={this.state.pageNo ? this.state.pageNo : ''}>
                     {
                       !!this.state.pageInf && this.state.pageInf.map((pageCount, key) =>
                       <option key={key} className="" value={pageCount-1}>{pageCount}</option>)
