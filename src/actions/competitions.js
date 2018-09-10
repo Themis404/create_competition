@@ -41,7 +41,7 @@ export function deleteCopmetitionCard(params){
     headers: {
       'Access-Control-Allow-Headers': 'origin',
       'Access-Control-Allow-Origin': '*'}
-    }).then(res => res.data);
+  }).then(res => res.data);
 };
 
 export function deleteCopmetitionCard1(params){

@@ -3,41 +3,41 @@ import ReactDOM from 'react-dom';
 import * as queryString from 'querystring';
 
 class BaseComponent extends React.Component {
-    constructor(params) {
-        super(params);
-    }
+  constructor(params) {
+    super(params);
+  }
 
-    get redirect() {
-        return this._redirect;
-    }
+  get redirect() {
+    return this._redirect;
+  }
 
-    set redirect(redirect) {
-        this._redirect = redirect;
-        this.reload = true;
-        this.forceUpdate();
-    }
+  set redirect(redirect) {
+    this._redirect = redirect;
+    this.reload = true;
+    this.forceUpdate();
+  }
 
-    /**
-     * Перейти в стэйт
-     * @param {String} stateName
-     */
-    goToState(stateName, params = null) {
-        if (!stateName) {
-            return;
-        }
-        let stateQueryString = queryString.stringify(params);
-        window.scrollTo(0, 0);
-        this.redirect = {
-            pathname: stateName,
-            search: stateQueryString ? '?' + stateQueryString : null
-        };
+  /**
+   * Перейти в стэйт
+   * @param {String} stateName
+   */
+  goToState(stateName, params = null) {
+    if (!stateName) {
+        return;
     }
+    let stateQueryString = queryString.stringify(params);
+    window.scrollTo(0, 0);
+    this.redirect = {
+      pathname: stateName,
+      search: stateQueryString ? '?' + stateQueryString : null
+    };
+  }
 
-    render() {
-        return (
-          <div></div>
-        );
-    }
+  render() {
+    return (
+      <div></div>
+    );
+  }
 }
 
 export default BaseComponent;

@@ -17,32 +17,32 @@ import PageCardDay from './containers/pageCardDay'
 import PageCardPoint from './containers/pageCardPoint'
 
 export default class RouterApp extends Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+      super(props);
+  }
 
-    render() {
-        return (
-            <HashRouter>
-              <MenuPage>
-                <Switch>
-                    <Route exact path="/" component={MainPageRedirect} />
-                    <Route exact path="/main" component={MainPage} />
-                    <Route exact path="/competition/:id" component={PageCardCompetition } />
-                    <Route exact path="/competition/:id/day/:idDay" component={PageCardDay} />
-                    <Route exact path="/competition/:id/day/:idDay/point/:idPoint" component={PageCardPoint} />
-                    <Route exact path="/competition/:id/create-day" component={PageCreateDay} />
-                    <Route exact path="/competition/:id/day/:idDay/create-point" component={PageCreatePoint} />
-                    <Route exact path="/create-competition" component={CreateCompetition} />
-                    <Route exact path="/users" component={PageUsers} />
-                    <Route exact path="/announcement" component={PageAnnouncement} />
-                    <Route exact path="/regulations" component={PageRegulations} />
-                    <Route exact path="/create-application" component={PageApplication}/>
-                    <Route exact path="/competition/:id/application" component={PageTableApplications}/>
-                    <Route exact path="/competition/:id/application/:idParticipants" component={PageCardApplications}/>
-                </Switch>
-              </MenuPage>
-            </HashRouter>
-        );
-    }
+  render() {
+    return (
+      <HashRouter>
+        <MenuPage>
+          <Switch>
+            <Route exact path="/" component={MainPageRedirect} />
+            <Route exact path="/main" component={MainPage} />
+            <Route exact path="/competition/:id" component={PageCardCompetition } />
+            <Route exact path="/competition/:id/day/:idDay" component={PageCardDay} />
+            <Route exact path="/competition/:id/day/:idDay/point/:idPoint" component={PageCardPoint} />
+            <Route exact path="/competition/:id/create-day" component={PageCreateDay} />
+            <Route exact path="/competition/:id/day/:idDay/create-point" component={PageCreatePoint} />
+            <Route exact path="/create-competition" component={CreateCompetition} />
+            <Route exact path="/users" component={PageUsers} />
+            <Route exact path="/announcement" component={PageAnnouncement} />
+            <Route exact path="/regulations" component={PageRegulations} />
+            <Route exact path="/create-application" component={PageApplication}/>
+            <Route exact path="/competition/:id/application" component={PageTableApplications}/>
+            <Route exact path="/competition/:id/application/:idParticipants" component={PageCardApplications}/>
+          </Switch>
+        </MenuPage>
+      </HashRouter>
+    );
+  }
 }

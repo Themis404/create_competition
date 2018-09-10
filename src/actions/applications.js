@@ -9,6 +9,22 @@ export function getApplicationsCard(params) {
   ).then(res => res.data);
 }
 
+export function createApplication(params){
+  return axios.post('https://afternoon-woodland-86438.herokuapp.com/participants/create',{
+    name: params.name,
+    surname: params.surname,
+    fatherName: params.fatherName,
+    age: params.age,
+    phone: params.phone,
+    emergencyPhone: params.emergencyPhone,
+    email: params.email,
+    racingMastery: params.racingMastery,
+    vehicleType: params.vehicleType,
+    competitionId: params.competitionId,
+    gender: params.gender
+  }).then(res => res.data);
+};
+
 export function getApplicationsTable(params) {
   let _params = Object.assign({
     page: 0,

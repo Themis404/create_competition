@@ -75,33 +75,33 @@ class CreateDayForm extends BaseComponent {
       return <Redirect to={this.redirect} push={true}/>;
     }
     return (
-        <div className="col-md-12">
+      <div className="col-md-12">
         <button onClick={() => this.goToState('/competition/' + this.props.id)} className='btn btn-warning col-md-2 noneFloat'>Back</button>
-          <form onSubmit={e => this.handleSubmit(e)} className=''>
-            <h2 className="text-center col-md-12 marginTopStandart">Create day</h2>
-            <h5><p className='col-md-12 nonePadding marginTopStandart'>Name</p></h5>
-            <input required name='name' className="form-control" placeholder = "NAME DAY"
-                    value={this.state.name}
-                    onChange={ e => this.updateName(e)}></input>
-            <h5><p className='col-md-12 nonePadding marginTopStandart'>Date</p></h5>
-            <input required type='date' name='date'className="form-control" placeholder = "DD-MM-YYYY"
-                    value={this.state.date}
-                    onChange={ e => this.updateDate(e)}></input>
-            <h5><p className='col-md-12 nonePadding marginTopStandart'>Time Start</p></h5>
-            <input required type='time' name='timeStart' className="form-control" placeholder = "HH-MM"
-                    value={this.state.timeStart}
-                    onChange={ e => this.updateTimeStart(e)}></input>
-            <h5><p className='col-md-12 nonePadding marginTopStandart'>Time Finish</p></h5>
-            <input required type='time' name='timeFinish' className="form-control" placeholder = "HH-MM"
-                    value={this.state.timeFinish}
-                    onChange={ e => this.updateTimeFinish(e)}></input>
-            <h5><p className='col-md-12 nonePadding marginTopStandart'>Sequence Number</p></h5>
-            <input required name='numberDay'  type='number' className="form-control" placeholder = "Number day"
-                    value={this.state.sequenceNumber}
-                    onChange={ e => this.updateSequenceNumber(e)}></input>
-                  <button type="submit" className="btn btn-success col-md-3 col-md-offset-4 marginTopStandart marginBotStandart" >Create</button>
-          </form>
-        </div>
+        <form onSubmit={e => this.handleSubmit(e)} className=''>
+          <h2 className="text-center col-md-12 marginTopStandart">Create day</h2>
+          <h5><p className='col-md-12 nonePadding marginTopStandart'>Name</p></h5>
+          <input required name='name' className="form-control" placeholder = "NAME DAY"
+                  value={this.state.name}
+                  onChange={ e => this.updateName(e)}></input>
+          <h5><p className='col-md-12 nonePadding marginTopStandart'>Date</p></h5>
+          <input required type='date' name='date'className="form-control" placeholder = "DD-MM-YYYY"
+                  value={this.state.date}
+                  onChange={ e => this.updateDate(e)}></input>
+          <h5><p className='col-md-12 nonePadding marginTopStandart'>Time Start</p></h5>
+          <input required type='time' name='timeStart' className="form-control" placeholder = "HH-MM"
+                  value={this.state.timeStart}
+                  onChange={ e => this.updateTimeStart(e)}></input>
+          <h5><p className='col-md-12 nonePadding marginTopStandart'>Time Finish</p></h5>
+          <input required type='time' name='timeFinish' className="form-control" placeholder = "HH-MM"
+                  value={this.state.timeFinish}
+                  onChange={ e => this.updateTimeFinish(e)}></input>
+          <h5><p className='col-md-12 nonePadding marginTopStandart'>Sequence Number</p></h5>
+          <input required name='numberDay'  type='number' className="form-control" placeholder = "Number day"
+                  value={this.state.sequenceNumber}
+                  onChange={ e => this.updateSequenceNumber(e)}></input>
+                <button type="submit" className="btn btn-success col-md-3 col-md-offset-4 marginTopStandart marginBotStandart" >Create</button>
+        </form>
+      </div>
     )
   }
 }

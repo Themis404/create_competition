@@ -27,7 +27,7 @@ export function createDay(params) {
       timeStart: params.timeStart,
       timeFinish: params.timeFinish,
       sequenceNumber: params.sequenceNumber
-    }).then(res => res.data);
+  }).then(res => res.data);
 };
 
 export function daleteDayCard(params){
@@ -37,5 +37,5 @@ export function daleteDayCard(params){
     headers: {
       'Access-Control-Allow-Headers': 'origin',
       'Access-Control-Allow-Origin': '*'}
-    }).then(res => res.data);
+  }).then(res => res.data);
 };

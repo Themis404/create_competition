@@ -2,7 +2,7 @@ import React from 'react';
 import {Redirect} from 'react-router-dom';
 import BaseComponent from '../containers/baseComponent'
 import ReactDOM from 'react-dom';
-import * as actions from '../actions/competitions';
+import * as actions from '../actions/applications';
 
 class createApplication extends BaseComponent {
 
@@ -30,7 +30,8 @@ class createApplication extends BaseComponent {
         {
           name: 'Male',
           value: 'MALE'
-        }],
+        }
+      ],
       racingMastery: '',
       typeMastery: [
         {
@@ -48,7 +49,8 @@ class createApplication extends BaseComponent {
         {
           name: 'Professional',
           value: 'PROFESSIONAL'
-        }],
+        }
+      ],
       vehicleType: '',
       typeVehicle: [
         {
@@ -62,54 +64,26 @@ class createApplication extends BaseComponent {
         {
           name: 'ATV',
           value: 'ATV'
-        }],
+        }
+      ],
     }
-
-  }
-
-  componentDidMount() {
-    this.getCompetitionInfo();
-  }
-
-  getCompetitionInfo = () => {
-    actions.list({
-    }).then((content) => {
-          this.setState({
-            content: content
-          });
-        });
   }
 
   handleSubmit = (e) => {
-    console.log(this.state);
-    fetch('https://afternoon-woodland-86438.herokuapp.com/participants/create', {
-      method: 'POST',
-      headers: {
-        'Access-Control-Allow-Headers': 'origin, content-type, accept',
-        'Access-Control-Allow-Origin': '*',
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: this.state.name,
-        surname: this.state.surname,
-        fatherName: this.state.fatherName,
-        age: this.state.age,
-        phone: this.state.phone,
-        emergencyPhone: this.state.emergencyPhone,
-        email: this.state.email,
-        racingMastery: this.state. racingMastery,
-        vehicleType: this.state.vehicleType,
-        competitionId: this.state.competitionId,
-        gender: this.state.gender
-      })
-    }).then(res => {
-      console.log(res);
-      this.setState({name: '', surname: '', fatherName: '', age: '', phone: '', emergencyPhone: '', email: '', racingMastery: '', vehicleType: '', gender: ''});
-      console.log(this.state);
-      res.ok ? console.log('success') : console.warn('something gone wrong');
-    });
     e.preventDefault();
+    actions.createApplication({
+      name: this.state.name,
+      surname: this.state.surname,
+      fatherName: this.state.fatherName,
+      age: this.state.age,
+      phone: this.state.phone,
+      emergencyPhone: this.state.emergencyPhone,
+      email: this.state.email,
+      racingMastery: this.state. racingMastery,
+      vehicleType: this.state.vehicleType,
+      competitionId: this.state.competitionId,
+      gender: this.state.gender
+    }).then(res => this.goToState('/create-application'));
   };
 
   updateName(e) {
@@ -178,19 +152,20 @@ class createApplication extends BaseComponent {
                   value={this.state.age}
                   onChange={e => this.updateAge(e)}></input>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Пол*</p></h5>
-          <select required className='btn btn-default heightButton noneFloat col-md-12' onChange={event => this.setState({gender: event && event.target && event.target.value ? event.target.value : null})} value={this.state.gender ? this.state.gender : ''}>
-            {
-              this.state.typeGender.map((typeGender, key) =>
-                <option key={key} value={typeGender.value}>{typeGender.name}</option>
-              )
-            }
+          <select required className='btn btn-default heightButton noneFloat col-md-12'
+                  onChange={event => this.setState({gender: event && event.target && event.target.value ? event.target.value : null})}
+                  value={this.state.gender ? this.state.gender : ''}>
+                  {
+                    this.state.typeGender.map((typeGender, key) =>
+                      <option key={key} value={typeGender.value}>{typeGender.name}</option>
+                    )
+                  }
           </select>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Введите свой номер телефона*</p></h5>
           <input required  type='text' id='phone' className="mask-phone form-control" placeholder = "+7 XXX XXX XXXX"
                   value={this.state.phone}
                   onChange={e => this.updatePhone(e)}>
-             </input>
-
+          </input>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Введите номер телефона в случае ЧС*</p></h5>
           <input required type='tel' id='inputNumberEs' className="form-control" placeholder = "+7 XXX XXX XXXX"
                   value={this.state.emergencyPhone}
@@ -200,20 +175,24 @@ class createApplication extends BaseComponent {
                   value={this.state.email}
                   onChange={e => this.updateEmail(e)}></input>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Уровень подготовки*</p></h5>
-          <select required className='btn btn-default heightButton noneFloat col-md-12' onChange={event => this.setState({racingMastery: event && event.target && event.target.value ? event.target.value : null})} value={this.state.racingMastery ? this.state.racingMastery : ''}>
-            {
-              this.state.typeMastery.map((typeMastery, key) =>
-                <option key={key} value={typeMastery.value}>{typeMastery.name}</option>
-              )
-            }
+          <select required className='btn btn-default heightButton noneFloat col-md-12'
+                  onChange={event => this.setState({racingMastery: event && event.target && event.target.value ? event.target.value : null})}
+                  value={this.state.racingMastery ? this.state.racingMastery : ''}>
+                  {
+                    this.state.typeMastery.map((typeMastery, key) =>
+                      <option key={key} value={typeMastery.value}>{typeMastery.name}</option>
+                    )
+                  }
           </select>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Тип транспортного средсва*</p></h5>
-          <select required className='btn btn-default heightButton noneFloat col-md-12' onChange={event => this.setState({vehicleType: event && event.target && event.target.value ? event.target.value : null})} value={this.state.vehicleType ? this.state.vehicleType : ''}>
-            {
-              this.state.typeVehicle.map((typeVehicle, key) =>
-                <option key={key} value={typeVehicle.value}>{typeVehicle.name}</option>
-              )
-            }
+          <select required className='btn btn-default heightButton noneFloat col-md-12'
+                  onChange={event => this.setState({vehicleType: event && event.target && event.target.value ? event.target.value : null})}
+                  value={this.state.vehicleType ? this.state.vehicleType : ''}>
+                  {
+                    this.state.typeVehicle.map((typeVehicle, key) =>
+                      <option key={key} value={typeVehicle.value}>{typeVehicle.name}</option>
+                    )
+                  }
           </select>
           <button type="submit" className="btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart">Отправить</button>
         </form>

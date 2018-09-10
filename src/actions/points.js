@@ -35,5 +35,5 @@ export function daletePointCard(params){
     headers: {
       'Access-Control-Allow-Headers': 'origin',
       'Access-Control-Allow-Origin': '*'}
-    }).then(res => res.data);
+  }).then(res => res.data);
 };
