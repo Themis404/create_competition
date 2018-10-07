@@ -1,5 +1,5 @@
 import React from 'react';
-import BaseComponent from '../containers/baseComponent'
+import BaseComponent from '../containers/baseComponent';
 import {Redirect} from 'react-router-dom';
 import * as actions from '../actions/points';
 
@@ -26,7 +26,7 @@ class PointTable extends BaseComponent {
           this.setState({
             content: content
           });
-        }); console.log(this.state)
+      }); console.log(this.state);
   }
 
   deletePoint = (e) => {
@@ -34,7 +34,9 @@ class PointTable extends BaseComponent {
     e.preventDefault();
     actions.daletePointCard({
       competitionId: this.state.competitionId,
-    }).then(res => {this.goToState('/competition/:id/day/:idDay')})
+    }).then(res => {
+      this.goToState('/competition/:id/day/:idDay');
+    });
   }
 
   render() {
@@ -54,7 +56,7 @@ class PointTable extends BaseComponent {
             <span  onClick={e => this.deletePoint(e)} class="glyphicon glyphicon-trash" aria-hidden="true"></span>
           </button>
         </tr>
-      )
+      );
     }
     return (
       <div>
@@ -95,7 +97,7 @@ class PointTable extends BaseComponent {
           </table>
         </div>
       </div>
-    )
+    );
   }
 }
 

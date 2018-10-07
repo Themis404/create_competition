@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import BaseComponent from '../containers/baseComponent'
+import BaseComponent from '../containers/baseComponent';
 import { Redirect } from 'react-router-dom';
 
 class PageUsers extends BaseComponent {
   constructor(params) {
-    super(params)
+    super(params);
   }
 
   render() {

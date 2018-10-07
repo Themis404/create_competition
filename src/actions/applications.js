@@ -23,7 +23,7 @@ export function createApplication(params){
     competitionId: params.competitionId,
     gender: params.gender
   }).then(res => res.data);
-};
+}
 
 export function getApplicationsTable(params) {
   let _params = Object.assign({
@@ -48,4 +48,4 @@ export function saveApplicationStatus(params){
   return axios.put('https://afternoon-woodland-86438.herokuapp.com/participants/'+ params.participantsId,{
     applicationStatus: params.applicationStatus
   }).then(res => res.data);
-};
+}

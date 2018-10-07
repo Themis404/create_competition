@@ -1,7 +1,7 @@
-import React from 'react'
-import BaseComponent from '../containers/baseComponent'
-import { Redirect } from 'react-router-dom'
-import * as actionsCompetitions from '../actions/competitions'
+import React from 'react';
+import BaseComponent from '../containers/baseComponent';
+import { Redirect } from 'react-router-dom';
+import * as actionsCompetitions from '../actions/competitions';
 
 class CardCompetition extends BaseComponent {
 
@@ -22,7 +22,7 @@ class CardCompetition extends BaseComponent {
     fetch('https://afternoon-woodland-86438.herokuapp.com/competitions/' +  this.props.id)
         .then(response => {
           console.log(response);
-          return response.json()
+          return response.json();
         })
         .then((content) => {
           console.warn(content);
@@ -51,8 +51,10 @@ class CardCompetition extends BaseComponent {
     e.preventDefault();
     actionsCompetitions.deleteCopmetitionCard({
       competitionId: this.state.competitionId,
-    }).then(res => {this.goToState('/main')})
-    }
+    }).then(res => {
+      this.goToState('/main');
+    });
+  }
 
   render() {
     if (this.reload) {
@@ -93,7 +95,7 @@ class CardCompetition extends BaseComponent {
           <span className='fas fa-plus'></span>
           Create day</button>
       </form>
-    )
+    );
   }
 }
 

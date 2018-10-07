@@ -26,7 +26,7 @@ export function createPoint(params){
     placePointType: params.placePointType,
     competitionDayId: params.competitionDayId
   }).then(res => res.data);
-};
+}
 
 export function daletePointCard(params){
   return axios({
@@ -36,4 +36,4 @@ export function daletePointCard(params){
       'Access-Control-Allow-Headers': 'origin',
       'Access-Control-Allow-Origin': '*'}
   }).then(res => res.data);
-};
+}

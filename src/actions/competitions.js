@@ -11,7 +11,7 @@ export function list(params) {
   return axios.get('https://afternoon-woodland-86438.herokuapp.com/competitions/list', {
     params: _params
   }).then(res => res.data);
-};
+}
 
 export function saveAccessStatus(params){
   let _params = Object.assign({
@@ -21,7 +21,7 @@ export function saveAccessStatus(params){
   return axios.put(`https://afternoon-woodland-86438.herokuapp.com/competitions/${params.competitionId}`,{
     accessStatus: params.accessStatus
   }).then(res => res.data);
-};
+}
 
 export function createCompetition(params){
   return axios.post('https://afternoon-woodland-86438.herokuapp.com/competitions/create',{
@@ -32,7 +32,7 @@ export function createCompetition(params){
     registrationStart: params.registrationStart,
     registrationEnd: params.registrationEnd
   }).then(res => res.data);
-};
+}
 
 export function deleteCopmetitionCard(params){
   return axios({
@@ -42,7 +42,7 @@ export function deleteCopmetitionCard(params){
       'Access-Control-Allow-Headers': 'origin',
       'Access-Control-Allow-Origin': '*'}
   }).then(res => res.data);
-};
+}
 
 export function deleteCopmetitionCard1(params){
   let _params = Object.assign({
@@ -51,4 +51,4 @@ export function deleteCopmetitionCard1(params){
   console.log(_params);
   return axios.delete(`https://afternoon-woodland-86438.herokuapp.com/competitions/${params.competitionId}/delete`,{
   }).then(res => res.data);
-};
+}

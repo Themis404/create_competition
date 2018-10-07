@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import CardCompetition from '../components/cardCompetition'
-import BaseComponent from '../containers/baseComponent'
+import CardCompetition from '../components/cardCompetition';
+import BaseComponent from '../containers/baseComponent';
 import { Redirect } from 'react-router-dom';
 import DaysTable from '../components/daysTable';
 import CreateDay from '../components/createDay';
@@ -9,7 +9,7 @@ import CreateDay from '../components/createDay';
 class PageCreateDay extends BaseComponent {
   constructor(params) {
     super(params),
-    this.props.match.params.id
+    this.props.match.params.id;
   }
 
   render() {

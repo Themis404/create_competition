@@ -1,6 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
-import BaseComponent from '../containers/baseComponent'
+import BaseComponent from '../containers/baseComponent';
 import ReactDOM from 'react-dom';
 import * as actions from '../actions/applications';
 
@@ -66,7 +66,7 @@ class createApplication extends BaseComponent {
           value: 'ATV'
         }
       ],
-    }
+    };
   }
 
   handleSubmit = (e) => {
@@ -91,39 +91,39 @@ class createApplication extends BaseComponent {
   }
 
   updateSurname(e) {
-    this.setState( {surname: e.target.value} )
+    this.setState( {surname: e.target.value} );
   }
 
   updateFatherName(e) {
-    this.setState( {fatherName: e.target.value} )
+    this.setState( {fatherName: e.target.value} );
   }
 
   updateAge(e) {
-    this.setState( {age: e.target.value} )
+    this.setState( {age: e.target.value} );
   }
 
   updatePhone(e) {
-    this.setState( {phone: e.target.value} )
+    this.setState( {phone: e.target.value} );
   }
 
   updateEmergencyPhone(e) {
-    this.setState( {emergencyPhone: e.target.value} )
+    this.setState( {emergencyPhone: e.target.value} );
   }
 
   updateEmail(e) {
-    this.setState( {email: e.target.value} )
+    this.setState( {email: e.target.value} );
   }
 
   updateRacingMastery(e) {
-    this.setState( {racingMastery: e.target.value} )
+    this.setState( {racingMastery: e.target.value} );
   }
 
   updateVehicleType(e) {
-    this.setState( {vehicleType: e.target.value} )
+    this.setState( {vehicleType: e.target.value} );
   }
 
   updateGender(e) {
-    this.setState( {gender: e.target.value} )
+    this.setState( {gender: e.target.value} );
   }
 
   render() {
@@ -197,7 +197,7 @@ class createApplication extends BaseComponent {
           <button type="submit" className="btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart">Отправить</button>
         </form>
       </div>
-    )
+    );
   }
 }
 

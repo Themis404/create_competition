@@ -1,6 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
-import BaseComponent from '../containers/baseComponent'
+import BaseComponent from '../containers/baseComponent';
 import ReactDOM from 'react-dom';
 import * as actions from '../actions/days';
 
@@ -15,20 +15,20 @@ class CreateDayForm extends BaseComponent {
       timeStart: '',
       timeFinish: '',
       sequenceNumber: ''
-    }
+    };
   }
 
   componentDidMount() {
     this.setState({
       competitionId: this.props.id
-    })
-  };
+    });
+  }
 
   componentWillReceiveProps(newProps) {
     this.setState({
       competitionId: newProps.id
-    })
-  };
+    });
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -42,31 +42,31 @@ class CreateDayForm extends BaseComponent {
     }).then(res => {
       this.goToState(`/competition/${this.props.id}`);
     });
-  };
+  }
 
   updateName(e) {
     this.setState( {name: e.target.value} );
   }
 
   updateTimeStart(e) {
-    this.setState( {timeStart: e.target.value} )
+    this.setState( {timeStart: e.target.value} );
   }
 
   updateTimeFinish(e) {
-    this.setState( {timeFinish: e.target.value} )
+    this.setState( {timeFinish: e.target.value} );
   }
 
   updateDate(e) {
-    this.setState( {date: e.target.value} )
+    this.setState( {date: e.target.value} );
   }
 
   updateSequenceNumber(e) {
-    this.setState( {sequenceNumber: e.target.value} )
+    this.setState( {sequenceNumber: e.target.value} );
   }
 
   updateCompetitionId(e) {
-    this.setState( {competitionId: this.props.id} )
-    console.log(this.state.competitionId)
+    this.setState( {competitionId: this.props.id} );
+    console.log(this.state.competitionId);
   }
 
   render() {
@@ -102,7 +102,7 @@ class CreateDayForm extends BaseComponent {
                 <button type="submit" className="btn btn-success col-md-3 col-md-offset-4 marginTopStandart marginBotStandart" >Create</button>
         </form>
       </div>
-    )
+    );
   }
 }
 

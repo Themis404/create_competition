@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import MenuBar from '../components/MenuBar'
+import MenuBar from '../components/MenuBar';
 
 class MenuPage extends React.Component{
 

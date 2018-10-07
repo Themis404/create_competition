@@ -1,6 +1,6 @@
-import React from 'react'
-import BaseComponent from '../containers/baseComponent'
-import { Redirect } from 'react-router-dom'
+import React from 'react';
+import BaseComponent from '../containers/baseComponent';
+import { Redirect } from 'react-router-dom';
 import * as actions from '../actions/days';
 
 class CardDay extends BaseComponent {
@@ -26,7 +26,7 @@ class CardDay extends BaseComponent {
             content: content
           });
         });
-        console.log(this.state)
+        console.log(this.state);
   }
 
   deleteDay = (e) => {
@@ -34,7 +34,9 @@ class CardDay extends BaseComponent {
     e.preventDefault();
     actions.daleteDayCard({
       dayId: this.state.idDay,
-    }).then(res => {this.goToState(`/competition/${this.state.competitionId}`)})
+    }).then(res => {
+      this.goToState(`/competition/${this.state.competitionId}`);
+    });
   }
 
   render() {
@@ -61,7 +63,7 @@ class CardDay extends BaseComponent {
         </div>
         <button onClick={() => this.goToState('/competition/'+this.state.competitionId+'/day/'+this.state.content.id+'/create-point')} className='btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart'><span className='fas fa-plus'></span> Create point</button>
       </form>
-    )
+    );
   }
 }
 

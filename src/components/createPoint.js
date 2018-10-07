@@ -1,6 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
-import BaseComponent from '../containers/baseComponent'
+import BaseComponent from '../containers/baseComponent';
 import ReactDOM from 'react-dom';
 import * as actions from '../actions/points';
 
@@ -11,7 +11,6 @@ class CreatePoint extends BaseComponent {
     this.state = {
       name: '',
       sequenceNumber: '',
-      placePointType: '',
       competitionDayId: '',
       placePointType: null,
       typeAT: [
@@ -42,14 +41,14 @@ class CreatePoint extends BaseComponent {
   componentDidMount(){
     this.setState({
       competitionDayId: this.props.idDay
-    })
-  };
+    });
+  }
 
   componentWillReceiveProps(newProps){
     this.setState({
       competitionDayId: newProps.idDay
-    })
-  };
+    });
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -59,22 +58,22 @@ class CreatePoint extends BaseComponent {
       placePointType: this.state.placePointType,
       competitionDayId: this.props.idDay
     }).then(res => this.goToState(`/competition/${this.props.id}/day/${this.props.idDay}`));
-  };
+  }
 
   updateName(e) {
     this.setState( {name: e.target.value} );
   }
 
   updateSequenceNumber(e) {
-    this.setState( {sequenceNumber: e.target.value} )
+    this.setState( {sequenceNumber: e.target.value} );
   }
 
   updatePlacePointType(e) {
-    this.setState( {placePointType: e.target.value} )
+    this.setState( {placePointType: e.target.value} );
   }
 
   updateCompetitionDayId(e) {
-    this.setState( {competitionDayId: this.props.idDay} )
+    this.setState( {competitionDayId: this.props.idDay} );
   }
 
   render() {
@@ -106,7 +105,7 @@ class CreatePoint extends BaseComponent {
           <button type="submit" name='submit' className="btn btn-success col-md-3 col-md-offset-4 marginTopStandart marginBotStandart" >Create</button>
         </form>
       </div>
-    )
+    );
   }
 }
 
