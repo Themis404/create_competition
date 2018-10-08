@@ -64,7 +64,7 @@ class CardApplications extends BaseComponent {
     }).then(res => {
         this.goToState(`/competition/${this.props.id}/application`);
       });
-  };
+  }
 
   activeButtons = () => {
     return this.state.application.applicationStatus !== 'NOT_PROCESSED' ? true : false;
@@ -91,7 +91,11 @@ class CardApplications extends BaseComponent {
     }
     return (
       <form className='col-md-12 nonePadding'>
-        <button onClick={() => this.goToState('/competition/'+this.props.id+'/application')} className='btn btn-warning row-md-1 col-md-3'>Back</button>
+        <button 
+            className='btn btn-warning row-md-1 col-md-3' 
+            onClick={() => this.goToState('/competition/'+this.props.id+'/application')}>
+            Back
+        </button>
         <div>
           <h2 className="text-center col-md-12 marginTopStandart">Card application</h2>
           <h5><p className='col-md-12  nonePadding marginTopStandart'>Name</p></h5>
@@ -145,8 +149,14 @@ class CardApplications extends BaseComponent {
               </form>
           }
         </div>
-        <button className='btn btn-success col-md-4 col-md-offset-1 marginTopStandart marginBotStandart' disabled={this.state.activeButton === false ? this.activeButtons() : true } onClick={() => this.acceptedApplication()}>Принять</button>
-        <button className='btn btn-danger col-md-4 col-md-offset-2 marginTopStandart marginBotStandart'  disabled={this.state.activeButton === false ? this.activeButtons() : true } onClick={() => this.deniedApplication()}>Отклонить</button>
+        <button className='btn btn-success col-md-4 col-md-offset-1 marginTopStandart marginBotStandart' 
+            disabled={this.state.activeButton === false ? this.activeButtons() : true } 
+            onClick={() => this.acceptedApplication()}>
+            Принять</button>
+        <button className='btn btn-danger col-md-4 col-md-offset-2 marginTopStandart marginBotStandart' 
+            disabled={this.state.activeButton === false ? this.activeButtons() : true } 
+            onClick={() => this.deniedApplication()}>
+            Отклонить</button>
       </form>
     );
   }
