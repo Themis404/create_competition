@@ -8,6 +8,7 @@ class createApplication extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      activeButton: 'block',
       person: {},
       name: '',
       surname: '',
@@ -123,9 +124,11 @@ class createApplication extends React.Component {
   updateGender(e) {
     this.setState( {gender: e.target.value} );
   }
-
-  info() {
-    alert('Успешно отправлено');
+  offQ = () => {
+    this.setState({
+      activeButton: this.state.activeButton === "block" ? "none" : "block"
+    });
+    console.log(this.state.activeButton);
   }
 
   render() {
@@ -196,7 +199,10 @@ class createApplication extends React.Component {
                     )
                   }
           </select>
-          <button  className="btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart" onClick={this.info}>Отправить</button>
+          <button  className="btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart" onClick={() => this.offQ()}>Отправить</button>
+          <div class="alert alert-success" role="alert" onClick={() => this.offQ()} style={{display: (this.state.activeButton === "none" ? "block" : "none")}} >
+              Вы зарегистрированы!
+          </div>
         </form>
       </div>
     );
