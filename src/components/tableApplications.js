@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Redirect } from 'react-router-dom';
-import BaseComponent from '../containers/baseComponent'
+import BaseComponent from '../containers/baseComponent';
 import SearchBar from '../components/SearchBar.js';
 import * as actions from '../actions/applications';
 
@@ -38,7 +38,6 @@ class TableApplications extends BaseComponent {
     this.getApplicationsInfo();
   }
 
-
   goToPrev() {
     if (!this.state.pageNo){
       return;
@@ -59,8 +58,8 @@ class TableApplications extends BaseComponent {
 
   countPage(){
     this.state.pageInf= [];
-    for (var i = 1; i < this.state.content.totalPages+1; i++){
-      console.log(this.state)
+    for (let i = 1; i < this.state.content.totalPages+1; i++){
+      console.log(this.state);
       this.state.pageInf.push(i);
     }
   }
@@ -199,7 +198,7 @@ class TableApplications extends BaseComponent {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

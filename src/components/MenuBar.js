@@ -1,8 +1,8 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import BaseComponent from '../containers/baseComponent'
+import BaseComponent from '../containers/baseComponent';
 import ReactDOM from 'react-dom';
-import logo from './enduro.png'
+import logo from './enduro.png';
 
 class MenuBar extends BaseComponent{
 

@@ -62,7 +62,7 @@ class createApplication extends React.Component {
           value: 'MOTORCYCLE'
         }
       ],
-    }
+    };
   }
 
   handleSubmit = (e) => {

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Redirect } from 'react-router-dom';
-import BaseComponent from './baseComponent'
-import CardApplications from '../components/cardApplications'
+import BaseComponent from './baseComponent';
+import CardApplications from '../components/cardApplications';
 
 class PageCardApplications extends BaseComponent {
   constructor(params) {
     super(params);
     this.props.match.params.idParticipants,
-    this.props.match.params.id
+    this.props.match.params.id;
   }
 
   render() {

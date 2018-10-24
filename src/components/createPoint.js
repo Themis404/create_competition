@@ -1,6 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
-import BaseComponent from '../containers/baseComponent'
+import BaseComponent from '../containers/baseComponent';
 import ReactDOM from 'react-dom';
 import * as actions from '../actions/points';
 
@@ -59,14 +59,14 @@ class CreatePoint extends BaseComponent {
       pointType: this.state.pointType,
       dayId: this.props.idDay
     }).then(res => this.goToState(`/competition/${this.props.id}/day/${this.props.idDay}`));
-  };
+  }
 
   updateName(e) {
     this.setState( {name: e.target.value} );
   }
 
   updateSequenceNumber(e) {
-    this.setState( {sequenceNumber: e.target.value} )
+    this.setState( {sequenceNumber: e.target.value} );
   }
 
   updatePlacePointType(e) {
@@ -74,7 +74,7 @@ class CreatePoint extends BaseComponent {
   }
 
   updateCompetitionDayId(e) {
-    this.setState( {competitionDayId: this.props.idDay} )
+    this.setState( {competitionDayId: this.props.idDay} );
   }
 
   render() {
@@ -106,7 +106,7 @@ class CreatePoint extends BaseComponent {
           <button type="submit" name='submit' className="btn btn-success col-md-3 col-md-offset-4 marginTopStandart marginBotStandart" >Create</button>
         </form>
       </div>
-    )
+    );
   }
 }
 

@@ -4,17 +4,17 @@ import MainPage from './containers/mainPageContainer';
 import MainPageRedirect from './containers/mainPageRedirectContainer';
 import CreateCompetition from './containers/createCompetetionContainer';
 import MenuPage from './containers/menuPage';
-import PageCardCompetition from './containers/pageCardCompetition'
-import PageUsers from './containers/pageUsers'
-import PageAnnouncement from './containers/pageAnnouncement'
-import PageRegulations from './containers/pageRegulations'
+import PageCardCompetition from './containers/pageCardCompetition';
+import PageUsers from './containers/pageUsers';
+import PageAnnouncement from './containers/pageAnnouncement';
+import PageRegulations from './containers/pageRegulations';
 import PageCreateDay from './containers/pageCreateDay';
-import PageTableApplications from './containers/pageTableApplications'
-import PageApplication from './containers/pageApplication'
-import PageCardApplications from './containers/pageCardApplications'
-import PageCreatePoint from './containers/pageCreatePoint'
-import PageCardDay from './containers/pageCardDay'
-import PageCardPoint from './containers/pageCardPoint'
+import PageTableApplications from './containers/pageTableApplications';
+import PageApplication from './containers/pageApplication';
+import PageCardApplications from './containers/pageCardApplications';
+import PageCreatePoint from './containers/pageCreatePoint';
+import PageCardDay from './containers/pageCardDay';
+import PageCardPoint from './containers/pageCardPoint';
 
 export default class RouterApp extends Component {
   constructor(props) {

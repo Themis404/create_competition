@@ -1,6 +1,6 @@
-import React from 'react'
-import BaseComponent from '../containers/baseComponent'
-import { Redirect } from 'react-router-dom'
+import React from 'react';
+import BaseComponent from '../containers/baseComponent';
+import { Redirect } from 'react-router-dom';
 import * as actions from '../actions/points';
 
 class CardPoint extends BaseComponent {
@@ -27,7 +27,7 @@ class CardPoint extends BaseComponent {
             content: content
           });
         });
-        console.log(this.state)
+        console.log(this.state);
   }
 
   deletePoint = (e) => {
@@ -35,7 +35,9 @@ class CardPoint extends BaseComponent {
     e.preventDefault();
     actions.daletePointCard({
       pointId: this.state.idPoint,
-    }).then(res => {this.goToState(`/competition/${this.state.competitionId}/day/${this.state.idDay}`)})
+    }).then(res => {
+      this.goToState(`/competition/${this.state.competitionId}/day/${this.state.idDay}`);
+    });
   }
 
   render() {
@@ -57,7 +59,7 @@ class CardPoint extends BaseComponent {
           <input type='number' className="form-control" value={this.state.content.sequenceNumber}></input>
         </div>
       </form>
-    )
+    );
   }
 }
 

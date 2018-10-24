@@ -1,7 +1,7 @@
 import React from 'react';
-import BaseComponent from '../containers/baseComponent'
+import BaseComponent from '../containers/baseComponent';
 import {Redirect} from 'react-router-dom';
-import lupa from './lup.png'
+import lupa from './lup.png';
 import * as actions from '../actions/competitions';
 
 class SearchBar extends BaseComponent {
@@ -9,13 +9,14 @@ class SearchBar extends BaseComponent {
     super(props);
     this.state = {
         searchByName: ''
-    }
+    };
   }
 
   handleChange(e){
   	this.setState({
       searchByName: e && e.target && e.target.value ? e.target.value : ''
-    }); console.log(this.state)
+    }); 
+    console.log(this.state);
   }
 
   render() {
@@ -30,7 +31,7 @@ class SearchBar extends BaseComponent {
            <button className='SearchButton' onClick={() => this.props.onSearch(this.state.searchByName)}><img src={lupa} alt='lupa' className="lupa"/></button>
          </form>
       </div>
-    )
+    );
   }
 }
 

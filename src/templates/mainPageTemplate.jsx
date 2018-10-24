@@ -50,15 +50,47 @@ const mainPageTemplate = (context) => {
                 {
                   !!context.state.content.content && context.state.content.content.map((contentRow, key) =>
                       <tr key={key} className="tr">
-                        <td className="text-center col-md-2" onClick={() =>  context.goToState('/competition/'+contentRow.id)}>{contentRow.name}</td>
-                        <td className="text-center col-md-2">{contentRow.dateStart}</td>
-                        <td className="text-center col-md-2">{contentRow.dateFinish}</td>
+                        <td 
+                            className="text-center col-md-2" 
+                            onClick={() =>  context.goToState('/competition/'+contentRow.id)}>
+                            {contentRow.name}
+                        </td>
+                        <td 
+                            className="text-center col-md-2">
+                            {contentRow.dateStart}
+                        </td>
+                        <td 
+                            className="text-center col-md-2">
+                            {contentRow.dateFinish}
+                        </td>
                         <td className="text-center col-md-1">
-                          <button id="btn-tooltip" type="button" data-target="#ModalDialog1" data-toggle="modal1" class="btn btn-default" aria-label="Eye" title="Activated">
-                            <span onClick={e => context.putAccessStatus(e)} class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                          <button 
+                              id="btn-tooltip" 
+                              type="button" 
+                              data-target="#ModalDialog1" 
+                              data-toggle="modal1" 
+                              class="btn btn-default" 
+                              aria-label="Eye" 
+                              title="Activated">
+                              <span 
+                                  onClick={e => context.putAccessStatus(e)} 
+                                  class="glyphicon glyphicon-eye-close" 
+                                  aria-hidden="true">
+                              </span>
                           </button>
-                          <button data-target="#ModalDialog" data-toggle="modal" id="btn-tooltip" type="button" class="btn btn-default" aria-label="Remove" title="Delete">
-                            <span  onClick={e => context.deleteCompetition(e)} class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                          <button 
+                              data-target="#ModalDialog" 
+                              data-toggle="modal" 
+                              id="btn-tooltip" 
+                              type="button" 
+                              class="btn btn-default" 
+                              aria-label="Remove" 
+                              title="Delete">
+                              <span  
+                                  onClick={e => context.deleteCompetition(e)} 
+                                  class="glyphicon glyphicon-trash" 
+                                  aria-hidden="true">
+                              </span>
                           </button>
                         </td>
                         {/* <td className="td">{contentRow.description}</td> */}
@@ -71,45 +103,63 @@ const mainPageTemplate = (context) => {
             <div className='row-md-2 heightButton col-md-6 col-md-offset-4'>
               <h5 className='col-md-1 sizePageText nonePadding'><p>Страница</p></h5>
               <div className="col-md-2">
-                <select className="btn btn-default heightButton"
-                        onChange={event => context.setState({pageNo: event && event.target && event.target.value ? event.target.value : null})}
-                        onClick={() => context.getCompetitionInfo()} value={context.state.pageNo ? context.state.pageNo : ''}>
-                  {
-                    !!context.state.pageInf && context.state.pageInf.map((pageCount, key) =>
-                    <option key={key} className="" value={pageCount-1}>{pageCount}</option>)
-                  }
+                <select 
+                    className="btn btn-default heightButton"
+                    onChange={event => context.setState({
+                        pageNo: event && event.target && event.target.value ? event.target.value : null
+                    })}
+                    onClick={() => context.getCompetitionInfo()} 
+                    value={context.state.pageNo ? context.state.pageNo : ''}>
+                    {
+                        !!context.state.pageInf && context.state.pageInf.map((pageCount, key) =>
+                        <option key={key} className="" value={pageCount-1}>{pageCount}</option>)
+                    }
                 </select>
               </div>
               <h5 className='col-md-1 nonePadding marginTopPage'><p>из {context.state.totalPages}</p></h5>
               <div className='btn-group'>
                 {
                   !!context.state.pageNo &&
-                  <button className='btn heightButton col-md-1 colMargin' onClick={() => context.goToPrev()}>
-                    <span class="fas fa-angle-left"></span></button>
+                  <button 
+                      className='btn heightButton col-md-1 colMargin' 
+                      onClick={() => context.goToPrev()}>
+                      <span class="fas fa-angle-left"></span>
+                  </button>
                 }
 
                 {
                   !context.state.pageNo &&
-                  <button disabled className='btn heightButton col-md-1 colMargin' onClick={() => context.goToPrev()}>
-                    <span class="fas fa-angle-left"></span></button>
+                  <button 
+                      disabled 
+                      className='btn heightButton col-md-1 colMargin' 
+                      onClick={() => context.goToPrev()}>
+                      <span class="fas fa-angle-left"></span>
+                  </button>
                 }
                 {
                   context.state.pageNo < context.state.totalPages - 1 &&
-                  <button className='noneFloat btn heightButton col-md-1 colMargin' onClick={() => context.goToNext()}>
-                    <span class="fas fa-angle-right"></span></button>
+                  <button 
+                      className='noneFloat btn heightButton col-md-1 colMargin' 
+                      onClick={() => context.goToNext()}>
+                      <span class="fas fa-angle-right"></span>
+                  </button>
                 }
 
                 {
                   context.state.pageNo >= context.state.totalPages - 1 &&
-                  <button disabled className='noneFloat btn heightButton col-md-1 colMargin' onClick={() => context.goToNext()}>
-                    <span class="fas fa-angle-right"></span></button>
+                  <button 
+                      disabled 
+                      className='noneFloat btn heightButton col-md-1 colMargin' 
+                      onClick={() => context.goToNext()}>
+                      <span class="fas fa-angle-right"></span>
+                  </button>
                 }
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export { mainPageTemplate };

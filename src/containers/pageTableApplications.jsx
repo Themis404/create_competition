@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import BaseComponent from '../containers/baseComponent'
+import BaseComponent from '../containers/baseComponent';
 import { Redirect } from 'react-router-dom';
 import PointTable from '../components/pointTable';
-import TableApplications from '../components/tableApplications'
+import TableApplications from '../components/tableApplications';
 
 class PageTableApplications extends BaseComponent {
   constructor(params) {
     super(params),
     this.props.match.params.id,
-    this.props.match.params.idParticipants
+    this.props.match.params.idParticipants;
   }
 
   render() {

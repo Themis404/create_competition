@@ -8,7 +8,7 @@ export function getDaysTable(params) {
   return axios.get('https://afternoon-woodland-86438.herokuapp.com/days/list?', {
     params: _params
   }).then(res => res.data);
-};
+}
 
 export function getDaysCard(params) {
   let _params = Object.assign({
@@ -17,7 +17,7 @@ export function getDaysCard(params) {
   console.log(_params);
   return axios.get('https://afternoon-woodland-86438.herokuapp.com/days/' + params.competitionDayId
   ).then(res => res.data);
-};
+}
 
 export function createDay(params) {
   return axios.post('https://afternoon-woodland-86438.herokuapp.com/days/create',{
@@ -28,7 +28,7 @@ export function createDay(params) {
       timeFinish: params.timeFinish,
       sequenceNumber: params.sequenceNumber
   }).then(res => res.data);
-};
+}
 
 export function daleteDayCard(params){
   return axios({
@@ -38,4 +38,4 @@ export function daleteDayCard(params){
       'Access-Control-Allow-Headers': 'origin',
       'Access-Control-Allow-Origin': '*'}
   }).then(res => res.data);
-};
+}

@@ -1,8 +1,8 @@
-import React from 'react'
-import BaseComponent from '../containers/baseComponent'
-import { Redirect } from 'react-router-dom'
-import * as actions from '../actions/applications'
-import * as actionsTag from '../actions/tags'
+import React from 'react';
+import BaseComponent from '../containers/baseComponent';
+import { Redirect } from 'react-router-dom';
+import * as actions from '../actions/applications';
+import * as actionsTag from '../actions/tags';
 
 class CardApplications extends BaseComponent {
 
@@ -32,7 +32,7 @@ class CardApplications extends BaseComponent {
             application: content
           });
         });
-    console.log(this.state)
+    console.log(this.state);
   }
 
   putApplicationStatus = () => {
@@ -65,21 +65,21 @@ class CardApplications extends BaseComponent {
   };
 
   activeButtons = () => {
-    return this.state.application.applicationStatus !== 'NOT_PROCESSED' ? true : false
+    return this.state.application.applicationStatus !== 'NOT_PROCESSED' ? true : false;
   }
 
   acceptedApplication = () => {
     this.setState({
       applicationStatus: 'ACCEPTED',
       activeButton: this.state.activeButton === false ? true : false
-    }, () => this.putApplicationStatus(), console.log(this.state))
+    }, () => this.putApplicationStatus(), console.log(this.state));
   }
 
   deniedApplication = () => {
     this.setState({
       applicationStatus: 'DENIED',
       activeButton: this.state.activeButton === false ? true : false
-    }, () => this.putApplicationStatus(), console.log(this.state))
+    }, () => this.putApplicationStatus(), console.log(this.state));
   }
 
   render() {
@@ -89,7 +89,11 @@ class CardApplications extends BaseComponent {
     }
     return (
       <form className='col-md-12 nonePadding'>
-        <button onClick={() => this.goToState('/competition/'+this.props.id+'/application')} className='btn btn-warning row-md-1 col-md-3'>Back</button>
+        <button 
+            className='btn btn-warning row-md-1 col-md-3' 
+            onClick={() => this.goToState('/competition/'+this.props.id+'/application')}>
+            Back
+        </button>
         <div>
           <h2 className="text-center col-md-12 marginTopStandart">Card application</h2>
           <h5><p className='col-md-12  nonePadding marginTopStandart'>Name</p></h5>
@@ -143,10 +147,16 @@ class CardApplications extends BaseComponent {
               </form>
           }
         </div>
-        <button className='btn btn-success col-md-4 col-md-offset-1 marginTopStandart marginBotStandart' disabled={this.state.activeButton === false ? this.activeButtons() : true } onClick={() => this.acceptedApplication()}>Принять</button>
-        <button className='btn btn-danger col-md-4 col-md-offset-2 marginTopStandart marginBotStandart'  disabled={this.state.activeButton === false ? this.activeButtons() : true } onClick={() => this.deniedApplication()}>Отклонить</button>
+        <button className='btn btn-success col-md-4 col-md-offset-1 marginTopStandart marginBotStandart' 
+            disabled={this.state.activeButton === false ? this.activeButtons() : true } 
+            onClick={() => this.acceptedApplication()}>
+            Принять</button>
+        <button className='btn btn-danger col-md-4 col-md-offset-2 marginTopStandart marginBotStandart' 
+            disabled={this.state.activeButton === false ? this.activeButtons() : true } 
+            onClick={() => this.deniedApplication()}>
+            Отклонить</button>
       </form>
-    )
+    );
   }
 }
 

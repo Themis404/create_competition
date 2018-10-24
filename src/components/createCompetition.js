@@ -1,6 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
-import BaseComponent from '../containers/baseComponent'
+import BaseComponent from '../containers/baseComponent';
 import ReactDOM from 'react-dom';
 import * as actions from '../actions/competitions';
 
@@ -15,7 +15,7 @@ class CreateCompetition extends BaseComponent {
       dateFinish: '',
       registrationEnd: '',
       registrationStart: ''
-    }
+    };
   }
 
   handleSubmit = (e) => {
@@ -28,30 +28,30 @@ class CreateCompetition extends BaseComponent {
       registrationStart: this.state.registrationStart,
       registrationEnd: this.state.registrationEnd
     }).then(res => this.goToState('/main'));
-  };
+  }
 
   updateName(e) {
     this.setState( {name: e.target.value} );
   }
 
   updateDateStart(e) {
-    this.setState( {dateStart: e.target.value} )
+    this.setState( {dateStart: e.target.value} );
   }
 
   updateDateFinish(e) {
-    this.setState( {dateFinish: e.target.value} )
+    this.setState( {dateFinish: e.target.value} );
   }
 
   updateDescription(e) {
-    this.setState( {description: e.target.value} )
+    this.setState( {description: e.target.value} );
   }
 
   updateRegistrationStart(e) {
-    this.setState( {registrationStart: e.target.value} )
+    this.setState( {registrationStart: e.target.value} );
   }
 
   updateRegistrationEnd(e) {
-    this.setState( {registrationEnd: e.target.value} )
+    this.setState( {registrationEnd: e.target.value} );
   }
 
   render() {
@@ -167,7 +167,7 @@ class CreateCompetition extends BaseComponent {
             </div>
         </form>
       </div>
-    )
+    );
   }
 }
 

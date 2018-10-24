@@ -37,7 +37,7 @@ class MainPage extends BaseComponent {
     this.setState({
       pageNo: page
     }, () => this.getCompetitionInfo());
-    console.log(this.state)
+    console.log(this.state);
   }
 
   goToNext() {

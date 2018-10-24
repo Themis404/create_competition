@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import CreateCompetition from '../components/createCompetition.js'
-import BaseComponent from '../containers/baseComponent'
+import CreateCompetition from '../components/createCompetition.js';
+import BaseComponent from '../containers/baseComponent';
 import { Redirect } from 'react-router-dom';
 
 class PageCreateCompetition extends BaseComponent {
