@@ -40,7 +40,7 @@ class DaysTable extends BaseComponent {
 
   getPointInfo = (dayId) => {
     actionsPoint.getPointTable({
-      competitionDayId: dayId
+      dayId: this.state.idDay
     }).then((content) => {
         let days = this.state.content;
         days.forEach(day => {
@@ -72,8 +72,8 @@ class DaysTable extends BaseComponent {
     if (contents.length){
       rows = contents.map((contentRow, key) =>
         <tr key={key} className="">
-          <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.sequenceNumber}</td>
-          <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.name}</td>
+          <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{key+1}</td>
+          <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.date}</td>
           <td className="" onClick={() => this.goToState('/competition/' + contentRow.competitionId + '/day/'+contentRow.id)}>{contentRow.totalElements}</td>
           <button data-target="#ModalDialog" data-toggle="modal" id="btn-tooltip" type="button" class="btn btn-default" aria-label="Remove" title="Delete">
             <span  onClick={e => this.deleteDay(e)} class="glyphicon glyphicon-trash" aria-hidden="true"></span>
@@ -110,7 +110,7 @@ class DaysTable extends BaseComponent {
             <thead>
               <tr className="info active">
                 <th className="">№</th>
-                <th className="">NAME</th>
+                <th className="">DATE</th>
                 <th className="">POINTS</th>
                 <th className=""></th>
               </tr>

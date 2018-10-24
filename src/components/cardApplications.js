@@ -11,10 +11,10 @@ class CardApplications extends BaseComponent {
     this.state = {
       application: [],
       tags: [],
-      idParticipants: this.props.idParticipants,
+      applicationId: this.props.applicationId,
       competitionId: this.props.id,
       activeButton: false,
-      tagId: '',
+      uuid: '',
       applicationStatus: ''
     };
   }
@@ -26,7 +26,7 @@ class CardApplications extends BaseComponent {
 
   getApplicationInfo = () => {
     actions.getApplicationsCard({
-      participantsId: this.state.idParticipants
+      applicationId: this.state.applicationId
     }).then((content) => {
           this.setState({
             application: content
@@ -38,7 +38,7 @@ class CardApplications extends BaseComponent {
   putApplicationStatus = () => {
     actions.saveApplicationStatus({
         applicationStatus: this.state.applicationStatus,
-      participantsId: this.state.idParticipants
+        applicationId: this.state.applicationId
     }).then((content) => {
           this.setState({
             applicationStatus: ''
@@ -59,8 +59,8 @@ class CardApplications extends BaseComponent {
   postTagFree = (e) => {
     e.preventDefault();
     actionsTag.postTagParticipant({
-      tagId: this.state.tagId,
-      participantId: this.state.idParticipants
+      uuid: this.state.uuid,
+      applicationId: this.state.applicationId
     }).then(res => {this.goToState(`/competition/${this.props.id}/application`)});
   };
 
@@ -130,7 +130,7 @@ class CardApplications extends BaseComponent {
               <form  onSubmit={e => this.postTagFree(e)}>
                 <h5><p className='col-md-12 nonePadding marginTopStandart'>Tag</p></h5>
                 <p>
-                  <select required className="form-control" onChange={event => this.setState({tagId: event && event.target && event.target.value ? event.target.value : null})} value={this.state.tagId ? this.state.tagId : ''}>
+                  <select required className="form-control" onChange={event => this.setState({uuid: event && event.target && event.target.value ? event.target.value : null})} value={this.state.uuid ? this.state.uuid : ''}>
                     {
                       !!this.state.tags.content && this.state.tags.content.map((contentTag, key) =>
                       <option key={key} className="" value={contentTag.id}>{contentTag.id}</option>)

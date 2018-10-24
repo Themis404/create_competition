@@ -2,26 +2,18 @@ import axios from 'axios';
 
 export function getApplicationsCard(params) {
   let _params = Object.assign({
-    participantsId: 0
+    applicationsId: 0
   }, params);
   console.log(_params);
-  return axios.get('https://afternoon-woodland-86438.herokuapp.com/participants/'+ params.participantsId
+  return axios.get('https://afternoon-woodland-86438.herokuapp.com/applications/'+ params.applicationsId
   ).then(res => res.data);
 }
 
 export function createApplication(params){
-  return axios.post('https://afternoon-woodland-86438.herokuapp.com/participants/create',{
-    name: params.name,
-    surname: params.surname,
-    fatherName: params.fatherName,
-    age: params.age,
-    phone: params.phone,
-    emergencyPhone: params.emergencyPhone,
-    email: params.email,
-    racingMastery: params.racingMastery,
+  return axios.post('https://afternoon-woodland-86438.herokuapp.com/applications/create',{
     vehicleType: params.vehicleType,
     competitionId: params.competitionId,
-    gender: params.gender
+    person: params.person
   }).then(res => res.data);
 };
 
@@ -35,17 +27,17 @@ export function getApplicationsTable(params) {
     status: null
   }, params);
   console.log(_params);
-  return axios.get('https://afternoon-woodland-86438.herokuapp.com/participants/list?', {
+  return axios.get('https://afternoon-woodland-86438.herokuapp.com/applications/list?', {
     params:_params
   }).then(res => res.data);
 }
 
 export function saveApplicationStatus(params){
   let _params = Object.assign({
-    participantsId: 0
+    applicationsId: 0
   }, params);
   console.log(_params);
-  return axios.put('https://afternoon-woodland-86438.herokuapp.com/participants/'+ params.participantsId,{
+  return axios.put('https://afternoon-woodland-86438.herokuapp.com/applications/'+ params.applicationsId,{
     applicationStatus: params.applicationStatus
   }).then(res => res.data);
 };

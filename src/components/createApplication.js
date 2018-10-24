@@ -1,69 +1,65 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
-import BaseComponent from '../containers/baseComponent'
 import ReactDOM from 'react-dom';
 import * as actions from '../actions/applications';
 
-class createApplication extends BaseComponent {
+class createApplication extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      person: {},
       name: '',
       surname: '',
-      fatherName: '',
-      age: '',
+      patronymic: '',
+      birthday: '',
       phone: '',
       emergencyPhone: '',
       email: '',
-      competitionId: '1',
+      competitionId: '6',
       gender: '',
       typeGender: [
         {
-          name: 'Select by',
+          name: 'Пол',
           value: ''
         },
         {
-          name: 'Female',
+          name: 'Женский',
           value: 'FEMALE'
         },
         {
-          name: 'Male',
+          name: 'Мужской',
           value: 'MALE'
         }
       ],
       racingMastery: '',
       typeMastery: [
         {
-          name: 'Select by',
+          name: 'Уровень',
           value: ''
         },
         {
-          name: 'Newbie',
-          value: 'NEWBIE'
+          name: 'Спортсмен ',
+          value: 'NEWBIE '
         },
         {
-          name: 'Intermediate',
-          value: 'INTERMEDIATE'
+          name: 'Любитель',
+          value: 'NEWBIE '
         },
         {
-          name: 'Professional',
-          value: 'PROFESSIONAL'
+          name: 'Хобби',
+          value: 'NEWBIE '
         }
       ],
       vehicleType: '',
       typeVehicle: [
         {
-          name: 'Select by',
+          name: 'ТС',
           value: ''
         },
         {
-          name: 'Motorcycle',
+          name: 'Мотоцикл',
           value: 'MOTORCYCLE'
-        },
-        {
-          name: 'ATV',
-          value: 'ATV'
         }
       ],
     }
@@ -72,17 +68,19 @@ class createApplication extends BaseComponent {
   handleSubmit = (e) => {
     e.preventDefault();
     actions.createApplication({
-      name: this.state.name,
-      surname: this.state.surname,
-      fatherName: this.state.fatherName,
-      age: this.state.age,
-      phone: this.state.phone,
-      emergencyPhone: this.state.emergencyPhone,
-      email: this.state.email,
-      racingMastery: this.state. racingMastery,
-      vehicleType: this.state.vehicleType,
       competitionId: this.state.competitionId,
-      gender: this.state.gender
+      vehicleType: this.state.vehicleType,
+      person: {
+        name: this.state.name,
+        surname: this.state.surname,
+        patronymic: this.state.patronymic,
+        birthday: this.state.birthday,
+        phone: this.state.phone,
+        emergencyPhone: this.state.emergencyPhone,
+        email: this.state.email,
+        racingMastery: this.state. racingMastery,
+        gender: this.state.gender
+      }
     }).then(res => this.goToState('/create-application'));
   };
 
@@ -91,39 +89,43 @@ class createApplication extends BaseComponent {
   }
 
   updateSurname(e) {
-    this.setState( {surname: e.target.value} )
+    this.setState( {surname: e.target.value} );
   }
 
   updateFatherName(e) {
-    this.setState( {fatherName: e.target.value} )
+    this.setState( {patronymic: e.target.value} );
   }
 
   updateAge(e) {
-    this.setState( {age: e.target.value} )
+    this.setState( {birthday: e.target.value} );
   }
 
   updatePhone(e) {
-    this.setState( {phone: e.target.value} )
+    this.setState( {phone: e.target.value} );
   }
 
   updateEmergencyPhone(e) {
-    this.setState( {emergencyPhone: e.target.value} )
+    this.setState( {emergencyPhone: e.target.value} );
   }
 
   updateEmail(e) {
-    this.setState( {email: e.target.value} )
+    this.setState( {email: e.target.value} );
   }
 
   updateRacingMastery(e) {
-    this.setState( {racingMastery: e.target.value} )
+    this.setState( {racingMastery: e.target.value} );
   }
 
   updateVehicleType(e) {
-    this.setState( {vehicleType: e.target.value} )
+    this.setState( {vehicleType: e.target.value} );
   }
 
   updateGender(e) {
-    this.setState( {gender: e.target.value} )
+    this.setState( {gender: e.target.value} );
+  }
+
+  info() {
+    alert('Успешно отправлено');
   }
 
   render() {
@@ -133,7 +135,7 @@ class createApplication extends BaseComponent {
     }
     return (
       <div className="col-md-12 nonePadding">
-        <form onSubmit={this.handleSubmit} className=''>
+        <form  className=''>
           <h2 className="text-center col-md-12 marginTopStandart">Заявление на участие в соревновании</h2>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Имя*</p></h5>
           <input required id='inputName' className="form-control" placeholder = "Иван"
@@ -145,11 +147,11 @@ class createApplication extends BaseComponent {
                   onChange={e => this.updateSurname(e)}></input>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Отчество</p></h5>
           <input id='inputLastName' className="form-control" placeholder = "Иванович"
-                  value={this.state.fatherName}
+                  value={this.state.patronymic}
                   onChange={e => this.updateFatherName(e)}></input>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Возраст*</p></h5>
-          <input required type = 'number' id='inputAge' className="form-control"
-                  value={this.state.age}
+          <input required type = 'date' id='inputAge' className="form-control"
+                  value={this.state.birthday}
                   onChange={e => this.updateAge(e)}></input>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Пол*</p></h5>
           <select required className='btn btn-default heightButton noneFloat col-md-12'
@@ -194,10 +196,10 @@ class createApplication extends BaseComponent {
                     )
                   }
           </select>
-          <button type="submit" className="btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart">Отправить</button>
+          <button  className="btn btn-success col-md-4 col-md-offset-4 marginTopStandart marginBotStandart" onClick={this.info}>Отправить</button>
         </form>
       </div>
-    )
+    );
   }
 }
 

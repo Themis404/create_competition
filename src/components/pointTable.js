@@ -21,7 +21,7 @@ class PointTable extends BaseComponent {
 
   getCompetitionInfo = () => {
     actions.getPointTable({
-      competitionDayId: this.state.idDay
+      dayId: this.state.idDay
     }).then((content) => {
           this.setState({
             content: content
@@ -49,7 +49,7 @@ class PointTable extends BaseComponent {
         <tr key={key} className="">
           <td className="" onClick={() => this.goToState('/competition/' + this.state.id + '/day/' + this.state.idDay + '/point/' + contentRow.id)}>{contentRow.sequenceNumber}</td>
           <td className="">{contentRow.name}</td>
-          <td className="">{contentRow.placePointType}</td>
+          <td className="">{contentRow.pointType}</td>
           <button data-target="#ModalDialog" data-toggle="modal" id="btn-tooltip" type="button" class="btn btn-default" aria-label="Remove" title="Delete">
             <span  onClick={e => this.deletePoint(e)} class="glyphicon glyphicon-trash" aria-hidden="true"></span>
           </button>

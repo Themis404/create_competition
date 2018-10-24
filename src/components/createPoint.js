@@ -11,9 +11,9 @@ class CreatePoint extends BaseComponent {
     this.state = {
       name: '',
       sequenceNumber: '',
-      placePointType: '',
-      competitionDayId: '',
-      placePointType: null,
+      pointType: '',
+      dayId: '',
+      pointType: null,
       typeAT: [
         {
           name: 'Select by',
@@ -41,13 +41,13 @@ class CreatePoint extends BaseComponent {
 
   componentDidMount(){
     this.setState({
-      competitionDayId: this.props.idDay
+      dayId: this.props.idDay
     })
   };
 
   componentWillReceiveProps(newProps){
     this.setState({
-      competitionDayId: newProps.idDay
+      dayId: newProps.idDay
     })
   };
 
@@ -56,8 +56,8 @@ class CreatePoint extends BaseComponent {
     actions.createPoint({
       name: this.state.name,
       sequenceNumber: this.state.sequenceNumber,
-      placePointType: this.state.placePointType,
-      competitionDayId: this.props.idDay
+      pointType: this.state.pointType,
+      dayId: this.props.idDay
     }).then(res => this.goToState(`/competition/${this.props.id}/day/${this.props.idDay}`));
   };
 
@@ -70,7 +70,7 @@ class CreatePoint extends BaseComponent {
   }
 
   updatePlacePointType(e) {
-    this.setState( {placePointType: e.target.value} )
+    this.setState( {pointType: e.target.value} )
   }
 
   updateCompetitionDayId(e) {
@@ -96,7 +96,7 @@ class CreatePoint extends BaseComponent {
                   value={this.state.sequenceNumber}
                   onChange={ e => this.updateSequenceNumber(e)}></input>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Place Point Type</p></h5>
-          <select required className='btn btn-default heightButton noneFloat col-md-12' onChange={event => this.setState({placePointType: event && event.target && event.target.value ? event.target.value : null})} value={this.state.placePointType ? this.state.placePointType : ''}>
+          <select required className='btn btn-default heightButton noneFloat col-md-12' onChange={event => this.setState({pointType: event && event.target && event.target.value ? event.target.value : null})} value={this.state.pointType ? this.state.pointType : ''}>
             {
               this.state.typeAT.map((typeAT, key) =>
                 <option key={key} value={typeAT.value}>{typeAT.name}</option>

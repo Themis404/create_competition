@@ -52,7 +52,7 @@ class CardPoint extends BaseComponent {
           <h5><p className='col-md-12 nonePadding'>Name</p></h5>
           <input className="form-control" value={this.state.content.name}></input>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Type</p></h5>
-          <input className="form-control" value={this.state.content.placePointType}></input>
+          <input className="form-control" value={this.state.content.pointType}></input>
           <h5><p className='col-md-12 nonePadding marginTopStandart'>Number point</p></h5>
           <input type='number' className="form-control" value={this.state.content.sequenceNumber}></input>
         </div>

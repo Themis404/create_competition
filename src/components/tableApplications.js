@@ -151,9 +151,9 @@ class TableApplications extends BaseComponent {
                   !!this.state.content.content && this.state.content.content.map((contentRow, key) =>
                       <tr key={key} className="tr">
                           <td className="" onClick={() =>  this.goToState('/competition/'+this.props.id+'/application/'+contentRow.id)}>
-                            {contentRow.surname} {contentRow.name} {contentRow.fatherName}
+                            {contentRow.surname} {contentRow.name} {contentRow.patronymic}
                           </td>
-                          <td className="">{contentRow.age}</td>
+                          <td className="">{contentRow.birthday}</td>
                           <td className="">{contentRow.gender}</td>
                           <td className="">{contentRow.vehicleType}</td>
                           <td className="">{contentRow.racingMastery}</td>
